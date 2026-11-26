@@ -14,36 +14,42 @@
    COLOUR deep night #0d0719 with violet #7c4dff light, one sharp accent NoxIA yellow #ffd54a, cards in #160e2b
    TYPE Unbounded (wide display, NoxIA brand) + Manrope (text) + IBM Plex Mono (tiny meta)
    LAYOUT fixed left rail with numbered sections and PT/EN; hero = rotating headline + chat phone; projects pinned horizontal track */
-:root{color-scheme:dark;--bg:#0d0719;--bg2:#160e2b;--ink:#f4f0ff;--soft:#bdb2df;--mute:#9a8fc2;--line:rgba(255,255,255,.09);--y:#ffd54a;--v:#7c4dff;--l:#cdbbff;--rail:84px}
+:root{color-scheme:dark;--bg:#0d0719;--bg2:#160e2b;--ink:#f4f0ff;--soft:#bdb2df;--mute:#9a8fc2;--line:rgba(255,255,255,.09);--y:#ffd54a;--v:#7c4dff;--l:#cdbbff;--rail:0px}
 *{box-sizing:border-box;min-width:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Manrope,system-ui,sans-serif;overflow-x:clip}
 a{color:inherit}
 ::selection{background:var(--y);color:#120a24}
 :focus-visible{outline:3px solid var(--y);outline-offset:3px;border-radius:8px}
 .skip{position:absolute;left:-999px;top:8px;background:var(--y);color:#120a24;padding:10px 14px;border-radius:10px;z-index:60}
-.skip:focus{left:96px}
+.skip:focus{left:12px}
 h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-spacing:-.03em;line-height:1;margin:0}
 .meta{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px;color:var(--mute)}
-/* left rail */
-.rail{position:fixed;inset:0 auto 0 0;width:var(--rail);z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:22px 0;border-right:1px solid var(--line);background:rgba(13,7,25,.85);backdrop-filter:blur(10px)}
-.logo{width:46px;height:46px;border-radius:14px;background:var(--y);color:#120a24;display:grid;place-items:center;font:800 17px Unbounded,sans-serif;text-decoration:none}
-.rail nav{display:flex;flex-direction:column;gap:6px}
-.rail nav a{writing-mode:vertical-rl;transform:rotate(180deg);text-decoration:none;color:var(--mute);font-size:14px;font-weight:600;padding:12px 8px;border-radius:10px;display:flex;gap:10px;align-items:center}
-.rail nav a em{font-style:normal}
-.rail nav a span{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--v)}
-.rail nav a:hover,.rail nav a.on{color:#fff;background:rgba(255,255,255,.06)}
-.rail nav a.on span{color:var(--y)}
-.prog{width:2px;height:90px;background:var(--line);border-radius:2px;position:relative;overflow:hidden}
-.prog i{position:absolute;left:0;top:0;width:100%;height:0;background:var(--y)}
-.lang{display:flex;flex-direction:column;gap:4px;padding:4px;border-radius:12px;border:1px solid var(--line)}
-.lang button{width:44px;height:36px;border:0;border-radius:9px;background:transparent;color:var(--mute);font:700 12px Manrope,sans-serif;cursor:pointer}
+/* top header */
+.top{position:fixed;inset:0 0 auto 0;z-index:40;height:72px;display:flex;align-items:center;gap:18px;padding:0 max(4vw,18px);background:rgba(13,7,25,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.logo{width:42px;height:42px;border-radius:13px;background:var(--y);color:#120a24;display:grid;place-items:center;font:800 15px Unbounded,sans-serif}
+.brand b{font:700 15px Unbounded,sans-serif;letter-spacing:-.02em}
+.brand small{display:block;font-size:12px;color:var(--mute);font-weight:600}
+.top nav{display:flex;gap:2px}
+.top nav a{text-decoration:none;color:var(--soft);font-size:15px;font-weight:600;padding:9px 12px;border-radius:10px;display:flex;gap:7px;align-items:baseline;white-space:nowrap}
+.top nav a em{font-style:normal}
+.top nav a span{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--v)}
+.top nav a:hover,.top nav a.on{color:#fff;background:rgba(255,255,255,.06)}
+.top nav a.on span{color:var(--y)}
+.lang{display:flex;gap:3px;padding:3px;border-radius:12px;border:1px solid var(--line)}
+.lang button{width:40px;height:34px;border:0;border-radius:9px;background:transparent;color:var(--mute);font:800 12px Manrope,sans-serif;cursor:pointer}
 .lang button[aria-pressed=true]{background:var(--ink);color:#120a24}
-main,footer{margin-left:var(--rail)}
+.hire{display:inline-flex;align-items:center;min-height:42px;padding:0 18px;border-radius:12px;background:var(--y);color:#120a24;font-weight:800;font-size:14px;text-decoration:none;white-space:nowrap}
+.hire:hover{filter:brightness(1.05)}
+.menu{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:transparent;color:#fff;font-size:20px;cursor:pointer}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:transparent}
+.prog i{display:block;height:100%;width:0;background:var(--y)}
+
 .pad{padding-left:max(5vw,24px);padding-right:max(5vw,24px)}
 .max{max-width:1240px;margin:0 auto}
 /* hero */
-.hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(28px,4vw,64px);align-items:center;padding-top:48px;padding-bottom:48px;position:relative;overflow:hidden}
+.hero{min-height:100svh;scroll-margin-top:0;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(28px,4vw,64px);align-items:center;padding-top:110px;padding-bottom:48px;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;width:780px;height:780px;right:-200px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(124,77,255,.28),transparent 62%);pointer-events:none}
 .badge{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;border-radius:99px;background:var(--bg2);border:1px solid var(--line);font-size:14px;color:var(--soft);margin-bottom:28px}
 .badge i{width:9px;height:9px;border-radius:50%;background:#55e38a;box-shadow:0 0 0 0 rgba(85,227,138,.6);animation:ping 2s infinite}
@@ -98,25 +104,25 @@ main,footer{margin-left:var(--rail)}
 .sh p{grid-column:2;margin:0;color:var(--soft);max-width:56ch}
 /* horizontal pinned projects */
 .hwrap{position:relative}
-.hstick{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.hstick{position:sticky;top:0;height:100svh;padding-top:72px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
 .htrack{display:flex;gap:28px;padding-left:max(5vw,24px);padding-right:max(5vw,24px);will-change:transform}
-.card{flex:none;width:min(1020px,82vw);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:28px;background:var(--bg2);border:1px solid var(--line);border-radius:32px;padding:clamp(22px,3vw,40px);min-height:min(600px,78svh)}
-.card .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}
+.card{flex:none;width:min(1020px,82vw);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:28px;background:var(--bg2);border:1px solid var(--line);border-radius:32px;padding:clamp(22px,3vw,40px);min-height:0}
+.card .ctop{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}
 .card .idx{font:800 15px Unbounded,sans-serif;color:var(--y)}
 .pill{font-size:12px;font-weight:800;padding:6px 11px;border-radius:99px;background:rgba(124,77,255,.18);color:var(--l)}
-.card h3{font-size:clamp(28px,3vw,44px);margin-bottom:8px}
+.card h3{font-size:clamp(26px,2.6vw,40px);margin-bottom:6px}
 .card .sub{color:var(--soft);margin:0 0 20px}
 .psr{display:grid;gap:12px}
 .psr div{border-radius:16px;padding:12px 14px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
 .psr b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--y);margin-bottom:4px}
-.psr p{margin:0;font-size:15px;line-height:1.5}
+.psr p{margin:0;font-size:14.5px;line-height:1.45}
 .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
 .stack span{font-size:12.5px;padding:5px 10px;border-radius:8px;background:rgba(255,255,255,.06);color:var(--soft)}
 .go{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 .go a{font-size:14px;font-weight:800;text-decoration:none;padding:10px 16px;border-radius:12px;background:var(--ink);color:#120a24}
 .go a.o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.22)}
 .art{border-radius:24px;background:radial-gradient(circle at 30% 20%,#2a1760,#110a24 70%);border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;position:relative;min-height:300px;padding:18px}
-.art img{max-height:100%;max-width:100%;width:auto;height:auto;max-height:520px;border-radius:14px}
+.art img{max-width:100%;width:auto;height:auto;max-height:calc(100svh - 280px);border-radius:14px}
 .hint{display:flex;align-items:center;gap:10px;margin:22px max(5vw,24px) 0}
 .hint i{flex:1;height:2px;background:var(--line);position:relative;overflow:hidden;border-radius:2px}
 .hint i b{position:absolute;inset:0 auto 0 0;width:0;background:var(--y)}
@@ -193,28 +199,29 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
 @supports (animation-timeline:view()){.rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 35%}@keyframes rv{from{opacity:.1;transform:translateY(40px)}to{opacity:1;transform:none}}}
 @media(max-width:980px){.hero{grid-template-columns:minmax(0,1fr);padding-top:40px}.phone{max-height:none;width:min(100%,330px)}.card{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.about,.end .in{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:860px){.hwrap{height:auto!important}.hstick{position:static;height:auto;overflow:visible}.htrack{flex-direction:column;transform:none!important}.card{width:100%;min-height:0}.hint{display:none}}
-@media(max-width:700px){:root{--rail:0px}.rail{inset:auto 0 0 0;width:auto;height:64px;flex-direction:row;padding:0 10px;border-right:0;border-top:1px solid var(--line)}.rail nav{flex-direction:row;gap:0}.rail nav a{writing-mode:horizontal-tb;transform:none;padding:8px 8px;font-size:13px;white-space:nowrap}.rail nav a[href="#processo"],.rail nav a[href="#aovivo"]{display:none}.rail nav a em{font-style:normal}
-.rail nav a span{display:none}.prog{display:none}.logo{width:40px;height:40px;font-size:14px}.lang{flex-direction:row}.lang button{width:38px;height:34px}body{padding-bottom:64px}.skip:focus{left:12px}.steps,.skills{grid-template-columns:minmax(0,1fr)}.sh{grid-template-columns:minmax(0,1fr)}.sh p{grid-column:1}.who{gap:18px}}
+@media(max-width:1060px){.top nav{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;padding:10px max(4vw,18px) 16px;background:#0d0719;border-bottom:1px solid var(--line)}.top nav.open{display:flex}.top nav a{padding:13px 10px;font-size:17px}.menu{display:grid;place-items:center}}
+@media(max-width:700px){.brand>span:not(.logo){display:none}.hire{display:none}.steps,.skills{grid-template-columns:minmax(0,1fr)}.sh{grid-template-columns:minmax(0,1fr)}.sh p{grid-column:1}.who{gap:18px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <a class="skip" href="#conteudo" data-i="skip">Pular para o conteúdo</a>
-<aside class="rail" aria-label="Navegação">
-<a class="logo" href="#topo" aria-label="Início">GM</a>
-<nav id="nav">
+<header class="top">
+<a class="brand" href="#topo"><span class="logo">GM</span><span><b>Gustavo Malaquias</b><small data-i="role">Engenheiro de Software · IA</small></span></a>
+<nav id="nav" aria-label="Navegação principal">
 <a href="#projetos"><span>01</span><em data-i="n1">Projetos</em></a>
 <a href="#processo"><span>02</span><em data-i="n2">Processo</em></a>
 <a href="#aovivo"><span>03</span><em data-i="n3">Ao vivo</em></a>
 <a href="#sobre"><span>04</span><em data-i="n4">Sobre</em></a>
-<a href="#contato"><span>05</span><em data-i="n5">Contato</em></a>
 </nav>
-<div class="prog" aria-hidden="true"><i id="prog"></i></div>
 <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-l="pt" aria-pressed="true">PT</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
-</aside>
+<a class="hire" href="#contato" data-i="hire">Vamos conversar</a>
+<button type="button" class="menu" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav">☰</button>
+<div class="prog" aria-hidden="true"><i id="prog"></i></div>
+</header>
 
 <main id="conteudo">
-<header class="hero pad" id="topo">
+<section class="hero pad" id="topo">
 <div class="rv0">
 <div class="badge"><i></i><span data-i="badge">Disponível para vagas · Brasília ou remoto</span></div>
 <h1><span data-i="h1">Eu construo agentes de IA que</span> <span class="w" id="word" aria-live="polite"></span></h1>
@@ -236,7 +243,7 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
 </div>
 <p class="phonecap meta" data-i="phcap">Simulação de uma conversa do meu sistema</p>
 </div>
-</header>
+</section>
 
 <div class="band" aria-hidden="true"><div class="t" id="band"></div></div>
 
@@ -290,10 +297,10 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
 {
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const I={
-pt:{skip:"Pular para o conteúdo",n1:"Projetos",n2:"Processo",n3:"Ao vivo",n4:"Sobre",n5:"Contato",badge:"Disponível para vagas · Brasília ou remoto",h1:"Eu construo agentes de IA que",lead:'Sou <b>Gustavo Malaquias</b>, engenheiro de software full-stack e fundador da NoxIA. Faço sistemas que atendem, vendem e medem cada resultado, rodando em produção todos os dias.',cta1:"Ver projetos →",w1:"fluxos n8n em produção",w2:"agentes de IA na NoxIA",w3:"atendimento automático",ph1:"Agente de vendas",ph2:"online · responde na hora",c1:"Ver projetos",c2:"Prints reais",c3:"Falar comigo",phcap:"Simulação de uma conversa do meu sistema",p_t:"Projetos",p_s:"Role para ver os cinco casos. Cada um em três partes: o problema, o que eu fiz e o resultado.",pr_t:"Como eu trabalho",pr_s:"Antes da ferramenta, o problema. Antes de escalar, a medição.",l_t:"Ao vivo",l_s:"Prints e vídeos reais dos agentes e das clínicas em produção.",a_t:"Sobre",q:'Escolher o <em>problema certo</em> vale mais do que a ferramenta mais nova.',a1:"Aprendi construindo meus próprios negócios digitais: funis de venda, atendimento automático e agentes que trabalham por mim. Cada sistema precisava dar resultado de verdade, porque o dinheiro era meu.",a2:"Resolvi problemas de produção como race conditions em webhooks, filas travadas, atribuição de vendas simultâneas e WhatsApp em escala. Agora quero levar essa experiência para um time de engenharia.",t1d:"2026 — hoje",t1h:"Fundador · NoxIA",t1p:"Atendentes de IA para clínicas e plataforma de agentes para infoprodutores.",t2d:"2026 — hoje",t2h:"Negócio próprio de produtos digitais",t2p:"Funil de vendas no WhatsApp com IA, checkout próprio e tráfego pago.",t3h:"Desenvolvedor full-stack freelance",t3p:"Plataforma educacional de ponta a ponta.",t4h:"Tecnólogo em ADS · UniCEUB",t4p:"Análise e Desenvolvimento de Sistemas. Inglês avançado.",e_p:"Procurando alguém que construa IA que funciona em produção? Vamos conversar.",f:'Fundador da <a href="https://noxia.com.br">NoxIA</a>',
+pt:{role:"Engenheiro de Software · IA",hire:"Vamos conversar",skip:"Pular para o conteúdo",n1:"Projetos",n2:"Processo",n3:"Ao vivo",n4:"Sobre",n5:"Contato",badge:"Disponível para vagas · Brasília ou remoto",h1:"Eu construo agentes de IA que",lead:'Sou <b>Gustavo Malaquias</b>, engenheiro de software full-stack e fundador da NoxIA. Faço sistemas que atendem, vendem e medem cada resultado, rodando em produção todos os dias.',cta1:"Ver projetos →",w1:"fluxos n8n em produção",w2:"agentes de IA na NoxIA",w3:"atendimento automático",ph1:"Agente de vendas",ph2:"online · responde na hora",c1:"Ver projetos",c2:"Prints reais",c3:"Falar comigo",phcap:"Simulação de uma conversa do meu sistema",p_t:"Projetos",p_s:"Role para ver os cinco casos. Cada um em três partes: o problema, o que eu fiz e o resultado.",pr_t:"Como eu trabalho",pr_s:"Antes da ferramenta, o problema. Antes de escalar, a medição.",l_t:"Ao vivo",l_s:"Prints e vídeos reais dos agentes e das clínicas em produção.",a_t:"Sobre",q:'Escolher o <em>problema certo</em> vale mais do que a ferramenta mais nova.',a1:"Aprendi construindo meus próprios negócios digitais: funis de venda, atendimento automático e agentes que trabalham por mim. Cada sistema precisava dar resultado de verdade, porque o dinheiro era meu.",a2:"Resolvi problemas de produção como race conditions em webhooks, filas travadas, atribuição de vendas simultâneas e WhatsApp em escala. Agora quero levar essa experiência para um time de engenharia.",t1d:"2026 — hoje",t1h:"Fundador · NoxIA",t1p:"Atendentes de IA para clínicas e plataforma de agentes para infoprodutores.",t2d:"2026 — hoje",t2h:"Negócio próprio de produtos digitais",t2p:"Funil de vendas no WhatsApp com IA, checkout próprio e tráfego pago.",t3h:"Desenvolvedor full-stack freelance",t3p:"Plataforma educacional de ponta a ponta.",t4h:"Tecnólogo em ADS · UniCEUB",t4p:"Análise e Desenvolvimento de Sistemas. Inglês avançado.",e_p:"Procurando alguém que construa IA que funciona em produção? Vamos conversar.",f:'Fundador da <a href="https://noxia.com.br">NoxIA</a>',
 words:["atendem.","vendem.","medem tudo.","não dormem."],end:["Vamos conversar","Let's talk"],copy:"Copiado ✓",prob:"Problema",did:"O que fiz",res:"Resultado",code:"Código ↗",live:"Ver no ar ↗",
 chat:[["in","Oi! Vi o anúncio do ebook, ainda tem?"],["out","Oi, Ana! Tem sim 😊 São 45 receitas, com acesso na hora. Quer que eu te mande o Pix?"],["in","Quero!"],["out","Aqui está: chave Pix enviada. Assim que cair, eu te mando o PDF."],["sys","✓ Pix confirmado · PDF enviado"],["sys","✓ Venda registrada no Google Ads"]]},
-en:{skip:"Skip to content",n1:"Projects",n2:"Process",n3:"Live",n4:"About",n5:"Contact",badge:"Open to work · Brasília or remote",h1:"I build AI agents that",lead:'I\'m <b>Gustavo Malaquias</b>, a full-stack software engineer and founder of NoxIA. I build systems that answer, sell and measure every result, running in production every day.',cta1:"See projects →",w1:"n8n workflows in production",w2:"AI agents at NoxIA",w3:"automated support",ph1:"Sales agent",ph2:"online · replies instantly",c1:"See projects",c2:"Real screenshots",c3:"Talk to me",phcap:"Simulated conversation from my system",p_t:"Projects",p_s:"Scroll to see five case studies. Each in three parts: the problem, what I did and the outcome.",pr_t:"How I work",pr_s:"Problem before tools. Measurement before scale.",l_t:"Live",l_s:"Real screenshots and videos of the agents and clinics in production.",a_t:"About",q:'Picking the <em>right problem</em> beats picking the newest tool.',a1:"I learned by building my own digital businesses: sales funnels, automated support and agents that work for me. Every system had to deliver real results, because it was my own money.",a2:"I've solved production problems like webhook race conditions, stuck queues, simultaneous sales attribution and WhatsApp at scale. Now I want to bring that experience to an engineering team.",t1d:"2026 — now",t1h:"Founder · NoxIA",t1p:"AI receptionists for clinics and an AI agent platform for digital product sellers.",t2d:"2026 — now",t2h:"Own digital products business",t2p:"AI-driven WhatsApp sales funnel, custom checkout and paid traffic.",t3h:"Freelance full-stack developer",t3p:"End-to-end education platform.",t4h:"Associate degree in Systems Development · UniCEUB",t4p:"Systems Analysis and Development. Advanced English.",e_p:"Looking for someone who builds AI that works in production? Let's talk.",f:'Founder of <a href="https://noxia.com.br">NoxIA</a>',
+en:{role:"Software Engineer · AI",hire:"Let's talk",skip:"Skip to content",n1:"Projects",n2:"Process",n3:"Live",n4:"About",n5:"Contact",badge:"Open to work · Brasília or remote",h1:"I build AI agents that",lead:'I\'m <b>Gustavo Malaquias</b>, a full-stack software engineer and founder of NoxIA. I build systems that answer, sell and measure every result, running in production every day.',cta1:"See projects →",w1:"n8n workflows in production",w2:"AI agents at NoxIA",w3:"automated support",ph1:"Sales agent",ph2:"online · replies instantly",c1:"See projects",c2:"Real screenshots",c3:"Talk to me",phcap:"Simulated conversation from my system",p_t:"Projects",p_s:"Scroll to see five case studies. Each in three parts: the problem, what I did and the outcome.",pr_t:"How I work",pr_s:"Problem before tools. Measurement before scale.",l_t:"Live",l_s:"Real screenshots and videos of the agents and clinics in production.",a_t:"About",q:'Picking the <em>right problem</em> beats picking the newest tool.',a1:"I learned by building my own digital businesses: sales funnels, automated support and agents that work for me. Every system had to deliver real results, because it was my own money.",a2:"I've solved production problems like webhook race conditions, stuck queues, simultaneous sales attribution and WhatsApp at scale. Now I want to bring that experience to an engineering team.",t1d:"2026 — now",t1h:"Founder · NoxIA",t1p:"AI receptionists for clinics and an AI agent platform for digital product sellers.",t2d:"2026 — now",t2h:"Own digital products business",t2p:"AI-driven WhatsApp sales funnel, custom checkout and paid traffic.",t3h:"Freelance full-stack developer",t3p:"End-to-end education platform.",t4h:"Associate degree in Systems Development · UniCEUB",t4p:"Systems Analysis and Development. Advanced English.",e_p:"Looking for someone who builds AI that works in production? Let's talk.",f:'Founder of <a href="https://noxia.com.br">NoxIA</a>',
 words:["answer.","sell.","measure it all.","never sleep."],end:["Let's talk","Vamos conversar"],copy:"Copied ✓",prob:"Problem",did:"What I did",res:"Outcome",code:"Code ↗",live:"Live site ↗",
 chat:[["in","Hi! Saw the ebook ad, is it still available?"],["out","Hi Ana! Yes 😊 45 recipes with instant access. Want me to send the payment link?"],["in","Yes please!"],["out","Done: payment key sent. As soon as it clears, I'll send the PDF."],["sys","✓ Payment confirmed · PDF sent"],["sys","✓ Sale recorded in Google Ads"]]}
 };
@@ -332,7 +339,7 @@ if(location.hash==='#en')L='en';
 const t=k=>I[L][k];const pick=v=>Array.isArray(v)?v[L==='pt'?0:1]:v;
 const $=id=>document.getElementById(id);
 
-function renderCards(){$('htrack').innerHTML=P.map((c,i)=>`<article class="card"><div><div class="top"><span class="idx">0${i+1} / 05</span><span class="pill">${pick(c.tag)}</span></div><h3>${pick(c.n)}</h3><p class="sub">${pick(c.sub)}</p><div class="psr"><div><b>${t('prob')}</b><p>${pick(c.p)}</p></div><div><b>${t('did')}</b><p>${pick(c.d)}</p></div><div><b>${t('res')}</b><p>${pick(c.r)}</p></div></div><div class="stack">${c.s.split(' · ').map(x=>`<span>${x}</span>`).join('')}</div>${(c.gh||c.site)?`<div class="go">${c.gh?`<a href="${c.gh}">${t('code')}</a>`:''}${c.site?`<a class="o" href="${c.site}">${t('live')}</a>`:''}</div>`:''}</div><div class="art">${c.art}</div></article>`).join('');}
+function renderCards(){$('htrack').innerHTML=P.map((c,i)=>`<article class="card"><div><div class="ctop"><span class="idx">0${i+1} / 05</span><span class="pill">${pick(c.tag)}</span></div><h3>${pick(c.n)}</h3><p class="sub">${pick(c.sub)}</p><div class="psr"><div><b>${t('prob')}</b><p>${pick(c.p)}</p></div><div><b>${t('did')}</b><p>${pick(c.d)}</p></div><div><b>${t('res')}</b><p>${pick(c.r)}</p></div></div><div class="stack">${c.s.split(' · ').map(x=>`<span>${x}</span>`).join('')}</div>${(c.gh||c.site)?`<div class="go">${c.gh?`<a href="${c.gh}">${t('code')}</a>`:''}${c.site?`<a class="o" href="${c.site}">${t('live')}</a>`:''}</div>`:''}</div><div class="art">${c.art}</div></article>`).join('');}
 function renderRest(){
 $('steps').innerHTML=STP.map((s,i)=>`<div class="step rv"><div class="n">${i+1}</div><h3>${pick(s[0])}</h3><p>${pick(s[1])}</p></div>`).join('');
 $('fan').innerHTML=G.map(g=>`<figure class="shot"><div class="fr">${g[3]?`<video src="${g[3]}" poster="${g[2]}" controls muted playsinline preload="none"></video>`:`<img src="${g[2]}" alt="${pick(g[0])}" loading="lazy">`}</div><figcaption><b>${pick(g[0])}</b>${pick(g[1])}</figcaption></figure>`).join('');
@@ -358,10 +365,10 @@ ct.push(setTimeout(startChat,at+3500))}
 /* horizontal pinned projects */
 const hw=$('hwrap'),tr=$('htrack');let maxX=0;
 function layoutH(){if(innerWidth<=860||reduce){hw.style.height='';tr.style.transform='';return}maxX=Math.max(0,tr.scrollWidth-innerWidth+parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--rail')||0));hw.style.height=(innerHeight+maxX)+'px';onScroll()}
-function onScroll(){const h=document.documentElement.scrollHeight-innerHeight;$('prog').style.height=(h>0?scrollY/h*100:0)+'%';
+function onScroll(){const h=document.documentElement.scrollHeight-innerHeight;$('prog').style.width=(h>0?scrollY/h*100:0)+'%';
 if(innerWidth>860&&!reduce&&maxX>0){const r=hw.getBoundingClientRect(),p=Math.min(1,Math.max(0,-r.top/(hw.offsetHeight-innerHeight)));tr.style.transform=`translate3d(${-p*maxX}px,0,0)`;$('hb').style.width=(p*100)+'%';$('hc').textContent=Math.min(5,1+Math.round(p*4))+' / 5';
 const fa=$('flowart');if(fa){const k=Math.floor((Date.now()/700)%6);}}
-let cur='';document.querySelectorAll('main section[id]').forEach(s=>{if(s.getBoundingClientRect().top<innerHeight*.4)cur=s.id});if($('contato').getBoundingClientRect().top<innerHeight*.5)cur='contato';
+let cur='';document.querySelectorAll('main section[id]:not(#topo)').forEach(s=>{if(s.getBoundingClientRect().top<innerHeight*.4)cur=s.id});if($('contato').getBoundingClientRect().top<innerHeight*.5)cur='contato';
 document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur))}
 addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',layoutH);
 
@@ -377,6 +384,7 @@ $('fp').addEventListener('click',()=>fgo(-1));$('fn').addEventListener('click',(
 /* copy */
 $('cp').addEventListener('click',()=>{navigator.clipboard.writeText('gustavo.calasan@gmail.com').then(()=>{$('cpl').textContent=t('copy');setTimeout(()=>$('cpl').textContent='gustavo.calasan@gmail.com',1800)}).catch(()=>{})});
 
+const mb=$("menu"),nv=$("nav");mb.addEventListener("click",()=>{const o=nv.classList.toggle("open");mb.setAttribute("aria-expanded",String(o))});nv.addEventListener("click",e=>{if(e.target.closest("a")){nv.classList.remove("open");mb.setAttribute("aria-expanded","false")}});
 applyLang();addEventListener('load',layoutH);
 }
 </script>
