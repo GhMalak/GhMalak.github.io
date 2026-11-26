@@ -72,8 +72,9 @@ h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-s
 .hero h1 .w{display:block;color:var(--y);min-height:1.05em;white-space:nowrap}
 .hero h1 .w::after{content:"";display:inline-block;width:.08em;height:.85em;background:var(--y);margin-left:.06em;vertical-align:-.08em;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.hero .lead{font-size:clamp(18px,1.6vw,21px);color:var(--soft);max-width:44ch;margin:26px 0 30px}
-.hero .lead b{color:#fff}
+.hero .lead{font-size:clamp(18px,1.6vw,21px);color:var(--soft);max-width:44ch;margin:0 0 30px}
+.hero .lead b{color:var(--y);font-weight:800;font-size:1.12em}
+.hero h1{margin-bottom:32px}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
 .btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:16px;font-weight:800;font-size:15px;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
 .btn.y{background:var(--y);color:#120a24;box-shadow:0 8px 30px -10px rgba(255,213,74,.6)}
@@ -237,8 +238,8 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
 <main id="conteudo">
 <section class="hero pad" id="topo">
 <div class="rv0">
-<h1><span data-i="h1">Eu construo agentes de IA que</span> <span class="w" id="word" aria-live="polite"></span></h1>
 <p class="lead" data-i="lead" data-html="1">Sou <b>Gustavo Malaquias</b>, engenheiro de software full-stack e fundador da NoxIA. Faço sistemas que atendem, vendem e medem cada resultado, rodando em produção todos os dias.</p>
+<h1><span data-i="h1">Eu construo agentes de IA que</span> <span class="w" id="word" aria-live="polite"></span></h1>
 <div class="cta"><a class="btn y" href="#projetos" data-i="cta1">Ver projetos →</a><a class="btn g" href="https://github.com/GhMalak">GitHub</a><a class="btn g" href="https://www.linkedin.com/in/ghmalak">LinkedIn</a></div>
 <div class="who">
 <div><b>20+</b><span data-i="w1">fluxos n8n em produção</span></div>
