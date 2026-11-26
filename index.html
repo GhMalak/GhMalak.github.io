@@ -63,16 +63,16 @@ h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-s
 .pad{padding-left:max(5vw,24px);padding-right:max(5vw,24px)}
 .max{max-width:1240px;margin:0 auto}
 /* hero */
-.hero{min-height:88svh;scroll-margin-top:0;display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center;padding-top:110px;padding-bottom:48px;position:relative;overflow:hidden}
+.hero{min-height:92svh;scroll-margin-top:0;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(28px,4vw,64px);align-items:center;padding-top:110px;padding-bottom:48px;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;width:780px;height:780px;right:-200px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(124,77,255,.28),transparent 62%);pointer-events:none}
 .badge{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;border-radius:99px;background:var(--bg2);border:1px solid var(--line);font-size:14px;color:var(--soft);margin-bottom:28px}
 .badge i{width:9px;height:9px;border-radius:50%;background:#55e38a;box-shadow:0 0 0 0 rgba(85,227,138,.6);animation:ping 2s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 10px rgba(85,227,138,0)}100%{box-shadow:0 0 0 0 rgba(85,227,138,0)}}
-.hero h1{font-size:clamp(38px,6vw,96px);max-width:16ch;position:relative}
+.hero h1{font-size:clamp(34px,4.1vw,62px);max-width:15ch;position:relative}
 .hero h1 .w{display:block;color:var(--y);min-height:1.05em;white-space:nowrap}
 .hero h1 .w::after{content:"";display:inline-block;width:.08em;height:.85em;background:var(--y);margin-left:.06em;vertical-align:-.08em;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.hero .lead{font-size:clamp(18px,1.7vw,23px);color:var(--soft);max-width:52ch;margin:0 0 30px}
+.hero .lead{font-size:clamp(17px,1.4vw,20px);color:var(--soft);max-width:50ch;margin:0 0 30px}
 .nx{display:inline-block;font:800 .92em/1 Unbounded,sans-serif;letter-spacing:-.03em;color:#fff;background:linear-gradient(135deg,#2a1466,#1a0d3d);border:1px solid rgba(124,77,255,.55);padding:.22em .5em .26em;border-radius:.6em;box-shadow:0 0 22px -6px rgba(124,77,255,.8);vertical-align:.04em;white-space:nowrap}
 .nx i{font-style:normal;color:var(--y)}
 .hero .lead b{color:var(--y);font-weight:800;font-size:1.12em}
@@ -109,6 +109,14 @@ h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-s
 .chips a{font-size:12.5px;font-weight:700;text-decoration:none;padding:8px 11px;border-radius:99px;border:1px solid #2a3942;color:#53bdeb}
 .chips a:hover{background:#1f2c34}
 .phonecap{text-align:center;margin-top:14px}
+.hp{position:relative;width:min(100%,400px);aspect-ratio:4/5;margin-left:auto;animation:hpin 1.1s .2s cubic-bezier(.2,.8,.2,1) both}
+.hp figure{position:absolute;inset:0;margin:0;border-radius:30px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(124,77,255,.6);transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity 1s,filter 1s;transform:translate(10%,7%) rotate(7deg) scale(.88);opacity:.5;filter:brightness(.5);z-index:1}
+.hp figure.on{transform:none;opacity:1;filter:none;z-index:2}
+.hp img{width:100%;height:100%;object-fit:cover;display:block}
+.hp:hover figure.on{transform:translateY(-6px) rotate(-1.5deg)}
+.hptag{position:absolute;left:-14px;bottom:30px;z-index:3;background:var(--y);color:#120a24;font:800 13px Unbounded,sans-serif;padding:9px 14px;border-radius:99px;transform:rotate(-6deg);box-shadow:0 10px 24px -8px rgba(255,213,74,.6);animation:tagb 5s ease-in-out infinite}
+@keyframes hpin{from{opacity:0;transform:translateX(40px) rotate(4deg)}to{opacity:1;transform:none}}
+@keyframes tagb{50%{transform:rotate(-3deg) translateY(-6px)}}
 /* marquee */
 .band{border-block:1px solid var(--line);overflow:hidden;background:var(--bg2)}
 .band .t{display:flex;padding:16px 0;font:700 22px Unbounded,sans-serif;color:var(--soft)}
@@ -126,7 +134,7 @@ h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-s
 .hwrap{position:relative}
 .hstick{position:sticky;top:0;height:100svh;padding-top:84px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
 .htrack{display:flex;gap:28px;padding-left:max(5vw,24px);padding-right:max(5vw,24px);will-change:transform}
-.card{flex:none;width:min(1020px,82vw);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:28px;background:var(--bg2);border:1px solid var(--line);border-radius:32px;padding:clamp(22px,3vw,40px);min-height:0}
+.card{width:100%;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:28px;background:var(--bg2);border:1px solid var(--line);border-radius:32px;padding:clamp(22px,3vw,40px);min-height:0}
 .card .ctop{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}
 .card .idx{font:800 15px Unbounded,sans-serif;color:var(--y)}
 .pill{font-size:12px;font-weight:800;padding:6px 11px;border-radius:99px;background:rgba(124,77,255,.18);color:var(--l)}
@@ -157,8 +165,27 @@ h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-s
 .scap{margin:0;font-size:13px;color:var(--soft);font-weight:700;text-align:center}
 .dots{display:flex;justify-content:center;gap:8px}
 .dots button{width:9px;height:9px;border-radius:99px;border:0;background:rgba(255,255,255,.25);padding:0;cursor:pointer;transition:width .3s,background .3s}
+.dots button:focus-visible{outline:2px solid var(--y);outline-offset:2px}
 .dots button.on{background:var(--y);width:24px}
 .shot .fr .screen{height:100%}
+.plist{border-top:1px solid var(--line)}
+.prow{border-bottom:1px solid var(--line)}
+.phead{width:100%;display:grid;grid-template-columns:72px minmax(0,1fr) auto 48px;align-items:center;gap:20px;padding:28px 6px;background:none;border:0;color:inherit;text-align:left;cursor:pointer;font:inherit}
+.pidx{font:800 18px Unbounded,sans-serif;color:var(--y)}
+.pttl b{display:block;font:800 clamp(24px,3vw,44px)/1.05 Unbounded,sans-serif;letter-spacing:-.03em;transition:transform .4s cubic-bezier(.2,.8,.2,1),color .3s}
+.pttl small{display:block;margin-top:6px;color:var(--soft);font-size:15px}
+.phead:hover .pttl b{transform:translateX(10px);color:var(--y)}
+.pplus{width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.22);position:relative;transition:transform .4s,background .3s,border-color .3s}
+.pplus::before,.pplus::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:2px;background:#fff;transform:translate(-50%,-50%);border-radius:2px}
+.pplus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.phead:hover .pplus{border-color:var(--y)}
+.prow.open .pplus{transform:rotate(45deg);background:var(--y);border-color:var(--y)}
+.prow.open .pplus::before,.prow.open .pplus::after{background:#120a24}
+.pbody{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.2,.8,.2,1)}
+.prow.open .pbody{grid-template-rows:1fr}
+.pbody>div{overflow:hidden;min-height:0}
+.pbody .card{margin:0 0 28px;opacity:0;transform:translateY(16px);transition:opacity .5s .1s,transform .5s .1s}
+.prow.open .pbody .card{opacity:1;transform:none}
 /* art pieces */
 .flow{display:grid;gap:10px;width:100%;max-width:330px}
 .flow div{display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:14px;background:rgba(255,255,255,.06);font-size:14px;opacity:.35;transition:opacity .4s,background .4s}
@@ -190,12 +217,14 @@ h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-s
 .step h3{font-size:20px;margin-bottom:10px;letter-spacing:-.02em}
 .step p{margin:0;color:var(--soft);font-size:15px}
 /* live gallery fan */
-.fan{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 4px 24px}
+.fan{display:flex;gap:18px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:30px 10px 34px;scrollbar-width:none}
+.fan::-webkit-scrollbar{display:none}
 .shot{flex:none;width:min(240px,70vw);scroll-snap-align:start;margin:0;transition:transform .35s}
 .shot:nth-child(odd){transform:rotate(-2deg)}.shot:nth-child(even){transform:rotate(2deg) translateY(14px)}
-.shot:hover{transform:rotate(0) translateY(-8px) scale(1.03)}
-.shot .fr{height:470px;border-radius:30px;overflow:hidden;border:6px solid #241a4d;background:#120a28}
-.shot img,.shot video{width:100%;height:100%;object-fit:contain;display:block}
+.shot:hover{transform:rotate(0) translateY(-8px)}
+.shot .fr{height:auto;max-height:480px;border-radius:30px;overflow:hidden;border:6px solid #241a4d;background:#120a28}
+.shot img,.shot video{width:100%;height:auto;max-height:468px;object-fit:cover;object-position:top;display:block}
+.shot .fr.chat{height:470px}
 .shot figcaption{margin-top:12px;font-size:14px;color:var(--soft)}
 .shot figcaption b{display:block;color:#fff;font-size:15px}
 .fnav{display:flex;gap:8px;margin-top:6px}
@@ -231,11 +260,12 @@ footer{background:var(--y);color:#3a2a10;font-size:14px}
 footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:18px;padding-bottom:26px;border-top:1px solid rgba(18,10,36,.15)}
 /* reveal */
 @supports (animation-timeline:view()){.rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 35%}@keyframes rv{from{opacity:.1;transform:translateY(40px)}to{opacity:1;transform:none}}}
-@media(max-width:980px){.hero{grid-template-columns:minmax(0,1fr);min-height:0;align-items:start;padding-top:112px}.phone{max-height:none;width:min(100%,330px)}.card{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.about,.end .in{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:980px){.hp{margin:8px auto 0;width:min(80%,330px)}.hero{grid-template-columns:minmax(0,1fr);min-height:0;align-items:start;padding-top:112px}.phone{max-height:none;width:min(100%,330px)}.card{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.about,.end .in{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:860px){.slide img{max-height:440px}.mph{height:440px}.hwrap{height:auto!important}.hstick{position:static;height:auto;overflow:visible}.htrack{flex-direction:column;transform:none!important}.card{width:100%;min-height:0}.hint{display:none}}
 @media(max-width:1060px){.top nav{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;padding:10px 12px 14px;background:#140b2c;border:1px solid var(--line);border-radius:20px;box-shadow:0 20px 50px -10px rgba(0,0,0,.7)}.top nav.open{display:flex}.top nav a{padding:13px 10px;font-size:17px}.menu{display:grid;place-items:center}}
 @media(max-width:700px){.band .t{font-size:16px}.seq{gap:24px;padding-right:24px}.brand .nm{display:none}.hire{display:none}.steps,.skills{grid-template-columns:minmax(0,1fr)}.sh{grid-template-columns:minmax(0,1fr)}.sh p{grid-column:1}.who{gap:18px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media(max-width:700px){.phead{grid-template-columns:40px minmax(0,1fr) 40px;gap:12px;padding:22px 2px}.phead .pill{display:none}.pplus{width:40px;height:40px}.pidx{font-size:15px}.pttl b{font-size:26px}.pttl small{font-size:14px}}
 </style>
 </head>
 <body>
@@ -266,13 +296,14 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
 <div><b>24h</b><span data-i="w3">atendimento automático</span></div>
 </div>
 </div>
+<div class="hp" aria-hidden="true"><figure class="on"><img src="media/foto-cor.jpg" alt=""></figure><figure><img src="media/foto-pb.jpg" alt=""></figure><span class="hptag">Brasília · DF</span></div>
 </section>
 
 <div class="band" aria-hidden="true"><div class="t" id="band"></div></div>
 
 <section class="sec" id="projetos">
-<div class="pad max"><div class="sh rv"><span class="num">01</span><h2 data-i="p_t">Projetos</h2><p data-i="p_s">Role para ver os cinco casos. Cada um em três partes: o problema, o que eu fiz e o resultado.</p></div></div>
-<div class="hwrap" id="hwrap"><div class="hstick"><div class="htrack" id="htrack"></div><div class="hint meta"><span id="hc">1 / 5</span><i><b id="hb"></b></i></div></div></div>
+<div class="pad max"><div class="sh rv"><span class="num">01</span><h2 data-i="p_t">Projetos</h2><p data-i="p_s">Clique em um projeto para ver o problema, o que eu fiz e o resultado.</p></div></div>
+<div class="pad max"><div class="plist" id="plist"></div></div>
 </section>
 
 <section class="sec pad max" id="processo">
@@ -320,11 +351,11 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
 {
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const I={
-pt:{role:"Engenheiro de Software · IA",hire:"Vamos conversar",skip:"Pular para o conteúdo",n1:"Projetos",n2:"Processo",n3:"Ao vivo",n4:"Sobre",n5:"Contato",h1:"Eu construo agentes de IA que",lead:'Prazer, sou o <b>Gustavo Malaquias</b>, engenheiro de software full-stack e fundador da <span class="nx">Nox<i>IA</i></span>. Faço sistemas que atendem, vendem e medem cada resultado, rodando em produção todos os dias.',cta1:"Ver projetos →",w1:"fluxos n8n em produção",w2:"agentes de IA na NoxIA",w3:"atendimento automático",ph1:"Agente de vendas",ph2:"online · responde na hora",c1:"Ver projetos",c2:"Prints reais",c3:"Falar comigo",phcap:"Simulação de uma conversa do meu sistema",p_t:"Projetos",p_s:"Role para ver os cinco casos. Cada um em três partes: o problema, o que eu fiz e o resultado.",pr_t:"Como eu trabalho",pr_s:"Antes da ferramenta, o problema. Antes de escalar, a medição.",l_t:"Ao vivo",l_s:"Prints e vídeos reais dos agentes e das clínicas em produção.",a_t:"Sobre",q:'Escolher o <em>problema certo</em> vale mais do que a ferramenta mais nova.',a1:"Aprendi construindo meus próprios negócios digitais: funis de venda, atendimento automático e agentes que trabalham por mim. Cada sistema precisava dar resultado de verdade, porque o dinheiro era meu.",a2:"Resolvi problemas de produção como race conditions em webhooks, filas travadas, atribuição de vendas simultâneas e WhatsApp em escala. Agora quero levar essa experiência para um time de engenharia.",t1d:"2026 — hoje",t1h:"Fundador · NoxIA",t1p:"Atendentes de IA para clínicas e plataforma de agentes para infoprodutores.",t2d:"2026 — hoje",t2h:"Negócio próprio de produtos digitais",t2p:"Funil de vendas no WhatsApp com IA, checkout próprio e tráfego pago.",t3h:"Desenvolvedor full-stack freelance",t3p:"Plataforma educacional de ponta a ponta.",t4h:"Tecnólogo em ADS · UniCEUB",t4p:"Análise e Desenvolvimento de Sistemas. Inglês avançado.",e_p:"Procurando alguém que construa IA que funciona em produção? Vamos conversar.",f:'Fundador da <a href="https://noxia.com.br">NoxIA</a>',
+pt:{role:"Engenheiro de Software · IA",hire:"Vamos conversar",skip:"Pular para o conteúdo",n1:"Projetos",n2:"Processo",n3:"Ao vivo",n4:"Sobre",n5:"Contato",h1:"Eu construo agentes de IA que",lead:'Prazer, sou o <b>Gustavo Malaquias</b>, engenheiro de software full-stack e fundador da <span class="nx">Nox<i>IA</i></span>. Faço sistemas que atendem, vendem e medem cada resultado, rodando em produção todos os dias.',cta1:"Ver projetos →",w1:"fluxos n8n em produção",w2:"agentes de IA na NoxIA",w3:"atendimento automático",ph1:"Agente de vendas",ph2:"online · responde na hora",c1:"Ver projetos",c2:"Prints reais",c3:"Falar comigo",phcap:"Simulação de uma conversa do meu sistema",p_t:"Projetos",p_s:"Clique em um projeto para ver o problema, o que eu fiz e o resultado.",pr_t:"Como eu trabalho",pr_s:"Antes da ferramenta, o problema. Antes de escalar, a medição.",l_t:"Ao vivo",l_s:"Prints e vídeos reais dos agentes e das clínicas em produção.",a_t:"Sobre",q:'Escolher o <em>problema certo</em> vale mais do que a ferramenta mais nova.',a1:"Aprendi construindo meus próprios negócios digitais: funis de venda, atendimento automático e agentes que trabalham por mim. Cada sistema precisava dar resultado de verdade, porque o dinheiro era meu.",a2:"Resolvi problemas de produção como race conditions em webhooks, filas travadas, atribuição de vendas simultâneas e WhatsApp em escala. Agora quero levar essa experiência para um time de engenharia.",t1d:"2026 — hoje",t1h:"Fundador · NoxIA",t1p:"Atendentes de IA para clínicas e plataforma de agentes para infoprodutores.",t2d:"2026 — hoje",t2h:"Negócio próprio de produtos digitais",t2p:"Funil de vendas no WhatsApp com IA, checkout próprio e tráfego pago.",t3h:"Desenvolvedor full-stack freelance",t3p:"Plataforma educacional de ponta a ponta.",t4h:"Tecnólogo em ADS · UniCEUB",t4p:"Análise e Desenvolvimento de Sistemas. Inglês avançado.",e_p:"Procurando alguém que construa IA que funciona em produção? Vamos conversar.",f:'Fundador da <a href="https://noxia.com.br">NoxIA</a>',
 words:["atendem.","vendem.","medem tudo.","não dormem."],end:["Vamos conversar","Let's talk"],copy:"Copiado ✓",prob:"Problema",did:"O que fiz",res:"Resultado",code:"Código ↗",live:"Ver no ar ↗",
 clinic:[["in","Boa tarde! Queria marcar uma limpeza."],["out","Boa tarde! Aqui é a IAna, da Clínica NoxIA 😊 Tenho quinta às 14h ou sexta às 9h. Qual fica melhor?"],["in","Quinta às 14h"],["out","Prontinho! Sua limpeza ficou marcada para quinta, às 14h. Te mando um lembrete um dia antes."],["sys","✓ Consulta salva na agenda da clínica"]],
 chat:[["in","Oi! Vi o anúncio do ebook, ainda tem?"],["out","Oi, Ana! Tem sim 😊 São 45 receitas, com acesso na hora. Quer que eu te mande o Pix?"],["in","Quero!"],["out","Aqui está: chave Pix enviada. Assim que cair, eu te mando o PDF."],["sys","✓ Pix confirmado · PDF enviado"],["sys","✓ Venda registrada no Google Ads"]]},
-en:{role:"Software Engineer · AI",hire:"Let's talk",skip:"Skip to content",n1:"Projects",n2:"Process",n3:"Live",n4:"About",n5:"Contact",h1:"I build AI agents that",lead:'Nice to meet you, I\'m <b>Gustavo Malaquias</b>, a full-stack software engineer and founder of <span class="nx">Nox<i>IA</i></span>. I build systems that answer, sell and measure every result, running in production every day.',cta1:"See projects →",w1:"n8n workflows in production",w2:"AI agents at NoxIA",w3:"automated support",ph1:"Sales agent",ph2:"online · replies instantly",c1:"See projects",c2:"Real screenshots",c3:"Talk to me",phcap:"Simulated conversation from my system",p_t:"Projects",p_s:"Scroll to see five case studies. Each in three parts: the problem, what I did and the outcome.",pr_t:"How I work",pr_s:"Problem before tools. Measurement before scale.",l_t:"Live",l_s:"Real screenshots and videos of the agents and clinics in production.",a_t:"About",q:'Picking the <em>right problem</em> beats picking the newest tool.',a1:"I learned by building my own digital businesses: sales funnels, automated support and agents that work for me. Every system had to deliver real results, because it was my own money.",a2:"I've solved production problems like webhook race conditions, stuck queues, simultaneous sales attribution and WhatsApp at scale. Now I want to bring that experience to an engineering team.",t1d:"2026 — now",t1h:"Founder · NoxIA",t1p:"AI receptionists for clinics and an AI agent platform for digital product sellers.",t2d:"2026 — now",t2h:"Own digital products business",t2p:"AI-driven WhatsApp sales funnel, custom checkout and paid traffic.",t3h:"Freelance full-stack developer",t3p:"End-to-end education platform.",t4h:"Associate degree in Systems Development · UniCEUB",t4p:"Systems Analysis and Development. Advanced English.",e_p:"Looking for someone who builds AI that works in production? Let's talk.",f:'Founder of <a href="https://noxia.com.br">NoxIA</a>',
+en:{role:"Software Engineer · AI",hire:"Let's talk",skip:"Skip to content",n1:"Projects",n2:"Process",n3:"Live",n4:"About",n5:"Contact",h1:"I build AI agents that",lead:'Nice to meet you, I\'m <b>Gustavo Malaquias</b>, a full-stack software engineer and founder of <span class="nx">Nox<i>IA</i></span>. I build systems that answer, sell and measure every result, running in production every day.',cta1:"See projects →",w1:"n8n workflows in production",w2:"AI agents at NoxIA",w3:"automated support",ph1:"Sales agent",ph2:"online · replies instantly",c1:"See projects",c2:"Real screenshots",c3:"Talk to me",phcap:"Simulated conversation from my system",p_t:"Projects",p_s:"Click a project to see the problem, what I did and the outcome.",pr_t:"How I work",pr_s:"Problem before tools. Measurement before scale.",l_t:"Live",l_s:"Real screenshots and videos of the agents and clinics in production.",a_t:"About",q:'Picking the <em>right problem</em> beats picking the newest tool.',a1:"I learned by building my own digital businesses: sales funnels, automated support and agents that work for me. Every system had to deliver real results, because it was my own money.",a2:"I've solved production problems like webhook race conditions, stuck queues, simultaneous sales attribution and WhatsApp at scale. Now I want to bring that experience to an engineering team.",t1d:"2026 — now",t1h:"Founder · NoxIA",t1p:"AI receptionists for clinics and an AI agent platform for digital product sellers.",t2d:"2026 — now",t2h:"Own digital products business",t2p:"AI-driven WhatsApp sales funnel, custom checkout and paid traffic.",t3h:"Freelance full-stack developer",t3p:"End-to-end education platform.",t4h:"Associate degree in Systems Development · UniCEUB",t4p:"Systems Analysis and Development. Advanced English.",e_p:"Looking for someone who builds AI that works in production? Let's talk.",f:'Founder of <a href="https://noxia.com.br">NoxIA</a>',
 words:["answer.","sell.","measure it all.","never sleep."],end:["Let's talk","Vamos conversar"],copy:"Copied ✓",prob:"Problem",did:"What I did",res:"Outcome",code:"Code ↗",live:"Live site ↗",
 clinic:[["in","Good afternoon! I'd like to book a cleaning."],["out","Good afternoon! This is IAna from NoxIA Clinic 😊 I have Thursday at 2pm or Friday at 9am. Which works better?"],["in","Thursday at 2pm"],["out","All set! Your cleaning is booked for Thursday at 2pm. I'll send you a reminder the day before."],["sys","✓ Appointment saved to the clinic calendar"]],
 chat:[["in","Hi! Saw the ebook ad, is it still available?"],["out","Hi Ana! Yes 😊 45 recipes with instant access. Want me to send the payment link?"],["in","Yes please!"],["out","Done: payment key sent. As soon as it clears, I'll send the PDF."],["sys","✓ Payment confirmed · PDF sent"],["sys","✓ Sale recorded in Google Ads"]]}
@@ -365,10 +396,12 @@ const t=k=>I[L][k];const pick=v=>Array.isArray(v)?v[L==='pt'?0:1]:v;
 const $=id=>document.getElementById(id);
 const mq=(el,h)=>{el.innerHTML=`<div class="seq">${h}</div><div class="seq" aria-hidden="true">${h}</div>`};
 
-function renderCards(){$('htrack').innerHTML=P.map((c,i)=>`<article class="card"><div><div class="ctop"><span class="idx">0${i+1} / 05</span><span class="pill">${pick(c.tag)}</span></div><h3>${pick(c.n)}</h3><p class="sub">${pick(c.sub)}</p><div class="psr"><div><b>${t('prob')}</b><p>${pick(c.p)}</p></div><div><b>${t('did')}</b><p>${pick(c.d)}</p></div><div><b>${t('res')}</b><p>${pick(c.r)}</p></div></div><div class="stack">${c.s.split(' · ').map(x=>`<span>${x}</span>`).join('')}</div>${(c.gh||c.site)?`<div class="go">${c.gh?`<a href="${c.gh}">${t('code')}</a>`:''}${c.site?`<a class="o" href="${c.site}">${t('live')}</a>`:''}</div>`:''}</div><div class="art${c.car?' hascar':''}">${c.car?carHTML(c.car):c.art}</div></article>`).join('');}
+const openP=new Set();
+function renderCards(){$('plist').innerHTML=P.map((c,i)=>`<article class="prow${openP.has(i)?' open':''}" data-i="${i}"><button type="button" class="phead" aria-expanded="${openP.has(i)}" aria-controls="pb${i}"><span class="pidx">0${i+1}</span><span class="pttl"><b>${pick(c.n)}</b><small>${pick(c.sub)}</small></span><span class="pill">${pick(c.tag)}</span><span class="pplus" aria-hidden="true"></span></button><div class="pbody" id="pb${i}"><div><div class="card"><div><div class="psr"><div><b>${t('prob')}</b><p>${pick(c.p)}</p></div><div><b>${t('did')}</b><p>${pick(c.d)}</p></div><div><b>${t('res')}</b><p>${pick(c.r)}</p></div></div><div class="stack">${c.s.split(' · ').map(x=>`<span>${x}</span>`).join('')}</div>${(c.gh||c.site)?`<div class="go">${c.gh?`<a href="${c.gh}">${t('code')}</a>`:''}${c.site?`<a class="o" href="${c.site}">${t('live')}</a>`:''}</div>`:''}</div><div class="art${c.car?' hascar':''}">${c.car?carHTML(c.car):c.art}</div></div></div></div></article>`).join('');
+$('plist').querySelectorAll('.phead').forEach(btn=>btn.addEventListener('click',()=>{const row=btn.closest('.prow'),i=+row.dataset.i,o=!row.classList.contains('open');row.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));o?openP.add(i):openP.delete(i);if(o)setTimeout(()=>{const r=row.getBoundingClientRect();if(r.top<80||r.top>innerHeight*.5)scrollTo({top:scrollY+r.top-90,behavior:reduce?'auto':'smooth'})},120)}))}
 function renderRest(){
 $('steps').innerHTML=STP.map((s,i)=>`<div class="step rv"><div class="n">${i+1}</div><h3>${pick(s[0])}</h3><p>${pick(s[1])}</p></div>`).join('');
-$('fan').innerHTML=G.map(g=>`<figure class="shot"><div class="fr">${g[3]==='clinic'?phoneHTML('msgsClinic','Clínica NoxIA','IAna · online','IA'):g[3]?`<video src="${g[3]}" poster="${g[2]}" controls muted playsinline preload="none"></video>`:`<img src="${g[2]}" alt="${pick(g[0])}" loading="lazy">`}</div><figcaption><b>${pick(g[0])}</b>${pick(g[1])}</figcaption></figure>`).join('');
+$('fan').innerHTML=G.map(g=>`<figure class="shot"><div class="fr${g[3]==='clinic'?' chat':''}">${g[3]==='clinic'?phoneHTML('msgsClinic','Clínica NoxIA','IAna · online','IA'):g[3]?`<video src="${g[3]}" poster="${g[2]}" controls muted playsinline preload="none"></video>`:`<img src="${g[2]}" alt="${pick(g[0])}" loading="lazy">`}</div><figcaption><b>${pick(g[0])}</b>${pick(g[1])}</figcaption></figure>`).join('');
 $('skills').innerHTML=SK.map(s=>`<div class="sk rv"><h3>${L==='pt'?s[0]:s[1]}</h3><ul>${s[2].split(' · ').map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
 const e=t('end');mq($('endt'),`<span>${e[0]}</span><span>${e[1]}</span>`);
 const B=["Python","FastAPI","LangChain","RAG","n8n","OpenAI","Supabase","pgvector","React","Next.js","TypeScript","Docker","Redis","WhatsApp API","Google Ads API"].map(x=>`<span>${x}</span><b>●</b>`).join('');mq($('band'),B);}
@@ -399,7 +432,7 @@ if(!reduce){clearInterval(car._t);car._t=setInterval(()=>{if(user||!trk.clientWi
 
 /* horizontal pinned projects */
 const hw=$('hwrap'),tr=$('htrack');let maxX=0;
-function layoutH(){if(innerWidth<=860||reduce){hw.style.height='';tr.style.transform='';return}maxX=Math.max(0,tr.scrollWidth-innerWidth+parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--rail')||0));hw.style.height=(innerHeight+maxX)+'px';onScroll()}
+function layoutH(){return;if(innerWidth<=860||reduce){hw.style.height='';tr.style.transform='';return}maxX=Math.max(0,tr.scrollWidth-innerWidth+parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--rail')||0));hw.style.height=(innerHeight+maxX)+'px';onScroll()}
 function onScroll(){const h=document.documentElement.scrollHeight-innerHeight;document.querySelector('.top').classList.toggle('solid',scrollY>24||document.getElementById('nav').classList.contains('open'));$('prog').style.width=(h>0?scrollY/h*100:0)+'%';
 if(innerWidth>860&&!reduce&&maxX>0){const r=hw.getBoundingClientRect(),p=Math.min(1,Math.max(0,-r.top/(hw.offsetHeight-innerHeight)));tr.style.transform=`translate3d(${-p*maxX}px,0,0)`;$('hb').style.width=(p*100)+'%';$('hc').textContent=Math.min(5,1+Math.round(p*4))+' / 5';
 const fa=$('flowart');if(fa){const k=Math.floor((Date.now()/700)%6);}}
@@ -420,6 +453,7 @@ $('fp').addEventListener('click',()=>fgo(-1));$('fn').addEventListener('click',(
 $('cp').addEventListener('click',()=>{navigator.clipboard.writeText('gustavo.calasan@gmail.com').then(()=>{$('cpl').textContent=t('copy');setTimeout(()=>$('cpl').textContent='gustavo.calasan@gmail.com',1800)}).catch(()=>{})});
 
 const mb=$("menu"),nv=$("nav");mb.addEventListener("click",()=>{const o=nv.classList.toggle("open");mb.setAttribute("aria-expanded",String(o));onScroll()});nv.addEventListener("click",e=>{if(e.target.closest("a")){nv.classList.remove("open");mb.setAttribute("aria-expanded","false")}});
+if(!reduce)setInterval(()=>{const f=document.querySelectorAll('.hp figure');if(f.length<2)return;f.forEach(x=>x.classList.toggle('on'))},4500);
 applyLang();addEventListener('load',layoutH);
 }
 </script>
