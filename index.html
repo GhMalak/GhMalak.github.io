@@ -6,296 +6,378 @@
 <title>Gustavo Malaquias</title>
 <meta name="description" content="Gustavo Malaquias, Engenheiro de Software Full-Stack e fundador da NoxIA. Agentes de IA, RAG e automação em produção.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-/* VOICE confident engineer's portfolio, cinematic like a night-to-dawn sequence
-   IDEA the NoxIA night sky that turns to dawn as you scroll: from the first click to the confirmed sale
-   PICTURE a live constellation of the sales system, a token travelling from "clique" to "venda"
-   COLOUR night #0f0820 → dusk #24123c → dawn #3a1e3a; one accent, NoxIA yellow #ffd54a
-   TYPE Big Shoulders Display (condensed titles) + Manrope (body) + JetBrains Mono (labels)
-   LAYOUT hero split title/sky; case studies as full-width rows problem → what I did → result */
-:root{color-scheme:dark;--bg:#0f0820;--ink:#f3eefc;--soft:#b8acd8;--mute:#9b90bf;--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.035);--y:#ffd54a;--v:#7c4dff;--l:#cdbbff}
+/* VOICE an AI engineer's portfolio that behaves like the product he builds
+   IDEA a live conversation: the page opens with an agent talking to a lead, the projects slide sideways like a pipeline
+   PICTURE a phone running a real-looking WhatsApp sale, message by message, ending in "venda registrada no Google Ads"
+   COLOUR deep night #0d0719 with violet #7c4dff light, one sharp accent NoxIA yellow #ffd54a, cards in #160e2b
+   TYPE Unbounded (wide display, NoxIA brand) + Manrope (text) + IBM Plex Mono (tiny meta)
+   LAYOUT fixed left rail with numbered sections and PT/EN; hero = rotating headline + chat phone; projects pinned horizontal track */
+:root{color-scheme:dark;--bg:#0d0719;--bg2:#160e2b;--ink:#f4f0ff;--soft:#bdb2df;--mute:#9a8fc2;--line:rgba(255,255,255,.09);--y:#ffd54a;--v:#7c4dff;--l:#cdbbff;--rail:84px}
 *{box-sizing:border-box;min-width:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
+html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Manrope,system-ui,sans-serif;overflow-x:clip}
 a{color:inherit}
-::selection{background:var(--y);color:#1a1030}
-.skip{position:absolute;left:-999px;top:8px;background:var(--y);color:#1a1030;padding:10px 14px;border-radius:10px;z-index:40}
-.skip:focus{left:12px}
+::selection{background:var(--y);color:#120a24}
 :focus-visible{outline:3px solid var(--y);outline-offset:3px;border-radius:8px}
-.wrap{max-width:1200px;margin:0 auto;padding:0 max(5vw,18px)}
-.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
-h1,h2,h3{font-family:"Big Shoulders Display","Arial Narrow",sans-serif;font-weight:800;line-height:.95;letter-spacing:-.01em;margin:0}
-#bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--y);z-index:30}
-#glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(124,77,255,.16),transparent 65%);transform:translate(-50%,-50%);z-index:0;left:50%;top:30%}
-nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:25;display:flex;align-items:center;gap:2px;padding:6px 8px;border-radius:99px;background:rgba(20,12,40,.75);backdrop-filter:blur(12px);border:1px solid var(--line);max-width:calc(100vw - 24px)}
-nav a{text-decoration:none;padding:9px 14px;border-radius:99px;font-size:15px;color:var(--soft);white-space:nowrap}
-nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
-nav .me{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:20px;color:#fff;padding:6px 14px}
-nav .me i{color:var(--y);font-style:normal}
-main,footer{position:relative;z-index:1}
-.hero{min-height:100svh;display:grid;align-items:center;padding:110px 0 60px}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,72px);align-items:center;width:100%}
-.labels p{margin:0 0 6px;color:var(--soft)}
-.labels b{color:#fff;font-weight:700}
-.hero h1{font-size:clamp(64px,10vw,148px);margin:22px 0 26px}
-.hero h1 span{display:block;overflow:hidden;padding-bottom:.04em}
-.hero h1 em{display:inline-block;font-style:normal;animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
-.hero h1 span:nth-child(2) em{animation-delay:.15s}
-.outline{color:transparent;-webkit-text-stroke:2px var(--ink);background:linear-gradient(90deg,var(--y),var(--y)) no-repeat 0 0/0% 100%;-webkit-background-clip:text;background-clip:text;transition:background-size .7s ease}
-.hero h1:hover .outline{background-size:100% 100%}
-.dot{color:var(--y);font-style:normal}
-@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
-.lead{font-size:clamp(19px,1.8vw,23px);max-width:34ch;margin:0 0 14px;color:#fff}
-.where{color:var(--mute);margin:0 0 26px;max-width:52ch}
-.cta{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 22px;border-radius:99px;font-weight:700;text-decoration:none;font-size:15px;transition:transform .2s,border-color .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn.y{background:var(--y);color:#1a1030}
-.btn.o{border:1.5px solid rgba(255,255,255,.25)}
-.btn.o:hover{border-color:var(--y)}
-.sky{position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:radial-gradient(120% 90% at 70% 10%,#2c1760,#120a28 70%);border:1px solid var(--line);animation:fade 1.2s .3s both}
-.sky svg{position:absolute;inset:0;width:100%;height:100%}
-.sky .cap{position:absolute;left:18px;bottom:16px;right:18px;color:var(--soft)}
-@keyframes fade{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
-.ticker{border-block:1px solid var(--line);overflow:hidden;padding:18px 0;white-space:nowrap}
-.track{display:inline-flex;gap:44px;animation:slide 38s linear infinite;font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:34px;color:var(--soft)}
-.track b{color:var(--y);font-weight:800}
-@keyframes slide{to{transform:translateX(-50%)}}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin:72px auto 0}
-.stat{background:var(--bg);padding:26px 24px}
-.stat .n{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:64px;line-height:1;color:#fff}
-.stat .n i{color:var(--y);font-style:normal}
-.stat p{margin:8px 0 0;color:var(--soft);font-size:15px}
-section{padding:clamp(80px,10vw,140px) 0 0}
-.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:38px}
-h2{font-size:clamp(54px,7vw,96px)}
-.head p{margin:0;color:var(--soft);max-width:44ch}
-.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);padding:clamp(24px,3vw,40px);border:1px solid var(--line);border-radius:28px;background:var(--card);margin-bottom:22px;transition:border-color .3s,transform .3s}
-.case:hover{border-color:rgba(255,213,74,.45)}
-.case .k{color:var(--y);margin:0 0 12px}
-.case h3{font-size:clamp(40px,4.6vw,62px);margin-bottom:8px}
-.case .sub{color:var(--soft);margin:0 0 16px}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
-.tags li{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:8px;border:1px solid var(--line);color:var(--l)}
-.steps{display:grid;gap:14px}
-.step{display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding-top:14px;border-top:1px solid var(--line)}
-.step span{color:var(--mute)}
-.step p{margin:0}
-.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.links a{font-size:14px;font-weight:700;text-decoration:none;padding:10px 16px;border-radius:99px;border:1.5px solid rgba(255,255,255,.22)}
-.links a:hover{border-color:var(--y);color:var(--y)}
-.vis{position:relative;border-radius:22px;overflow:hidden;background:#140c2c;border:1px solid var(--line);min-height:380px;display:grid;place-items:center;padding:20px}
-.vis img{max-height:460px;width:auto;max-width:100%;display:block;transition:transform .6s}
-.case:hover .vis img{transform:scale(1.03)}
-.doc{width:100%;max-width:300px;background:#f5f1ff;color:#2a2050;border-radius:12px;padding:18px;font-size:12px;box-shadow:0 20px 40px rgba(0,0,0,.4)}
-.doc .ln{height:7px;border-radius:4px;background:#d9d0f5;margin:7px 0}
-.doc .hl{background:#ffd54a;animation:scan 3s ease-in-out infinite}
-.doc b{display:block;font-size:13px;margin-bottom:8px}
-@keyframes scan{0%,100%{opacity:.35}50%{opacity:1}}
-.arrow{font-family:"JetBrains Mono",monospace;color:var(--y);margin:14px 0;font-size:13px;text-align:center}
-.bars{display:flex;align-items:flex-end;gap:10px;height:180px;width:100%;max-width:340px}
-.bars i{flex:1;border-radius:8px 8px 0 0;background:linear-gradient(var(--l),var(--v));transform-origin:bottom;animation:grow 2.4s ease-in-out infinite alternate}
-@keyframes grow{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
-.mini{width:100%;max-width:340px;display:grid;gap:8px;margin-top:16px}
-.mini div{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.05)}
-.mini b{color:var(--y)}
-.legal{width:100%;max-width:380px;display:grid;gap:12px}
-.legal div{border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.5}
-.legal .a{background:rgba(255,255,255,.06);color:var(--mute);text-decoration:line-through;text-decoration-color:rgba(255,213,74,.6)}
-.legal .b{background:#f5f1ff;color:#24183f;min-height:96px}
-.legal .b::after{content:"▍";color:var(--v);animation:blink 1s steps(1) infinite}
+.skip{position:absolute;left:-999px;top:8px;background:var(--y);color:#120a24;padding:10px 14px;border-radius:10px;z-index:60}
+.skip:focus{left:96px}
+h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-spacing:-.03em;line-height:1;margin:0}
+.meta{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px;color:var(--mute)}
+/* left rail */
+.rail{position:fixed;inset:0 auto 0 0;width:var(--rail);z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:22px 0;border-right:1px solid var(--line);background:rgba(13,7,25,.85);backdrop-filter:blur(10px)}
+.logo{width:46px;height:46px;border-radius:14px;background:var(--y);color:#120a24;display:grid;place-items:center;font:800 17px Unbounded,sans-serif;text-decoration:none}
+.rail nav{display:flex;flex-direction:column;gap:6px}
+.rail nav a{writing-mode:vertical-rl;transform:rotate(180deg);text-decoration:none;color:var(--mute);font-size:14px;font-weight:600;padding:12px 8px;border-radius:10px;display:flex;gap:10px;align-items:center}
+.rail nav a em{font-style:normal}
+.rail nav a span{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--v)}
+.rail nav a:hover,.rail nav a.on{color:#fff;background:rgba(255,255,255,.06)}
+.rail nav a.on span{color:var(--y)}
+.prog{width:2px;height:90px;background:var(--line);border-radius:2px;position:relative;overflow:hidden}
+.prog i{position:absolute;left:0;top:0;width:100%;height:0;background:var(--y)}
+.lang{display:flex;flex-direction:column;gap:4px;padding:4px;border-radius:12px;border:1px solid var(--line)}
+.lang button{width:44px;height:36px;border:0;border-radius:9px;background:transparent;color:var(--mute);font:700 12px Manrope,sans-serif;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--ink);color:#120a24}
+main,footer{margin-left:var(--rail)}
+.pad{padding-left:max(5vw,24px);padding-right:max(5vw,24px)}
+.max{max-width:1240px;margin:0 auto}
+/* hero */
+.hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(28px,4vw,64px);align-items:center;padding-top:48px;padding-bottom:48px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:780px;height:780px;right:-200px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(124,77,255,.28),transparent 62%);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;border-radius:99px;background:var(--bg2);border:1px solid var(--line);font-size:14px;color:var(--soft);margin-bottom:28px}
+.badge i{width:9px;height:9px;border-radius:50%;background:#55e38a;box-shadow:0 0 0 0 rgba(85,227,138,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(85,227,138,0)}100%{box-shadow:0 0 0 0 rgba(85,227,138,0)}}
+.hero h1{font-size:clamp(36px,4.8vw,76px);position:relative}
+.hero h1 .w{display:block;color:var(--y);min-height:1.05em;white-space:nowrap}
+.hero h1 .w::after{content:"";display:inline-block;width:.08em;height:.85em;background:var(--y);margin-left:.06em;vertical-align:-.08em;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 18px;scrollbar-width:thin}
-.shot{flex:none;width:min(270px,76vw);scroll-snap-align:start;margin:0}
-.phone{height:520px;border-radius:30px;overflow:hidden;background:#120a2a;border:6px solid #2a1f55}
-.phone img,.phone video{width:100%;height:100%;object-fit:contain;display:block}
-.shot figcaption{margin-top:12px;font-size:15px;color:var(--soft)}
-.shot figcaption b{display:block;color:var(--y);font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
-.rnav{display:flex;gap:8px}
-.rnav button{width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);background:transparent;color:#fff;font-size:22px;cursor:pointer}
-.rnav button:hover{border-color:var(--y);color:var(--y)}
-.about{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,72px)}
-.about .big{font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:clamp(34px,3.6vw,48px);line-height:1.02;margin:0 0 22px}
-.about p{color:var(--soft);margin:0 0 14px;max-width:62ch}
-.tl{list-style:none;margin:0;padding:0}
-.tl li{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;padding:18px 0;border-top:1px solid var(--line)}
-.tl .d{color:var(--mute)}
-.tl h4{margin:0 0 4px;font-size:18px}
+.hero .lead{font-size:clamp(18px,1.6vw,21px);color:var(--soft);max-width:44ch;margin:26px 0 30px}
+.hero .lead b{color:#fff}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:16px;font-weight:800;font-size:15px;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
+.btn.y{background:var(--y);color:#120a24;box-shadow:0 8px 30px -10px rgba(255,213,74,.6)}
+.btn.y:hover{transform:translateY(-3px)}
+.btn.g{border:1.5px solid rgba(255,255,255,.2)}
+.btn.g:hover{border-color:var(--l)}
+.who{display:flex;gap:28px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line)}
+.who div b{display:block;font:800 26px Unbounded,sans-serif;color:#fff}
+.who div span{font-size:14px;color:var(--mute)}
+/* phone chat */
+.phone{position:relative;width:min(100%,360px);margin:0 auto;aspect-ratio:9/18.5;max-height:calc(100svh - 80px);border-radius:44px;background:#000;padding:12px;box-shadow:0 40px 80px -30px rgba(124,77,255,.6),0 0 0 2px #2a1f55;animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.screen{height:100%;border-radius:34px;overflow:hidden;display:flex;flex-direction:column;background:#0b141a}
+.chathead{display:flex;align-items:center;gap:10px;padding:16px 14px 12px;background:#1f2c34;color:#e9edef}
+.av{width:36px;height:36px;border-radius:50%;background:var(--y);display:grid;place-items:center;color:#120a24;font:800 13px Unbounded,sans-serif}
+.chathead b{display:block;font-size:15px}
+.chathead small{font-size:12px;color:#8696a0}
+.msgs{flex:1;overflow:hidden;padding:14px 12px;display:flex;flex-direction:column;gap:8px;justify-content:flex-end;background:radial-gradient(circle at 20% 20%,#0f1d24,#0b141a)}
+.m{max-width:82%;padding:8px 11px;border-radius:12px;font-size:14px;line-height:1.4;color:#e9edef;animation:pop .35s ease both}
+.m.in{align-self:flex-start;background:#202c33;border-top-left-radius:4px}
+.m.out{align-self:flex-end;background:#005c4b;border-top-right-radius:4px}
+.m.sys{align-self:center;background:rgba(255,213,74,.14);color:var(--y);font-size:12.5px;font-weight:700;border-radius:99px;padding:6px 12px}
+.m.typing{display:flex;gap:4px;padding:12px 14px}
+.m.typing i{width:6px;height:6px;border-radius:50%;background:#8696a0;animation:dots 1.2s infinite}
+.m.typing i:nth-child(2){animation-delay:.15s}.m.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dots{30%{transform:translateY(-4px);opacity:1}0%,60%,100%{opacity:.4}}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding:10px 12px 14px;background:#0b141a}
+.chips a{font-size:12.5px;font-weight:700;text-decoration:none;padding:8px 11px;border-radius:99px;border:1px solid #2a3942;color:#53bdeb}
+.chips a:hover{background:#1f2c34}
+.phonecap{text-align:center;margin-top:14px}
+/* marquee */
+.band{border-block:1px solid var(--line);overflow:hidden;background:var(--bg2)}
+.band .t{display:inline-flex;white-space:nowrap;gap:36px;padding:16px 0;animation:mq 40s linear infinite;font:700 22px Unbounded,sans-serif;color:var(--soft)}
+.band .t b{color:var(--y)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* sections */
+.sec{padding-top:clamp(90px,10vw,150px)}
+.sh{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px 28px;align-items:end;margin-bottom:44px}
+.sh .num{font:800 clamp(60px,8vw,120px)/.8 Unbounded,sans-serif;color:transparent;-webkit-text-stroke:1.5px rgba(205,187,255,.35)}
+.sh h2{font-size:clamp(34px,4.4vw,64px)}
+.sh p{grid-column:2;margin:0;color:var(--soft);max-width:56ch}
+/* horizontal pinned projects */
+.hwrap{position:relative}
+.hstick{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.htrack{display:flex;gap:28px;padding-left:max(5vw,24px);padding-right:max(5vw,24px);will-change:transform}
+.card{flex:none;width:min(1020px,82vw);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:28px;background:var(--bg2);border:1px solid var(--line);border-radius:32px;padding:clamp(22px,3vw,40px);min-height:min(600px,78svh)}
+.card .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}
+.card .idx{font:800 15px Unbounded,sans-serif;color:var(--y)}
+.pill{font-size:12px;font-weight:800;padding:6px 11px;border-radius:99px;background:rgba(124,77,255,.18);color:var(--l)}
+.card h3{font-size:clamp(28px,3vw,44px);margin-bottom:8px}
+.card .sub{color:var(--soft);margin:0 0 20px}
+.psr{display:grid;gap:12px}
+.psr div{border-radius:16px;padding:12px 14px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
+.psr b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--y);margin-bottom:4px}
+.psr p{margin:0;font-size:15px;line-height:1.5}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.stack span{font-size:12.5px;padding:5px 10px;border-radius:8px;background:rgba(255,255,255,.06);color:var(--soft)}
+.go{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.go a{font-size:14px;font-weight:800;text-decoration:none;padding:10px 16px;border-radius:12px;background:var(--ink);color:#120a24}
+.go a.o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.22)}
+.art{border-radius:24px;background:radial-gradient(circle at 30% 20%,#2a1760,#110a24 70%);border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;position:relative;min-height:300px;padding:18px}
+.art img{max-height:100%;max-width:100%;width:auto;height:auto;max-height:520px;border-radius:14px}
+.hint{display:flex;align-items:center;gap:10px;margin:22px max(5vw,24px) 0}
+.hint i{flex:1;height:2px;background:var(--line);position:relative;overflow:hidden;border-radius:2px}
+.hint i b{position:absolute;inset:0 auto 0 0;width:0;background:var(--y)}
+/* art pieces */
+.flow{display:grid;gap:10px;width:100%;max-width:330px}
+.flow div{display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:14px;background:rgba(255,255,255,.06);font-size:14px;opacity:.35;transition:opacity .4s,background .4s}
+.flow div.on{opacity:1;background:rgba(255,213,74,.14)}
+.flow div em{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--y)}
+.pdf{display:grid;gap:12px;width:100%;max-width:300px}
+.pdf .pg{background:#f5f1ff;color:#2a2050;border-radius:12px;padding:16px;font-size:12.5px;font-weight:700}
+.pdf .ln{height:7px;border-radius:4px;background:#d9d0f5;margin-top:8px}
+.pdf .ln.hl{background:var(--y);animation:hl 2.6s ease-in-out infinite}
+@keyframes hl{0%,100%{opacity:.3}50%{opacity:1}}
+.pdf .ar{text-align:center;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--y)}
+.dash{width:100%;max-width:340px;display:grid;gap:12px}
+.bars{display:flex;align-items:flex-end;gap:9px;height:160px;padding:14px;border-radius:16px;background:rgba(255,255,255,.05)}
+.bars i{flex:1;border-radius:6px 6px 0 0;background:linear-gradient(var(--y),var(--v));transform-origin:bottom;animation:gr 2.2s ease-in-out infinite alternate}
+@keyframes gr{from{transform:scaleY(.3)}to{transform:scaleY(1)}}
+.kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi div{padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.05);font-size:12.5px;color:var(--soft)}
+.kpi b{display:block;color:#fff;font:800 18px Unbounded,sans-serif}
+.law{width:100%;max-width:360px;display:grid;gap:12px}
+.law div{padding:14px;border-radius:14px;font-size:14px;line-height:1.5}
+.law .a{background:rgba(255,255,255,.05);color:var(--mute);text-decoration:line-through;text-decoration-color:rgba(255,213,74,.55)}
+.law .b{background:#f5f1ff;color:#21163b;min-height:92px}
+.law .b::after{content:"▍";color:var(--v);animation:blink 1s steps(1) infinite}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;position:relative}
+.step{padding:24px;border-radius:24px;background:var(--bg2);border:1px solid var(--line);position:relative;transition:transform .3s,border-color .3s}
+.step:hover{transform:translateY(-6px);border-color:var(--y)}
+.step .n{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--v);font:800 16px Unbounded,sans-serif;margin-bottom:18px}
+.step h3{font-size:20px;margin-bottom:10px;letter-spacing:-.02em}
+.step p{margin:0;color:var(--soft);font-size:15px}
+/* live gallery fan */
+.fan{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 4px 24px}
+.shot{flex:none;width:min(240px,70vw);scroll-snap-align:start;margin:0;transition:transform .35s}
+.shot:nth-child(odd){transform:rotate(-2deg)}.shot:nth-child(even){transform:rotate(2deg) translateY(14px)}
+.shot:hover{transform:rotate(0) translateY(-8px) scale(1.03)}
+.shot .fr{height:470px;border-radius:30px;overflow:hidden;border:6px solid #241a4d;background:#120a28}
+.shot img,.shot video{width:100%;height:100%;object-fit:contain;display:block}
+.shot figcaption{margin-top:12px;font-size:14px;color:var(--soft)}
+.shot figcaption b{display:block;color:#fff;font-size:15px}
+.fnav{display:flex;gap:8px;margin-top:6px}
+.fnav button{width:48px;height:48px;border-radius:14px;border:1.5px solid rgba(255,255,255,.2);background:transparent;color:#fff;font-size:20px;cursor:pointer}
+.fnav button:hover{border-color:var(--y);color:var(--y)}
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px)}
+.quote{font:800 clamp(26px,2.8vw,40px)/1.15 Unbounded,sans-serif;letter-spacing:-.03em;margin:0 0 22px}
+.quote em{font-style:normal;color:var(--y)}
+.about p{color:var(--soft);margin:0 0 14px}
+.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:0 0 26px 24px}
+.tl li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--y)}
+.tl h4{margin:4px 0;font-size:18px}
 .tl p{margin:0;color:var(--soft);font-size:15px}
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-.sk{border:1px solid var(--line);border-radius:22px;padding:22px;background:var(--card)}
-.sk h3{font-size:30px;margin-bottom:14px}
-.sk ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.sk li{font-size:14px;padding:6px 11px;border-radius:99px;background:rgba(255,255,255,.06)}
-.sk li.s{background:var(--y);color:#1a1030;font-weight:700}
-.contact{padding-bottom:40px}
-.contact h2{font-size:clamp(72px,12vw,180px)}
-.clist{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:36px}
-.clist a,.clist button{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:72px;padding:0 22px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:#fff;text-decoration:none;font:600 17px Manrope,sans-serif;cursor:pointer;text-align:left;flex-wrap:wrap}
-.clist a:hover,.clist button:hover{border-color:var(--y)}
-.clist small{color:var(--mute);font-weight:500;overflow-wrap:anywhere}
-footer{padding:40px 0 60px;color:var(--mute);font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
-.sun{position:fixed;left:50%;bottom:-60vh;width:120vw;height:90vh;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle at 50% 30%,rgba(255,190,90,.32),transparent 60%);pointer-events:none;z-index:0;opacity:0}
-@supports (animation-timeline:view()){
- .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
- @keyframes rv{from{opacity:.08;transform:translateY(48px)}to{opacity:1;transform:none}}
-}
-@media(max-width:860px){.hero .wrap,.case,.about{grid-template-columns:minmax(0,1fr)}.sky{aspect-ratio:1/1;max-height:440px}.vis{min-height:300px}}
-@media(max-width:600px){nav a:not(.me){padding:8px 8px;font-size:13px}.step,.tl li{grid-template-columns:minmax(0,1fr);gap:4px}#glow{display:none}}
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:56px}
+.sk{padding:20px;border-radius:22px;background:var(--bg2);border:1px solid var(--line)}
+.sk h3{font-size:16px;letter-spacing:-.01em;margin-bottom:12px;color:var(--l)}
+.sk ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:7px}
+.sk li{font-size:14px;padding:6px 11px;border-radius:10px;background:rgba(255,255,255,.06)}
+/* contact */
+.end{margin-left:var(--rail);margin-top:clamp(90px,10vw,150px);background:var(--y);color:#120a24;border-radius:40px 40px 0 0;overflow:hidden}
+.end .t{display:inline-flex;white-space:nowrap;gap:40px;padding:34px 0 10px;animation:mq 26s linear infinite;font:800 clamp(56px,9vw,130px)/1 Unbounded,sans-serif;letter-spacing:-.04em}
+.end .t span:nth-child(even){color:transparent;-webkit-text-stroke:2px #120a24}
+.end .in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:end;padding-top:30px;padding-bottom:50px}
+.end p{margin:0;font-size:19px;font-weight:600;max-width:40ch}
+.cl{display:grid;gap:10px}
+.cl a,.cl button{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:64px;padding:0 22px;border-radius:18px;background:#120a24;color:#fff;text-decoration:none;font:700 17px Manrope,sans-serif;border:0;cursor:pointer;flex-wrap:wrap;text-align:left;transition:transform .2s}
+.cl a:hover,.cl button:hover{transform:translateX(6px)}
+.cl small{color:var(--l);font-weight:600;overflow-wrap:anywhere}
+footer{background:var(--y);color:#3a2a10;font-size:14px}
+footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:18px;padding-bottom:26px;border-top:1px solid rgba(18,10,36,.15)}
+/* reveal */
+@supports (animation-timeline:view()){.rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 35%}@keyframes rv{from{opacity:.1;transform:translateY(40px)}to{opacity:1;transform:none}}}
+@media(max-width:980px){.hero{grid-template-columns:minmax(0,1fr);padding-top:40px}.phone{max-height:none;width:min(100%,330px)}.card{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.about,.end .in{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:860px){.hwrap{height:auto!important}.hstick{position:static;height:auto;overflow:visible}.htrack{flex-direction:column;transform:none!important}.card{width:100%;min-height:0}.hint{display:none}}
+@media(max-width:700px){:root{--rail:0px}.rail{inset:auto 0 0 0;width:auto;height:64px;flex-direction:row;padding:0 10px;border-right:0;border-top:1px solid var(--line)}.rail nav{flex-direction:row;gap:0}.rail nav a{writing-mode:horizontal-tb;transform:none;padding:8px 8px;font-size:13px;white-space:nowrap}.rail nav a[href="#processo"],.rail nav a[href="#aovivo"]{display:none}.rail nav a em{font-style:normal}
+.rail nav a span{display:none}.prog{display:none}.logo{width:40px;height:40px;font-size:14px}.lang{flex-direction:row}.lang button{width:38px;height:34px}body{padding-bottom:64px}.skip:focus{left:12px}.steps,.skills{grid-template-columns:minmax(0,1fr)}.sh{grid-template-columns:minmax(0,1fr)}.sh p{grid-column:1}.who{gap:18px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<div id="bar"></div><div id="glow"></div><div class="sun" id="sun"></div>
-<nav aria-label="Navegação principal">
-<a class="me" href="#topo">G<i>M</i></a><a href="#projetos">Projetos</a><a href="#aovivo">Ao vivo</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+<a class="skip" href="#conteudo" data-i="skip">Pular para o conteúdo</a>
+<aside class="rail" aria-label="Navegação">
+<a class="logo" href="#topo" aria-label="Início">GM</a>
+<nav id="nav">
+<a href="#projetos"><span>01</span><em data-i="n1">Projetos</em></a>
+<a href="#processo"><span>02</span><em data-i="n2">Processo</em></a>
+<a href="#aovivo"><span>03</span><em data-i="n3">Ao vivo</em></a>
+<a href="#sobre"><span>04</span><em data-i="n4">Sobre</em></a>
+<a href="#contato"><span>05</span><em data-i="n5">Contato</em></a>
 </nav>
+<div class="prog" aria-hidden="true"><i id="prog"></i></div>
+<div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-l="pt" aria-pressed="true">PT</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+</aside>
 
 <main id="conteudo">
-<header class="hero" id="topo"><div class="wrap">
+<header class="hero pad" id="topo">
+<div class="rv0">
+<div class="badge"><i></i><span data-i="badge">Disponível para vagas · Brasília ou remoto</span></div>
+<h1><span data-i="h1">Eu construo agentes de IA que</span> <span class="w" id="word" aria-live="polite"></span></h1>
+<p class="lead" data-i="lead" data-html="1">Sou <b>Gustavo Malaquias</b>, engenheiro de software full-stack e fundador da NoxIA. Faço sistemas que atendem, vendem e medem cada resultado, rodando em produção todos os dias.</p>
+<div class="cta"><a class="btn y" href="#projetos" data-i="cta1">Ver projetos →</a><a class="btn g" href="https://github.com/GhMalak">GitHub</a><a class="btn g" href="https://www.linkedin.com/in/ghmalak">LinkedIn</a></div>
+<div class="who">
+<div><b>20+</b><span data-i="w1">fluxos n8n em produção</span></div>
+<div><b>8</b><span data-i="w2">agentes de IA na NoxIA</span></div>
+<div><b>24h</b><span data-i="w3">atendimento automático</span></div>
+</div>
+</div>
 <div>
-<div class="labels mono"><p><b>Gustavo Malaquias</b> · Engenheiro de Software Full-Stack</p><p>Fundador da NoxIA · IA aplicada · Brasília</p></div>
-<h1><span><em class="outline">Do clique</em></span><span><em>à venda<i class="dot">.</i></em></span></h1>
-<p class="lead">Construo sistemas de IA que atendem, vendem e medem o resultado. Em produção, não só em demo.</p>
-<p class="where">Brasília, DF · Disponível para vagas remotas, híbridas ou presenciais</p>
-<div class="cta"><a class="btn y" href="#projetos">Ver projetos ↓</a><a class="btn o" href="https://github.com/GhMalak">GitHub</a><a class="btn o" href="https://www.linkedin.com/in/ghmalak">LinkedIn</a></div>
+<div class="phone" aria-label="Demonstração: conversa de venda feita por um agente de IA no WhatsApp" role="img">
+<div class="screen">
+<div class="chathead"><div class="av">AI</div><div><b data-i="ph1">Agente de vendas</b><small data-i="ph2">online · responde na hora</small></div></div>
+<div class="msgs" id="msgs"></div>
+<div class="chips"><a href="#projetos" data-i="c1">Ver projetos</a><a href="#aovivo" data-i="c2">Prints reais</a><a href="#contato" data-i="c3">Falar comigo</a></div>
 </div>
-<div class="sky" id="sky" role="img" aria-label="Constelação do sistema: clique no anúncio, landing page, WhatsApp, agente de IA, pagamento e venda no Google Ads"><svg></svg><div class="cap mono">Um sistema meu, de ponta a ponta</div></div>
-</div></header>
-
-<div class="ticker" aria-hidden="true"><div class="track" id="track"></div></div>
-
-<div class="wrap"><div class="stats rv">
-<div class="stat"><div class="n"><span data-to="20">20</span><i>+</i></div><p>fluxos n8n rodando em produção</p></div>
-<div class="stat"><div class="n"><span data-to="8">8</span></div><p>agentes de IA na plataforma da NoxIA</p></div>
-<div class="stat"><div class="n"><span data-to="24">24</span><i>h</i></div><p>de atendimento automático no WhatsApp</p></div>
-<div class="stat"><div class="n"><span data-to="5">5</span></div><p>projetos publicados no GitHub</p></div>
-</div></div>
-
-<section id="projetos"><div class="wrap">
-<div class="head rv"><h2>Projetos</h2><p>Cada caso em três partes: o problema, o que eu fiz e o resultado.</p></div>
-<div id="cases"></div>
-</div></section>
-
-<section id="aovivo"><div class="wrap">
-<div class="head rv"><div><h2>Ao vivo</h2><p>Prints e vídeos reais dos agentes de IA e das clínicas em produção.</p></div><div class="rnav"><button type="button" id="prev" aria-label="Anterior">←</button><button type="button" id="next" aria-label="Próximo">→</button></div></div>
-<div class="rail" id="rail" tabindex="0" aria-label="Galeria de prints"></div>
-</div></section>
-
-<section id="sobre"><div class="wrap about">
-<div class="rv">
-<h2 style="margin-bottom:26px">Sobre</h2>
-<p class="big">Gosto de resolver o problema certo e de medir se ele foi resolvido.</p>
-<p>Sou desenvolvedor full-stack e fundador da NoxIA. Aprendi construindo meus próprios negócios digitais: funis de venda, atendimento automático e agentes que trabalham por mim. Cada sistema precisava dar resultado de verdade, porque o dinheiro era meu.</p>
-<p>Resolvi problemas de produção como race conditions em webhooks, filas travadas, atribuição de vendas simultâneas e números de WhatsApp em escala. Agora quero levar essa experiência para um time de engenharia.</p>
 </div>
-<div class="rv">
-<ul class="tl">
-<li><span class="d mono">2026 — hoje</span><div><h4>Fundador · NoxIA</h4><p>Atendentes de IA para clínicas e plataforma de agentes de IA para infoprodutores.</p></div></li>
-<li><span class="d mono">2026 — hoje</span><div><h4>Negócio próprio de infoprodutos</h4><p>Funil de vendas no WhatsApp com IA, checkout próprio e tráfego pago.</p></div></li>
-<li><span class="d mono">2021 — 2023</span><div><h4>Desenvolvedor full-stack freelance</h4><p>Plataforma educacional de ponta a ponta.</p></div></li>
-<li><span class="d mono">2020 — 2023</span><div><h4>Tecnólogo em ADS · UniCEUB</h4><p>Análise e Desenvolvimento de Sistemas. Inglês avançado.</p></div></li>
+<p class="phonecap meta" data-i="phcap">Simulação de uma conversa do meu sistema</p>
+</div>
+</header>
+
+<div class="band" aria-hidden="true"><div class="t" id="band"></div></div>
+
+<section class="sec" id="projetos">
+<div class="pad max"><div class="sh rv"><span class="num">01</span><h2 data-i="p_t">Projetos</h2><p data-i="p_s">Role para ver os cinco casos. Cada um em três partes: o problema, o que eu fiz e o resultado.</p></div></div>
+<div class="hwrap" id="hwrap"><div class="hstick"><div class="htrack" id="htrack"></div><div class="hint meta"><span id="hc">1 / 5</span><i><b id="hb"></b></i></div></div></div>
+</section>
+
+<section class="sec pad max" id="processo">
+<div class="sh rv"><span class="num">02</span><h2 data-i="pr_t">Como eu trabalho</h2><p data-i="pr_s">Antes da ferramenta, o problema. Antes de escalar, a medição.</p></div>
+<div class="steps" id="steps"></div>
+</section>
+
+<section class="sec pad max" id="aovivo">
+<div class="sh rv"><span class="num">03</span><h2 data-i="l_t">Ao vivo</h2><p data-i="l_s">Prints e vídeos reais dos agentes e das clínicas em produção.</p></div>
+<div class="fan" id="fan" tabindex="0"></div>
+<div class="fnav"><button type="button" id="fp" aria-label="Anterior">←</button><button type="button" id="fn" aria-label="Próximo">→</button></div>
+</section>
+
+<section class="sec pad max" id="sobre">
+<div class="sh rv"><span class="num">04</span><h2 data-i="a_t">Sobre</h2></div>
+<div class="about">
+<div class="rv"><p class="quote" data-i="q" data-html="1">Escolher o <em>problema certo</em> vale mais do que a ferramenta mais nova.</p>
+<p data-i="a1">Aprendi construindo meus próprios negócios digitais: funis de venda, atendimento automático e agentes que trabalham por mim. Cada sistema precisava dar resultado de verdade, porque o dinheiro era meu.</p>
+<p data-i="a2">Resolvi problemas de produção como race conditions em webhooks, filas travadas, atribuição de vendas simultâneas e WhatsApp em escala. Agora quero levar essa experiência para um time de engenharia.</p></div>
+<ul class="tl rv">
+<li><span class="meta" data-i="t1d">2026 — hoje</span><h4 data-i="t1h">Fundador · NoxIA</h4><p data-i="t1p">Atendentes de IA para clínicas e plataforma de agentes para infoprodutores.</p></li>
+<li><span class="meta" data-i="t2d">2026 — hoje</span><h4 data-i="t2h">Negócio próprio de produtos digitais</h4><p data-i="t2p">Funil de vendas no WhatsApp com IA, checkout próprio e tráfego pago.</p></li>
+<li><span class="meta">2021 — 2023</span><h4 data-i="t3h">Desenvolvedor full-stack freelance</h4><p data-i="t3p">Plataforma educacional de ponta a ponta.</p></li>
+<li><span class="meta">2020 — 2023</span><h4 data-i="t4h">Tecnólogo em ADS · UniCEUB</h4><p data-i="t4p">Análise e Desenvolvimento de Sistemas. Inglês avançado.</p></li>
 </ul>
 </div>
-</div></section>
-
-<section id="habilidades"><div class="wrap">
-<div class="head rv"><h2>Stack</h2><p>Em amarelo, o que uso todos os dias em produção.</p></div>
 <div class="skills" id="skills"></div>
-</div></section>
+</section>
+</main>
 
-<section class="contact" id="contato"><div class="wrap">
-<h2 class="rv">Vamos<br>conversar<i class="dot">?</i></h2>
-<div class="clist">
+<section class="end" id="contato">
+<div aria-hidden="true" style="overflow:hidden"><div class="t" id="endt"></div></div>
+<div class="in pad max">
+<p data-i="e_p">Procurando alguém que construa IA que funciona em produção? Vamos conversar.</p>
+<div class="cl">
 <a href="https://www.linkedin.com/in/ghmalak"><span>LinkedIn</span><small>/in/ghmalak ↗</small></a>
 <a href="https://github.com/GhMalak"><span>GitHub</span><small>/GhMalak ↗</small></a>
-<button type="button" id="cp"><span>E-mail</span><small id="cpl">gustavo.calasan@gmail.com · copiar</small></button>
+<button type="button" id="cp"><span>E-mail</span><small id="cpl">gustavo.calasan@gmail.com</small></button>
 </div>
-</div></section>
-</main>
-<footer><div class="wrap"><span>© 2026 Gustavo Malaquias · Brasília, DF</span><span>Fundador da <a href="https://noxia.com.br">NoxIA</a></span></div></footer>
+</div>
+</section>
+<footer><div class="in pad max"><span>© 2026 Gustavo Malaquias · Brasília, DF</span><span data-i="f">Fundador da <a href="https://noxia.com.br">NoxIA</a></span></div></footer>
 
 <script>
 {
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const C=[
-{k:"Caso 1 / 5",n:"NoxIA",sub:"Empresa própria de automação com IA",tags:["Empresa própria","Em produção"],
-p:"Clínicas perdem pacientes que mandam mensagem fora do horário, e infoprodutores gastam horas por dia cruzando vendas e anúncios.",
-f:"Criei um atendente de IA no WhatsApp para clínicas (n8n, Chatwoot e RAG) e uma plataforma multi-cliente com 8 agentes de IA em FastAPI, Docker e Telegram.",
-r:"Atendimento 24 horas nas clínicas e relatórios, alertas e sugestões de verba chegando sozinhos no celular. Nada que mexe em dinheiro acontece sem aprovação humana.",
-gh:"https://github.com/GhMalak/noxia",site:"https://noxia.com.br",vis:'<img src="media/relatorio.webp" alt="Relatório diário do Agente Financeiro no Telegram">'},
-{k:"Caso 2 / 5",n:"Vendas no WhatsApp com IA",sub:"Funil automatizado de produtos digitais",tags:["Negócio próprio","Em produção"],
-p:"Vender pelo WhatsApp exigia responder, enviar o produto, confirmar o Pix e fazer follow-up à mão, sem saber qual anúncio gerou cada venda.",
-f:"Montei mais de 20 fluxos n8n com uma agente LangChain com memória e RAG, checkout próprio com Mercado Pago e rastreio de cada venda até o GCLID.",
-r:"O funil vende e entrega sozinho, e cada venda volta para o Google Ads como conversão offline. Resolvi race conditions e filas que travavam até 9 minutos.",
-vis:'<img src="media/comparativo.webp" alt="Checagem das conversões com GCLID">'},
-{k:"Caso 3 / 5",n:"GAPP",sub:"Análise de documentos e geração de ofícios com IA",tags:["Projeto entregue","IA + PDF"],
-p:"Analisar Planos de Trabalho em PDF e redigir ofícios de resposta era um trabalho manual, lento e sujeito a erro.",
-f:"Construí uma API FastAPI com fila Redis e worker que extrai o texto, analisa cada tópico com Llama 3.3 e gera o ofício em PDF. Front-end em Next.js.",
-r:"O ofício sai pronto a partir do PDF. Testei RAG com fine-tuning e escolhi Groq com few-shot, que ficou mais simples, rápido e barato.",
-gh:"https://github.com/GhMalak/gapp",vis:'<div style="width:100%;display:grid;justify-items:center"><div class="doc"><b>Plano de Trabalho.pdf</b><div class="ln"></div><div class="ln hl"></div><div class="ln"></div><div class="ln" style="width:70%"></div><div class="ln hl" style="width:85%"></div></div><div class="arrow">↓ Llama 3.3 analisa e gera o ofício</div><div class="doc"><b>Ofício de resposta</b><div class="ln"></div><div class="ln"></div><div class="ln" style="width:60%"></div></div></div>'},
-{k:"Caso 4 / 5",n:"MalaCars",sub:"SaaS multi-empresa de gestão de frota",tags:["SaaS","Full-stack"],
-p:"Quem aluga carros para motoristas controla contratos, cobranças semanais e manutenções em planilha e no WhatsApp.",
-f:"Desenvolvi um SaaS em React, TypeScript, FastAPI e Supabase com contratos, cobranças semanais automáticas, gastos fixos, revisão por quilometragem e documentos.",
-r:"Um painel com entradas, margem por veículo, pontualidade de cada motorista e uma lista única do que precisa de atenção.",
-gh:"https://github.com/GhMalak/malacars",vis:'<div style="display:grid;place-items:center;width:100%"><div class="bars"><i></i><i style="animation-delay:.3s"></i><i style="animation-delay:.6s"></i><i style="animation-delay:.9s"></i><i style="animation-delay:1.2s"></i><i style="animation-delay:1.5s"></i></div><div class="mini"><div>Cobranças da semana <b>em dia</b></div><div>Revisão por km <b>alerta 1.000 km antes</b></div></div></div>'},
-{k:"Caso 5 / 5",n:"TraduzSum",sub:"Tradução de textos jurídicos com IA",tags:["SaaS","IA aplicada"],
-p:"Jurisprudências, súmulas e decisões são difíceis de entender para estudantes, concurseiros e cidadãos.",
-f:"Criei um SaaS em Next.js 14, TypeScript e Prisma, com RAG e LLM ajustado por fine-tuning, e assinaturas com Stripe.",
-r:"O texto jurídico vira linguagem clara e objetiva, preservando o significado original.",
-gh:"https://github.com/GhMalak/traduzsum",vis:'<div class="legal"><div class="a">"Ante o exposto, conheço do recurso e, no mérito, nego-lhe provimento, mantendo incólume a decisão vergastada."</div><div class="b" id="typed"></div></div>'}
+const I={
+pt:{skip:"Pular para o conteúdo",n1:"Projetos",n2:"Processo",n3:"Ao vivo",n4:"Sobre",n5:"Contato",badge:"Disponível para vagas · Brasília ou remoto",h1:"Eu construo agentes de IA que",lead:'Sou <b>Gustavo Malaquias</b>, engenheiro de software full-stack e fundador da NoxIA. Faço sistemas que atendem, vendem e medem cada resultado, rodando em produção todos os dias.',cta1:"Ver projetos →",w1:"fluxos n8n em produção",w2:"agentes de IA na NoxIA",w3:"atendimento automático",ph1:"Agente de vendas",ph2:"online · responde na hora",c1:"Ver projetos",c2:"Prints reais",c3:"Falar comigo",phcap:"Simulação de uma conversa do meu sistema",p_t:"Projetos",p_s:"Role para ver os cinco casos. Cada um em três partes: o problema, o que eu fiz e o resultado.",pr_t:"Como eu trabalho",pr_s:"Antes da ferramenta, o problema. Antes de escalar, a medição.",l_t:"Ao vivo",l_s:"Prints e vídeos reais dos agentes e das clínicas em produção.",a_t:"Sobre",q:'Escolher o <em>problema certo</em> vale mais do que a ferramenta mais nova.',a1:"Aprendi construindo meus próprios negócios digitais: funis de venda, atendimento automático e agentes que trabalham por mim. Cada sistema precisava dar resultado de verdade, porque o dinheiro era meu.",a2:"Resolvi problemas de produção como race conditions em webhooks, filas travadas, atribuição de vendas simultâneas e WhatsApp em escala. Agora quero levar essa experiência para um time de engenharia.",t1d:"2026 — hoje",t1h:"Fundador · NoxIA",t1p:"Atendentes de IA para clínicas e plataforma de agentes para infoprodutores.",t2d:"2026 — hoje",t2h:"Negócio próprio de produtos digitais",t2p:"Funil de vendas no WhatsApp com IA, checkout próprio e tráfego pago.",t3h:"Desenvolvedor full-stack freelance",t3p:"Plataforma educacional de ponta a ponta.",t4h:"Tecnólogo em ADS · UniCEUB",t4p:"Análise e Desenvolvimento de Sistemas. Inglês avançado.",e_p:"Procurando alguém que construa IA que funciona em produção? Vamos conversar.",f:'Fundador da <a href="https://noxia.com.br">NoxIA</a>',
+words:["atendem.","vendem.","medem tudo.","não dormem."],end:["Vamos conversar","Let's talk"],copy:"Copiado ✓",prob:"Problema",did:"O que fiz",res:"Resultado",code:"Código ↗",live:"Ver no ar ↗",
+chat:[["in","Oi! Vi o anúncio do ebook, ainda tem?"],["out","Oi, Ana! Tem sim 😊 São 45 receitas, com acesso na hora. Quer que eu te mande o Pix?"],["in","Quero!"],["out","Aqui está: chave Pix enviada. Assim que cair, eu te mando o PDF."],["sys","✓ Pix confirmado · PDF enviado"],["sys","✓ Venda registrada no Google Ads"]]},
+en:{skip:"Skip to content",n1:"Projects",n2:"Process",n3:"Live",n4:"About",n5:"Contact",badge:"Open to work · Brasília or remote",h1:"I build AI agents that",lead:'I\'m <b>Gustavo Malaquias</b>, a full-stack software engineer and founder of NoxIA. I build systems that answer, sell and measure every result, running in production every day.',cta1:"See projects →",w1:"n8n workflows in production",w2:"AI agents at NoxIA",w3:"automated support",ph1:"Sales agent",ph2:"online · replies instantly",c1:"See projects",c2:"Real screenshots",c3:"Talk to me",phcap:"Simulated conversation from my system",p_t:"Projects",p_s:"Scroll to see five case studies. Each in three parts: the problem, what I did and the outcome.",pr_t:"How I work",pr_s:"Problem before tools. Measurement before scale.",l_t:"Live",l_s:"Real screenshots and videos of the agents and clinics in production.",a_t:"About",q:'Picking the <em>right problem</em> beats picking the newest tool.',a1:"I learned by building my own digital businesses: sales funnels, automated support and agents that work for me. Every system had to deliver real results, because it was my own money.",a2:"I've solved production problems like webhook race conditions, stuck queues, simultaneous sales attribution and WhatsApp at scale. Now I want to bring that experience to an engineering team.",t1d:"2026 — now",t1h:"Founder · NoxIA",t1p:"AI receptionists for clinics and an AI agent platform for digital product sellers.",t2d:"2026 — now",t2h:"Own digital products business",t2p:"AI-driven WhatsApp sales funnel, custom checkout and paid traffic.",t3h:"Freelance full-stack developer",t3p:"End-to-end education platform.",t4h:"Associate degree in Systems Development · UniCEUB",t4p:"Systems Analysis and Development. Advanced English.",e_p:"Looking for someone who builds AI that works in production? Let's talk.",f:'Founder of <a href="https://noxia.com.br">NoxIA</a>',
+words:["answer.","sell.","measure it all.","never sleep."],end:["Let's talk","Vamos conversar"],copy:"Copied ✓",prob:"Problem",did:"What I did",res:"Outcome",code:"Code ↗",live:"Live site ↗",
+chat:[["in","Hi! Saw the ebook ad, is it still available?"],["out","Hi Ana! Yes 😊 45 recipes with instant access. Want me to send the payment link?"],["in","Yes please!"],["out","Done: payment key sent. As soon as it clears, I'll send the PDF."],["sys","✓ Payment confirmed · PDF sent"],["sys","✓ Sale recorded in Google Ads"]]}
+};
+const P=[
+{tag:["Empresa própria","Own company"],n:"NoxIA",sub:["Automação com IA para clínicas e infoprodutores","AI automation for clinics and digital sellers"],
+p:["Clínicas perdem pacientes que escrevem fora do horário, e infoprodutores gastam horas por dia cruzando vendas e anúncios.","Clinics lose patients who message after hours, and digital sellers spend hours a day matching sales to ads."],
+d:["Atendente de IA no WhatsApp para clínicas (n8n, Chatwoot, RAG) e plataforma multi-cliente com 8 agentes em FastAPI, Docker e Telegram.","A WhatsApp AI receptionist for clinics (n8n, Chatwoot, RAG) and a multi-tenant platform with 8 agents on FastAPI, Docker and Telegram."],
+r:["Atendimento 24 horas e relatórios, alertas e sugestões de verba chegando sozinhos. Nada que mexe em dinheiro acontece sem aprovação humana.","24/7 support plus reports, alerts and budget suggestions delivered automatically. Nothing that spends money runs without human approval."],
+s:"FastAPI · n8n · LangChain · Supabase · Docker · Telegram",gh:"https://github.com/GhMalak/noxia",site:"https://noxia.com.br",art:'<img src="media/relatorio.webp" alt="">'},
+{tag:["Em produção","In production"],n:["Vendas no WhatsApp","WhatsApp sales"],sub:["Funil automatizado de produtos digitais","Automated digital product funnel"],
+p:["Responder, enviar o produto, confirmar o Pix e fazer follow-up era tudo manual, sem saber qual anúncio gerou cada venda.","Replying, delivering, confirming payment and following up were all manual, with no idea which ad drove each sale."],
+d:["Mais de 20 fluxos n8n com agente LangChain com memória e RAG, checkout com Mercado Pago e rastreio de cada venda até o GCLID.","20+ n8n workflows with a LangChain agent with memory and RAG, Mercado Pago checkout and every sale tracked back to its GCLID."],
+r:["O funil vende e entrega sozinho, e cada venda volta ao Google Ads como conversão offline. Filas que travavam 9 minutos foram resolvidas.","The funnel sells and delivers on its own, and every sale flows back to Google Ads as an offline conversion. 9-minute queue stalls fixed."],
+s:"n8n · LangChain · OpenAI · DeepSeek · Supabase · Google Ads API",art:'<div class="flow" id="flowart"><div><em>01</em>Clique no anúncio · GCLID</div><div><em>02</em>Landing page</div><div><em>03</em>Agente de IA no WhatsApp</div><div><em>04</em>Pix confirmado</div><div><em>05</em>Conversão no Google Ads</div></div>'},
+{tag:["Entregue","Delivered"],n:"GAPP",sub:["Análise de PDFs e geração de ofícios com IA","PDF analysis and letter generation with AI"],
+p:["Analisar Planos de Trabalho em PDF e redigir ofícios de resposta era manual, lento e sujeito a erro.","Reviewing work plans in PDF and drafting official replies was manual, slow and error-prone."],
+d:["API FastAPI com fila Redis e worker que extrai o texto, analisa cada tópico com Llama 3.3 e gera o ofício em PDF. Front-end em Next.js.","A FastAPI API with a Redis queue and worker that extracts text, reviews each topic with Llama 3.3 and generates the PDF letter. Next.js front end."],
+r:["O ofício sai pronto a partir do PDF. Troquei RAG com fine-tuning por Groq com few-shot: mais simples, rápido e barato.","The letter comes out ready from the PDF. I swapped RAG plus fine-tuning for Groq with few-shot: simpler, faster and cheaper."],
+s:"FastAPI · Redis · Llama 3.3 · Next.js · Docker",gh:"https://github.com/GhMalak/gapp",art:'<div class="pdf"><div class="pg">Plano de Trabalho.pdf<div class="ln"></div><div class="ln hl"></div><div class="ln" style="width:70%"></div><div class="ln hl" style="width:85%"></div></div><div class="ar">↓ Llama 3.3</div><div class="pg">Ofício<div class="ln"></div><div class="ln" style="width:60%"></div></div></div>'},
+{tag:["SaaS","SaaS"],n:"MalaCars",sub:["Gestão de frota multi-empresa","Multi-tenant fleet management"],
+p:["Quem aluga carros para motoristas controla contratos, cobranças e manutenções em planilha e WhatsApp.","People renting cars to drivers track contracts, weekly charges and maintenance in spreadsheets and chats."],
+d:["SaaS em React, TypeScript, FastAPI e Supabase com cobranças semanais automáticas, gastos fixos, revisão por km e documentos.","A SaaS on React, TypeScript, FastAPI and Supabase with automatic weekly charges, recurring costs, mileage-based service and documents."],
+r:["Um painel com entradas, margem por veículo, pontualidade de cada motorista e tudo que precisa de atenção.","One dashboard with income, margin per vehicle, driver punctuality and everything that needs attention."],
+s:"React · TypeScript · FastAPI · Supabase · PostgreSQL",gh:"https://github.com/GhMalak/malacars",art:'<div class="dash"><div class="bars"><i></i><i style="animation-delay:.3s"></i><i style="animation-delay:.6s"></i><i style="animation-delay:.9s"></i><i style="animation-delay:1.2s"></i><i style="animation-delay:1.5s"></i><i style="animation-delay:1.8s"></i></div><div class="kpi"><div><b>R$</b>margem / veículo</div><div><b>1.000 km</b>alerta de revisão</div></div></div>'},
+{tag:["IA aplicada","Applied AI"],n:"TraduzSum",sub:["Textos jurídicos em linguagem clara","Legal text in plain language"],
+p:["Jurisprudências e decisões são difíceis de entender para estudantes, concurseiros e cidadãos.","Court rulings are hard to understand for students, exam candidates and citizens."],
+d:["SaaS em Next.js 14, TypeScript e Prisma, com RAG, LLM ajustado por fine-tuning e assinaturas com Stripe.","A SaaS on Next.js 14, TypeScript and Prisma, with RAG, a fine-tuned LLM and Stripe subscriptions."],
+r:["O texto jurídico vira linguagem clara, preservando o significado original.","Legal text becomes plain language while keeping its original meaning."],
+s:"Next.js · TypeScript · Prisma · Stripe · OpenAI",gh:"https://github.com/GhMalak/traduzsum",art:'<div class="law"><div class="a">"Ante o exposto, conheço do recurso e, no mérito, nego-lhe provimento, mantendo incólume a decisão vergastada."</div><div class="b" id="law"></div></div>'}
 ];
-document.getElementById('cases').innerHTML=C.map(c=>`<article class="case rv"><div><p class="k mono">${c.k}</p><h3>${c.n}</h3><p class="sub">${c.sub}</p><ul class="tags">${c.tags.map(t=>`<li>${t}</li>`).join('')}</ul><div class="steps"><div class="step"><span class="mono">Problema</span><p>${c.p}</p></div><div class="step"><span class="mono">O que fiz</span><p>${c.f}</p></div><div class="step"><span class="mono">Resultado</span><p>${c.r}</p></div></div>${(c.gh||c.site)?`<div class="links">${c.gh?`<a href="${c.gh}">Código no GitHub ↗</a>`:''}${c.site?`<a href="${c.site}">Ver no ar ↗</a>`:''}</div>`:''}</div><div class="vis">${c.vis}</div></article>`).join('');
+const STP=[[["Mapear","Map"],["Quem faz, quantas vezes, quanto tempo leva e onde dá erro.","Who does it, how often, how long it takes and where it breaks."]],[["Priorizar","Prioritize"],["Alto impacto e baixo esforço primeiro, para gerar valor rápido.","High impact, low effort first, to deliver value fast."]],[["Construir","Build"],["A solução mais simples que resolve. IA só onde regra não basta.","The simplest thing that works. AI only where rules fall short."]],[["Medir","Measure"],["Horas, conversão e custo em produção. Os dados escolhem o próximo passo.","Hours, conversion and cost in production. Data picks the next step."]]];
+const G=[[["Agente Financeiro","Finance agent"],["Resultado do dia por campanha.","Daily results per campaign."],"media/relatorio.webp",""],[["Gestor de Tráfego","Traffic manager"],["Sugere verba, eu aprovo.","Suggests budget, I approve."],"media/gestor.webp",""],[["Guardião","Guardian"],["Alerta de gasto sem venda.","Alerts on spend without sales."],"media/guardiao.webp",""],[["Conversões","Conversions"],["Confere cada GCLID.","Checks every GCLID."],"media/comparativo.webp",""],[["Criativos","Creatives"],["Vídeo de anúncio por IA.","AI-made ad videos."],"media/criativo.jpg","media/criativo.mp4"],[["Caçador de Nichos","Niche hunter"],["Pesquisa e ranqueia nichos.","Researches and ranks niches."],"media/nicho.jpg","media/nicho.mp4"],[["Produtor de ebook","Ebook maker"],["Gera o PDF completo.","Builds the full PDF."],"media/ebook.jpg","media/ebook.mp4"],[["Fábrica de sites","Site factory"],["Landing page publicada.","Publishes the landing page."],"media/site.jpg","media/site.mp4"],[["Clínicas","Clinics"],["Aviso de reconexão do WhatsApp.","WhatsApp reconnection alert."],"media/wpp-reconexao.jpg",""]];
+const SK=[["IA e LLMs","AI & LLMs","LangChain · RAG · OpenAI · DeepSeek · Llama (Groq) · Fine-tuning"],["Back-end","Back end","Python · FastAPI · Django · Laravel · Node.js · REST"],["Front-end","Front end","React · Next.js · TypeScript · Tailwind · Angular"],["Dados","Data","PostgreSQL · Supabase · pgvector · Redis · MongoDB"],["Automação","Automation","n8n · WhatsApp API · Chatwoot · Telegram · Google Ads API"],["Infra","Infra","Docker · VPS Linux · Vercel · Azure · Git"]];
+let L='pt';try{const s=localStorage.getItem('gm-lang');if(s==='en'||s==='pt')L=s}catch(e){}
+if(location.hash==='#en')L='en';
+const t=k=>I[L][k];const pick=v=>Array.isArray(v)?v[L==='pt'?0:1]:v;
+const $=id=>document.getElementById(id);
 
-const T=["Python","FastAPI","LangChain","RAG","n8n","OpenAI","Supabase","pgvector","React","Next.js","TypeScript","Laravel","Docker","Redis","WhatsApp API","Google Ads API"];
-const tr=T.map(t=>`<span>${t}</span><b>✦</b>`).join('');document.getElementById('track').innerHTML=tr+tr;
+function renderCards(){$('htrack').innerHTML=P.map((c,i)=>`<article class="card"><div><div class="top"><span class="idx">0${i+1} / 05</span><span class="pill">${pick(c.tag)}</span></div><h3>${pick(c.n)}</h3><p class="sub">${pick(c.sub)}</p><div class="psr"><div><b>${t('prob')}</b><p>${pick(c.p)}</p></div><div><b>${t('did')}</b><p>${pick(c.d)}</p></div><div><b>${t('res')}</b><p>${pick(c.r)}</p></div></div><div class="stack">${c.s.split(' · ').map(x=>`<span>${x}</span>`).join('')}</div>${(c.gh||c.site)?`<div class="go">${c.gh?`<a href="${c.gh}">${t('code')}</a>`:''}${c.site?`<a class="o" href="${c.site}">${t('live')}</a>`:''}</div>`:''}</div><div class="art">${c.art}</div></article>`).join('');}
+function renderRest(){
+$('steps').innerHTML=STP.map((s,i)=>`<div class="step rv"><div class="n">${i+1}</div><h3>${pick(s[0])}</h3><p>${pick(s[1])}</p></div>`).join('');
+$('fan').innerHTML=G.map(g=>`<figure class="shot"><div class="fr">${g[3]?`<video src="${g[3]}" poster="${g[2]}" controls muted playsinline preload="none"></video>`:`<img src="${g[2]}" alt="${pick(g[0])}" loading="lazy">`}</div><figcaption><b>${pick(g[0])}</b>${pick(g[1])}</figcaption></figure>`).join('');
+$('skills').innerHTML=SK.map(s=>`<div class="sk rv"><h3>${L==='pt'?s[0]:s[1]}</h3><ul>${s[2].split(' · ').map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+const e=t('end');const row=[...Array(4)].map(()=>`<span>${e[0]}</span><span>${e[1]}</span>`).join('');$('endt').innerHTML=row+row;
+const B=["Python","FastAPI","LangChain","RAG","n8n","OpenAI","Supabase","pgvector","React","Next.js","TypeScript","Docker","Redis","WhatsApp API","Google Ads API"].map(x=>`<span>${x}</span><b>●</b>`).join('');$('band').innerHTML=B+B;}
+function applyLang(){document.documentElement.lang=L==='pt'?'pt-BR':'en';
+document.querySelectorAll('[data-i]').forEach(el=>{const v=t(el.dataset.i);if(v===undefined)return;if(el.dataset.html||/<[a-z]/i.test(v))el.innerHTML=v;else el.textContent=v});
+document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.l===L)));
+renderCards();renderRest();startChat();startWords();layoutH();try{localStorage.setItem('gm-lang',L)}catch(e){}}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>{if(L!==b.dataset.l){L=b.dataset.l;applyLang()}}));
 
-const S=[["IA e LLMs",["LangChain","RAG","OpenAI","DeepSeek","Llama (Groq)","Fine-tuning","Tool calling"],3],["Back-end",["Python","FastAPI","Django","Laravel","Node.js","REST","Webhooks"],2],["Front-end",["React","Next.js","TypeScript","Tailwind","Angular","React Native"],3],["Dados",["PostgreSQL","Supabase","pgvector","Redis","MongoDB","ChromaDB"],3],["Automação",["n8n","WhatsApp Cloud API","Evolution API","Chatwoot","Telegram","Google Ads API","Stripe","Mercado Pago"],4],["Infra",["Docker","VPS Linux","Vercel","Azure","Heroku","Git"],3]];
-document.getElementById('skills').innerHTML=S.map(s=>`<div class="sk rv"><h3>${s[0]}</h3><ul>${s[1].map((x,i)=>`<li class="${i<s[2]?'s':''}">${x}</li>`).join('')}</ul></div>`).join('');
+/* rotating word */
+let wt=null;function startWords(){clearTimeout(wt);const w=$('word'),ws=t('words');if(reduce){w.textContent=ws[0];return}let i=0,j=0,del=false;const step=()=>{const cur=ws[i];if(!del){j++;w.textContent=cur.slice(0,j);if(j===cur.length){del=true;wt=setTimeout(step,1600);return}}else{j--;w.textContent=cur.slice(0,j);if(j===0){del=false;i=(i+1)%ws.length}}wt=setTimeout(step,del?35:70)};step()}
 
-const G=[["Agente Financeiro","Resultado do dia por campanha, com lucro e ROAS.","media/relatorio.webp",""],["Gestor de Tráfego","Sugere mudanças de verba que só valem após aprovação.","media/gestor.webp",""],["Guardião","Avisa quando uma campanha gasta sem vender.","media/guardiao.webp",""],["Conversões","Confere se toda venda com GCLID chegou ao Google Ads.","media/comparativo.webp",""],["Criativos","Roteiro, cenas e vídeo de anúncio gerados por IA.","media/criativo.jpg","media/criativo.mp4"],["Caçador de Nichos","Pesquisa web, YouTube e Trends e ranqueia nichos.","media/nicho.jpg","media/nicho.mp4"],["Produtor de ebook","Diagrama e gera o PDF completo.","media/ebook.jpg","media/ebook.mp4"],["Fábrica de sites","Cria a landing page e publica na Vercel.","media/site.jpg","media/site.mp4"],["Clínicas","Aviso com link quando o WhatsApp da clínica cai.","media/wpp-reconexao.jpg",""]];
-const rail=document.getElementById('rail');
-rail.innerHTML=G.map(g=>`<figure class="shot"><div class="phone">${g[3]?`<video src="${g[3]}" poster="${g[2]}" controls muted playsinline preload="none"></video>`:`<img src="${g[2]}" alt="${g[0]}" loading="lazy">`}</div><figcaption><b>${g[0]}</b>${g[1]}</figcaption></figure>`).join('');
-const go=d=>rail.scrollBy({left:d*(rail.querySelector('.shot').offsetWidth+18),behavior:reduce?'auto':'smooth'});
-document.getElementById('prev').addEventListener('click',()=>go(-1));document.getElementById('next').addEventListener('click',()=>go(1));
-rail.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+/* chat */
+let ct=[];function startChat(){ct.forEach(clearTimeout);ct=[];const box=$('msgs'),chat=t('chat');box.innerHTML='';
+const add=(c,txt)=>{const d=document.createElement('div');d.className='m '+c;d.textContent=txt;box.appendChild(d);while(box.children.length>7)box.firstChild.remove()};
+if(reduce){chat.forEach(m=>add(m[0],m[1]));return}
+let at=400;chat.forEach(m=>{if(m[0]==='out'){ct.push(setTimeout(()=>{const ty=document.createElement('div');ty.className='m out typing';ty.innerHTML='<i></i><i></i><i></i>';box.appendChild(ty);ct.push(setTimeout(()=>ty.remove(),900))},at));at+=950}ct.push(setTimeout(()=>add(m[0],m[1]),at));at+=m[0]==='sys'?900:1300});
+ct.push(setTimeout(startChat,at+3500))}
 
-const ST=["Clique no anúncio","Landing page","WhatsApp","Agente de IA","Pagamento","Venda no Google Ads"];
-const box=document.getElementById('sky'),svg=box.querySelector('svg');let pts=[];
-const star=(x,y,r,c)=>`<path d="M${x},${y-r} Q${x+r*.18},${y-r*.18} ${x+r},${y} Q${x+r*.18},${y+r*.18} ${x},${y+r} Q${x-r*.18},${y+r*.18} ${x-r},${y} Q${x-r*.18},${y-r*.18} ${x},${y-r}Z" fill="${c}"/>`;
-const drawSky=()=>{const W=box.clientWidth,H=box.clientHeight;if(!W||!H)return;let q=5,o='';const rnd=()=>(q=q*16807%2147483647)/2147483647;
-for(let i=0;i<60;i++)o+=`<circle cx="${rnd()*W}" cy="${rnd()*H}" r="${rnd()*1.3+.3}" fill="#c9bfee" opacity="${.2+rnd()*.5}"/>`;
-const m=Math.min(W,H);o+=`<circle cx="${W*.8}" cy="${H*.13}" r="${m*.09}" fill="#ffd54a"/><circle cx="${W*.8+m*.045}" cy="${H*.13-m*.03}" r="${m*.08}" fill="#1f1144"/>`;
-pts=ST.map((_,i)=>{const t=i/(ST.length-1);return[W*(.1+(i%2?.3:0)+t*.14),H*(.22+t*.62)]});
-const d='M'+pts.map(p=>p.join(',')).join(' L');
-o+=`<path d="${d}" fill="none" stroke="#7c4dff" stroke-width="8" opacity=".35" stroke-linecap="round"/><path d="${d}" fill="none" stroke="#cdbbff" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>`;
-pts.forEach((p,i)=>{const last=i===pts.length-1,r=last?17:12;o+=`<circle cx="${p[0]}" cy="${p[1]}" r="${r*2}" fill="#ffd54a" opacity=".12"/>`+star(p[0],p[1],r,last?'#ffd54a':(i%2?'#cdbbff':'#ffe38a'))+`<text x="${p[0]+26}" y="${p[1]+5}" font-family="JetBrains Mono, monospace" font-size="12" fill="#fff" style="paint-order:stroke;stroke:#140c2c;stroke-width:4px">${ST[i]}</text>`});
-o+=`<circle id="tok" r="5" fill="#fff" cx="${pts[0][0]}" cy="${pts[0][1]}"/>`;svg.innerHTML=o};
-const ro=new ResizeObserver(drawSky);ro.observe(box);drawSky();
-if(!reduce){let t0=null;const tick=t=>{if(t0===null)t0=t;const tok=svg.querySelector('#tok');if(tok&&pts.length>1){const seg=pts.length-1,f=(Math.max(0,t-t0)%7000)/7000*seg,i=Math.min(Math.floor(f),seg-1),k=f-i;tok.setAttribute('cx',pts[i][0]+(pts[i+1][0]-pts[i][0])*k);tok.setAttribute('cy',pts[i][1]+(pts[i+1][1]-pts[i][1])*k)}requestAnimationFrame(tick)};requestAnimationFrame(tick)}
+/* horizontal pinned projects */
+const hw=$('hwrap'),tr=$('htrack');let maxX=0;
+function layoutH(){if(innerWidth<=860||reduce){hw.style.height='';tr.style.transform='';return}maxX=Math.max(0,tr.scrollWidth-innerWidth+parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--rail')||0));hw.style.height=(innerHeight+maxX)+'px';onScroll()}
+function onScroll(){const h=document.documentElement.scrollHeight-innerHeight;$('prog').style.height=(h>0?scrollY/h*100:0)+'%';
+if(innerWidth>860&&!reduce&&maxX>0){const r=hw.getBoundingClientRect(),p=Math.min(1,Math.max(0,-r.top/(hw.offsetHeight-innerHeight)));tr.style.transform=`translate3d(${-p*maxX}px,0,0)`;$('hb').style.width=(p*100)+'%';$('hc').textContent=Math.min(5,1+Math.round(p*4))+' / 5';
+const fa=$('flowart');if(fa){const k=Math.floor((Date.now()/700)%6);}}
+let cur='';document.querySelectorAll('main section[id]').forEach(s=>{if(s.getBoundingClientRect().top<innerHeight*.4)cur=s.id});if($('contato').getBoundingClientRect().top<innerHeight*.5)cur='contato';
+document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur))}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',layoutH);
 
-const typed=document.getElementById('typed'),plain='O tribunal analisou o recurso e manteve a decisão anterior. Quem recorreu perdeu.';
-if(reduce){typed.textContent=plain}else{let j=0;setInterval(()=>{j=j>plain.length+30?0:j+1;typed.textContent=plain.slice(0,j)},45)}
+/* flow + law animations */
+setInterval(()=>{const fa=$('flowart');if(!fa)return;const k=Math.floor(Date.now()/800)%6;[...fa.children].forEach((d,i)=>d.classList.toggle('on',i<k))},reduce?99999:800);
+const plain={pt:"O tribunal analisou o recurso e manteve a decisão anterior. Quem recorreu perdeu.",en:"The court reviewed the appeal and upheld the earlier decision. The appellant lost."};
+let lj=0;setInterval(()=>{const el=$('law');if(!el)return;const s=plain[L];if(reduce){el.textContent=s;return}lj=lj>s.length+30?0:lj+1;el.textContent=s.slice(0,lj)},45);
 
-const stops=[[15,8,32],[36,18,60],[58,30,58]];
-const mix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
-const bar=document.getElementById('bar'),sun=document.getElementById('sun');
-const onScroll=()=>{const h=document.documentElement.scrollHeight-innerHeight,p=h>0?Math.min(1,scrollY/h):0;bar.style.width=(p*100)+'%';
-const seg=p<.5?0:1,t=p<.5?p/.5:(p-.5)/.5,col=`rgb(${mix(stops[seg],stops[seg+1],t)})`;document.documentElement.style.setProperty('--bg',col);sun.style.opacity=Math.max(0,(p-.6)/.4)};
-addEventListener('scroll',onScroll,{passive:true});onScroll();
+/* gallery nav */
+const fan=$('fan');const fgo=d=>fan.scrollBy({left:d*260,behavior:reduce?'auto':'smooth'});
+$('fp').addEventListener('click',()=>fgo(-1));$('fn').addEventListener('click',()=>fgo(1));fan.addEventListener('keydown',e=>{if(e.key==='ArrowRight')fgo(1);if(e.key==='ArrowLeft')fgo(-1)});
 
-const glow=document.getElementById('glow');if(!reduce)addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'},{passive:true});
+/* copy */
+$('cp').addEventListener('click',()=>{navigator.clipboard.writeText('gustavo.calasan@gmail.com').then(()=>{$('cpl').textContent=t('copy');setTimeout(()=>$('cpl').textContent='gustavo.calasan@gmail.com',1800)}).catch(()=>{})});
 
-const io=new IntersectionObserver(es=>{es.forEach(en=>{if(!en.isIntersecting||reduce)return;const el=en.target,to=+el.dataset.to,t0=performance.now();const step=t=>{const k=Math.min(1,Math.max(0,t-t0)/1200);el.textContent=Math.round(to*(1-(1-k)**3));if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step);io.unobserve(el)})},{threshold:.6});
-document.querySelectorAll('[data-to]').forEach(n=>io.observe(n));
-
-if(!reduce&&matchMedia('(hover:hover)').matches){document.querySelectorAll('.case').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(1200px) rotateX(${-y*2.5}deg) rotateY(${x*2.5}deg)`});c.addEventListener('pointerleave',()=>{c.style.transform=''})})}
-
-const cp=document.getElementById('cp'),cpl=document.getElementById('cpl');
-cp.addEventListener('click',()=>{navigator.clipboard.writeText('gustavo.calasan@gmail.com').then(()=>{cpl.textContent='Copiado ✓';setTimeout(()=>cpl.textContent='gustavo.calasan@gmail.com · copiar',1800)}).catch(()=>{cpl.textContent='gustavo.calasan@gmail.com'})});
+applyLang();addEventListener('load',layoutH);
 }
 </script>
 </body>
