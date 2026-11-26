@@ -63,16 +63,16 @@ h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-s
 .pad{padding-left:max(5vw,24px);padding-right:max(5vw,24px)}
 .max{max-width:1240px;margin:0 auto}
 /* hero */
-.hero{min-height:100svh;scroll-margin-top:0;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(28px,4vw,64px);align-items:center;padding-top:110px;padding-bottom:48px;position:relative;overflow:hidden}
+.hero{min-height:88svh;scroll-margin-top:0;display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center;padding-top:110px;padding-bottom:48px;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;width:780px;height:780px;right:-200px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(124,77,255,.28),transparent 62%);pointer-events:none}
 .badge{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;border-radius:99px;background:var(--bg2);border:1px solid var(--line);font-size:14px;color:var(--soft);margin-bottom:28px}
 .badge i{width:9px;height:9px;border-radius:50%;background:#55e38a;box-shadow:0 0 0 0 rgba(85,227,138,.6);animation:ping 2s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 10px rgba(85,227,138,0)}100%{box-shadow:0 0 0 0 rgba(85,227,138,0)}}
-.hero h1{font-size:clamp(36px,4.8vw,76px);position:relative}
+.hero h1{font-size:clamp(38px,6vw,96px);max-width:16ch;position:relative}
 .hero h1 .w{display:block;color:var(--y);min-height:1.05em;white-space:nowrap}
 .hero h1 .w::after{content:"";display:inline-block;width:.08em;height:.85em;background:var(--y);margin-left:.06em;vertical-align:-.08em;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.hero .lead{font-size:clamp(18px,1.6vw,21px);color:var(--soft);max-width:44ch;margin:0 0 30px}
+.hero .lead{font-size:clamp(18px,1.7vw,23px);color:var(--soft);max-width:52ch;margin:0 0 30px}
 .hero .lead b{color:var(--y);font-weight:800;font-size:1.12em}
 .hero h1{margin-bottom:32px}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
@@ -84,6 +84,7 @@ h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-s
 .who{display:flex;gap:28px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line)}
 .who div b{display:block;font:800 26px Unbounded,sans-serif;color:#fff}
 .who div span{font-size:14px;color:var(--mute)}
+@media(max-width:700px){.who{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:28px;padding:0;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03);overflow:hidden}.who div{padding:14px 10px;text-align:center}.who div+div{border-left:1px solid var(--line)}.who div b{font-size:22px;color:var(--y)}.who div span{display:block;font-size:11.5px;line-height:1.3;margin-top:4px}}
 /* phone chat */
 .phone{position:relative;width:min(100%,360px);margin:0 auto;aspect-ratio:9/18.5;max-height:calc(100svh - 80px);border-radius:44px;background:#000;padding:12px;box-shadow:0 40px 80px -30px rgba(124,77,255,.6),0 0 0 2px #2a1f55;animation:float 6s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-12px)}}
@@ -108,7 +109,9 @@ h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-s
 .phonecap{text-align:center;margin-top:14px}
 /* marquee */
 .band{border-block:1px solid var(--line);overflow:hidden;background:var(--bg2)}
-.band .t{display:inline-flex;white-space:nowrap;gap:36px;padding:16px 0;animation:mq 40s linear infinite;font:700 22px Unbounded,sans-serif;color:var(--soft)}
+.band .t{display:flex;padding:16px 0;font:700 22px Unbounded,sans-serif;color:var(--soft)}
+.seq{display:flex;flex:none;gap:36px;padding-right:36px;white-space:nowrap;animation:mq2 30s linear infinite}
+@keyframes mq2{to{transform:translateX(-100%)}}
 .band .t b{color:var(--y)}
 @keyframes mq{to{transform:translateX(-50%)}}
 /* sections */
@@ -141,6 +144,19 @@ h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-s
 .hint{display:flex;align-items:center;gap:10px;margin:22px max(5vw,24px) 0}
 .hint i{flex:1;height:2px;background:var(--line);position:relative;overflow:hidden;border-radius:2px}
 .hint i b{position:absolute;inset:0 auto 0 0;width:0;background:var(--y)}
+.art.hascar{padding:12px;place-items:stretch}
+.car{width:100%;display:flex;flex-direction:column;gap:10px;min-width:0;justify-content:center}
+.ctrk{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.ctrk::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.slide img{max-width:100%;max-height:min(440px,calc(100svh - 340px));border-radius:14px;object-fit:contain}
+.mph{width:min(100%,270px);height:min(440px,calc(100svh - 340px));border-radius:30px;background:#000;padding:8px;box-shadow:0 20px 40px -16px rgba(124,77,255,.6)}
+.mph .screen{border-radius:24px}
+.scap{margin:0;font-size:13px;color:var(--soft);font-weight:700;text-align:center}
+.dots{display:flex;justify-content:center;gap:8px}
+.dots button{width:9px;height:9px;border-radius:99px;border:0;background:rgba(255,255,255,.25);padding:0;cursor:pointer;transition:width .3s,background .3s}
+.dots button.on{background:var(--y);width:24px}
+.shot .fr .screen{height:100%}
 /* art pieces */
 .flow{display:grid;gap:10px;width:100%;max-width:330px}
 .flow div{display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:14px;background:rgba(255,255,255,.06);font-size:14px;opacity:.35;transition:opacity .4s,background .4s}
@@ -200,7 +216,8 @@ h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-s
 .sk li{font-size:14px;padding:6px 11px;border-radius:10px;background:rgba(255,255,255,.06)}
 /* contact */
 .end{margin-left:var(--rail);margin-top:clamp(90px,10vw,150px);background:var(--y);color:#120a24;border-radius:40px 40px 0 0;overflow:hidden}
-.end .t{display:inline-flex;white-space:nowrap;gap:40px;padding:34px 0 10px;animation:mq 26s linear infinite;font:800 clamp(56px,9vw,130px)/1 Unbounded,sans-serif;letter-spacing:-.04em}
+.end .t{display:flex;padding:34px 0 10px;font:800 clamp(56px,9vw,130px)/1 Unbounded,sans-serif;letter-spacing:-.04em}
+.end .t .seq{gap:40px;padding-right:40px;animation-duration:14s}
 .end .t span:nth-child(even){color:transparent;-webkit-text-stroke:2px #120a24}
 .end .in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:end;padding-top:30px;padding-bottom:50px}
 .end p{margin:0;font-size:19px;font-weight:600;max-width:40ch}
@@ -213,9 +230,9 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
 /* reveal */
 @supports (animation-timeline:view()){.rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 35%}@keyframes rv{from{opacity:.1;transform:translateY(40px)}to{opacity:1;transform:none}}}
 @media(max-width:980px){.hero{grid-template-columns:minmax(0,1fr);min-height:0;align-items:start;padding-top:112px}.phone{max-height:none;width:min(100%,330px)}.card{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.about,.end .in{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:860px){.hwrap{height:auto!important}.hstick{position:static;height:auto;overflow:visible}.htrack{flex-direction:column;transform:none!important}.card{width:100%;min-height:0}.hint{display:none}}
+@media(max-width:860px){.slide img{max-height:440px}.mph{height:440px}.hwrap{height:auto!important}.hstick{position:static;height:auto;overflow:visible}.htrack{flex-direction:column;transform:none!important}.card{width:100%;min-height:0}.hint{display:none}}
 @media(max-width:1060px){.top nav{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;padding:10px 12px 14px;background:#140b2c;border:1px solid var(--line);border-radius:20px;box-shadow:0 20px 50px -10px rgba(0,0,0,.7)}.top nav.open{display:flex}.top nav a{padding:13px 10px;font-size:17px}.menu{display:grid;place-items:center}}
-@media(max-width:700px){.brand .nm{display:none}.hire{display:none}.steps,.skills{grid-template-columns:minmax(0,1fr)}.sh{grid-template-columns:minmax(0,1fr)}.sh p{grid-column:1}.who{gap:18px}}
+@media(max-width:700px){.band .t{font-size:16px}.seq{gap:24px;padding-right:24px}.brand .nm{display:none}.hire{display:none}.steps,.skills{grid-template-columns:minmax(0,1fr)}.sh{grid-template-columns:minmax(0,1fr)}.sh p{grid-column:1}.who{gap:18px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -242,20 +259,10 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
 <h1><span data-i="h1">Eu construo agentes de IA que</span> <span class="w" id="word" aria-live="polite"></span></h1>
 <div class="cta"><a class="btn y" href="#projetos" data-i="cta1">Ver projetos →</a><a class="btn g" href="https://github.com/GhMalak">GitHub</a><a class="btn g" href="https://www.linkedin.com/in/ghmalak">LinkedIn</a></div>
 <div class="who">
-<div><b>20+</b><span data-i="w1">fluxos n8n em produção</span></div>
-<div><b>8</b><span data-i="w2">agentes de IA na NoxIA</span></div>
+<div><b>50+</b><span data-i="w1">fluxos n8n em produção</span></div>
+<div><b>20+</b><span data-i="w2">agentes de IA na NoxIA</span></div>
 <div><b>24h</b><span data-i="w3">atendimento automático</span></div>
 </div>
-</div>
-<div>
-<div class="phone" aria-label="Demonstração: conversa de venda feita por um agente de IA no WhatsApp" role="img">
-<div class="screen">
-<div class="chathead"><div class="av">AI</div><div><b data-i="ph1">Agente de vendas</b><small data-i="ph2">online · responde na hora</small></div></div>
-<div class="msgs" id="msgs"></div>
-<div class="chips"><a href="#projetos" data-i="c1">Ver projetos</a><a href="#aovivo" data-i="c2">Prints reais</a><a href="#contato" data-i="c3">Falar comigo</a></div>
-</div>
-</div>
-<p class="phonecap meta" data-i="phcap">Simulação de uma conversa do meu sistema</p>
 </div>
 </section>
 
@@ -313,20 +320,22 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const I={
 pt:{role:"Engenheiro de Software · IA",hire:"Vamos conversar",skip:"Pular para o conteúdo",n1:"Projetos",n2:"Processo",n3:"Ao vivo",n4:"Sobre",n5:"Contato",h1:"Eu construo agentes de IA que",lead:'Prazer, sou o <b>Gustavo Malaquias</b>, engenheiro de software full-stack e fundador da NoxIA. Faço sistemas que atendem, vendem e medem cada resultado, rodando em produção todos os dias.',cta1:"Ver projetos →",w1:"fluxos n8n em produção",w2:"agentes de IA na NoxIA",w3:"atendimento automático",ph1:"Agente de vendas",ph2:"online · responde na hora",c1:"Ver projetos",c2:"Prints reais",c3:"Falar comigo",phcap:"Simulação de uma conversa do meu sistema",p_t:"Projetos",p_s:"Role para ver os cinco casos. Cada um em três partes: o problema, o que eu fiz e o resultado.",pr_t:"Como eu trabalho",pr_s:"Antes da ferramenta, o problema. Antes de escalar, a medição.",l_t:"Ao vivo",l_s:"Prints e vídeos reais dos agentes e das clínicas em produção.",a_t:"Sobre",q:'Escolher o <em>problema certo</em> vale mais do que a ferramenta mais nova.',a1:"Aprendi construindo meus próprios negócios digitais: funis de venda, atendimento automático e agentes que trabalham por mim. Cada sistema precisava dar resultado de verdade, porque o dinheiro era meu.",a2:"Resolvi problemas de produção como race conditions em webhooks, filas travadas, atribuição de vendas simultâneas e WhatsApp em escala. Agora quero levar essa experiência para um time de engenharia.",t1d:"2026 — hoje",t1h:"Fundador · NoxIA",t1p:"Atendentes de IA para clínicas e plataforma de agentes para infoprodutores.",t2d:"2026 — hoje",t2h:"Negócio próprio de produtos digitais",t2p:"Funil de vendas no WhatsApp com IA, checkout próprio e tráfego pago.",t3h:"Desenvolvedor full-stack freelance",t3p:"Plataforma educacional de ponta a ponta.",t4h:"Tecnólogo em ADS · UniCEUB",t4p:"Análise e Desenvolvimento de Sistemas. Inglês avançado.",e_p:"Procurando alguém que construa IA que funciona em produção? Vamos conversar.",f:'Fundador da <a href="https://noxia.com.br">NoxIA</a>',
 words:["atendem.","vendem.","medem tudo.","não dormem."],end:["Vamos conversar","Let's talk"],copy:"Copiado ✓",prob:"Problema",did:"O que fiz",res:"Resultado",code:"Código ↗",live:"Ver no ar ↗",
+clinic:[["in","Boa tarde! Queria marcar uma limpeza."],["out","Boa tarde! Aqui é a IAna, da Clínica NoxIA 😊 Tenho quinta às 14h ou sexta às 9h. Qual fica melhor?"],["in","Quinta às 14h"],["out","Prontinho! Sua limpeza ficou marcada para quinta, às 14h. Te mando um lembrete um dia antes."],["sys","✓ Consulta salva na agenda da clínica"]],
 chat:[["in","Oi! Vi o anúncio do ebook, ainda tem?"],["out","Oi, Ana! Tem sim 😊 São 45 receitas, com acesso na hora. Quer que eu te mande o Pix?"],["in","Quero!"],["out","Aqui está: chave Pix enviada. Assim que cair, eu te mando o PDF."],["sys","✓ Pix confirmado · PDF enviado"],["sys","✓ Venda registrada no Google Ads"]]},
 en:{role:"Software Engineer · AI",hire:"Let's talk",skip:"Skip to content",n1:"Projects",n2:"Process",n3:"Live",n4:"About",n5:"Contact",h1:"I build AI agents that",lead:'Nice to meet you, I\'m <b>Gustavo Malaquias</b>, a full-stack software engineer and founder of NoxIA. I build systems that answer, sell and measure every result, running in production every day.',cta1:"See projects →",w1:"n8n workflows in production",w2:"AI agents at NoxIA",w3:"automated support",ph1:"Sales agent",ph2:"online · replies instantly",c1:"See projects",c2:"Real screenshots",c3:"Talk to me",phcap:"Simulated conversation from my system",p_t:"Projects",p_s:"Scroll to see five case studies. Each in three parts: the problem, what I did and the outcome.",pr_t:"How I work",pr_s:"Problem before tools. Measurement before scale.",l_t:"Live",l_s:"Real screenshots and videos of the agents and clinics in production.",a_t:"About",q:'Picking the <em>right problem</em> beats picking the newest tool.',a1:"I learned by building my own digital businesses: sales funnels, automated support and agents that work for me. Every system had to deliver real results, because it was my own money.",a2:"I've solved production problems like webhook race conditions, stuck queues, simultaneous sales attribution and WhatsApp at scale. Now I want to bring that experience to an engineering team.",t1d:"2026 — now",t1h:"Founder · NoxIA",t1p:"AI receptionists for clinics and an AI agent platform for digital product sellers.",t2d:"2026 — now",t2h:"Own digital products business",t2p:"AI-driven WhatsApp sales funnel, custom checkout and paid traffic.",t3h:"Freelance full-stack developer",t3p:"End-to-end education platform.",t4h:"Associate degree in Systems Development · UniCEUB",t4p:"Systems Analysis and Development. Advanced English.",e_p:"Looking for someone who builds AI that works in production? Let's talk.",f:'Founder of <a href="https://noxia.com.br">NoxIA</a>',
 words:["answer.","sell.","measure it all.","never sleep."],end:["Let's talk","Vamos conversar"],copy:"Copied ✓",prob:"Problem",did:"What I did",res:"Outcome",code:"Code ↗",live:"Live site ↗",
+clinic:[["in","Good afternoon! I'd like to book a cleaning."],["out","Good afternoon! This is IAna from NoxIA Clinic 😊 I have Thursday at 2pm or Friday at 9am. Which works better?"],["in","Thursday at 2pm"],["out","All set! Your cleaning is booked for Thursday at 2pm. I'll send you a reminder the day before."],["sys","✓ Appointment saved to the clinic calendar"]],
 chat:[["in","Hi! Saw the ebook ad, is it still available?"],["out","Hi Ana! Yes 😊 45 recipes with instant access. Want me to send the payment link?"],["in","Yes please!"],["out","Done: payment key sent. As soon as it clears, I'll send the PDF."],["sys","✓ Payment confirmed · PDF sent"],["sys","✓ Sale recorded in Google Ads"]]}
 };
 const P=[
 {tag:["Empresa própria","Own company"],n:"NoxIA",sub:["Automação com IA para clínicas e infoprodutores","AI automation for clinics and digital sellers"],
 p:["Clínicas perdem pacientes que escrevem fora do horário, e infoprodutores gastam horas por dia cruzando vendas e anúncios.","Clinics lose patients who message after hours, and digital sellers spend hours a day matching sales to ads."],
-d:["Atendente de IA no WhatsApp para clínicas (n8n, Chatwoot, RAG) e plataforma multi-cliente com 8 agentes em FastAPI, Docker e Telegram.","A WhatsApp AI receptionist for clinics (n8n, Chatwoot, RAG) and a multi-tenant platform with 8 agents on FastAPI, Docker and Telegram."],
+d:["Atendente de IA no WhatsApp para clínicas (n8n, Chatwoot, RAG) e plataforma multi-cliente com mais de 20 agentes em FastAPI, Docker e Telegram.","A WhatsApp AI receptionist for clinics (n8n, Chatwoot, RAG) and a multi-tenant platform with 20+ agents on FastAPI, Docker and Telegram."],
 r:["Atendimento 24 horas e relatórios, alertas e sugestões de verba chegando sozinhos. Nada que mexe em dinheiro acontece sem aprovação humana.","24/7 support plus reports, alerts and budget suggestions delivered automatically. Nothing that spends money runs without human approval."],
-s:"FastAPI · n8n · LangChain · Supabase · Docker · Telegram",gh:"https://github.com/GhMalak/noxia",site:"https://noxia.com.br",art:'<img src="media/relatorio.webp" alt="">'},
+s:"FastAPI · n8n · LangChain · Supabase · Docker · Telegram",gh:"https://github.com/GhMalak/noxia",site:"https://noxia.com.br",car:[{chat:1,cap:["Agente de vendas no WhatsApp (simulação)","WhatsApp sales agent (simulation)"]},{img:"media/gestor.webp",cap:["Gestor de Tráfego: sugere verba, eu aprovo","Traffic manager: suggests budget, I approve"]},{img:"media/guardiao.webp",cap:["Agente de tráfego: alerta campanha sem venda","Traffic agent: flags campaigns without sales"]},{img:"media/relatorio.webp",cap:["Agente Financeiro: resultado do dia","Finance agent: daily results"]}]},
 {tag:["Em produção","In production"],n:["Vendas no WhatsApp","WhatsApp sales"],sub:["Funil automatizado de produtos digitais","Automated digital product funnel"],
 p:["Responder, enviar o produto, confirmar o Pix e fazer follow-up era tudo manual, sem saber qual anúncio gerou cada venda.","Replying, delivering, confirming payment and following up were all manual, with no idea which ad drove each sale."],
-d:["Mais de 20 fluxos n8n com agente LangChain com memória e RAG, checkout com Mercado Pago e rastreio de cada venda até o GCLID.","20+ n8n workflows with a LangChain agent with memory and RAG, Mercado Pago checkout and every sale tracked back to its GCLID."],
+d:["Mais de 50 fluxos n8n com agente LangChain com memória e RAG, checkout com Mercado Pago e rastreio de cada venda até o GCLID.","50+ n8n workflows with a LangChain agent with memory and RAG, Mercado Pago checkout and every sale tracked back to its GCLID."],
 r:["O funil vende e entrega sozinho, e cada venda volta ao Google Ads como conversão offline. Filas que travavam 9 minutos foram resolvidas.","The funnel sells and delivers on its own, and every sale flows back to Google Ads as an offline conversion. 9-minute queue stalls fixed."],
 s:"n8n · LangChain · OpenAI · DeepSeek · Supabase · Google Ads API",art:'<div class="flow" id="flowart"><div><em>01</em>Clique no anúncio · GCLID</div><div><em>02</em>Landing page</div><div><em>03</em>Agente de IA no WhatsApp</div><div><em>04</em>Pix confirmado</div><div><em>05</em>Conversão no Google Ads</div></div>'},
 {tag:["Entregue","Delivered"],n:"GAPP",sub:["Análise de PDFs e geração de ofícios com IA","PDF analysis and letter generation with AI"],
@@ -346,35 +355,45 @@ r:["O texto jurídico vira linguagem clara, preservando o significado original."
 s:"Next.js · TypeScript · Prisma · Stripe · OpenAI",gh:"https://github.com/GhMalak/traduzsum",art:'<div class="law"><div class="a">"Ante o exposto, conheço do recurso e, no mérito, nego-lhe provimento, mantendo incólume a decisão vergastada."</div><div class="b" id="law"></div></div>'}
 ];
 const STP=[[["Mapear","Map"],["Quem faz, quantas vezes, quanto tempo leva e onde dá erro.","Who does it, how often, how long it takes and where it breaks."]],[["Priorizar","Prioritize"],["Alto impacto e baixo esforço primeiro, para gerar valor rápido.","High impact, low effort first, to deliver value fast."]],[["Construir","Build"],["A solução mais simples que resolve. IA só onde regra não basta.","The simplest thing that works. AI only where rules fall short."]],[["Medir","Measure"],["Horas, conversão e custo em produção. Os dados escolhem o próximo passo.","Hours, conversion and cost in production. Data picks the next step."]]];
-const G=[[["Agente Financeiro","Finance agent"],["Resultado do dia por campanha.","Daily results per campaign."],"media/relatorio.webp",""],[["Gestor de Tráfego","Traffic manager"],["Sugere verba, eu aprovo.","Suggests budget, I approve."],"media/gestor.webp",""],[["Guardião","Guardian"],["Alerta de gasto sem venda.","Alerts on spend without sales."],"media/guardiao.webp",""],[["Conversões","Conversions"],["Confere cada GCLID.","Checks every GCLID."],"media/comparativo.webp",""],[["Criativos","Creatives"],["Vídeo de anúncio por IA.","AI-made ad videos."],"media/criativo.jpg","media/criativo.mp4"],[["Caçador de Nichos","Niche hunter"],["Pesquisa e ranqueia nichos.","Researches and ranks niches."],"media/nicho.jpg","media/nicho.mp4"],[["Produtor de ebook","Ebook maker"],["Gera o PDF completo.","Builds the full PDF."],"media/ebook.jpg","media/ebook.mp4"],[["Fábrica de sites","Site factory"],["Landing page publicada.","Publishes the landing page."],"media/site.jpg","media/site.mp4"],[["Clínicas","Clinics"],["Aviso de reconexão do WhatsApp.","WhatsApp reconnection alert."],"media/wpp-reconexao.jpg",""]];
+const G=[[["Clínicas","Clinics"],["IAna atendendo e agendando um paciente (simulação).","IAna answering and booking a patient (simulation)."],"","clinic"],[["Agente Financeiro","Finance agent"],["Resultado do dia por campanha.","Daily results per campaign."],"media/relatorio.webp",""],[["Gestor de Tráfego","Traffic manager"],["Sugere verba, eu aprovo.","Suggests budget, I approve."],"media/gestor.webp",""],[["Guardião","Guardian"],["Alerta de gasto sem venda.","Alerts on spend without sales."],"media/guardiao.webp",""],[["Conversões","Conversions"],["Confere cada GCLID.","Checks every GCLID."],"media/comparativo.webp",""],[["Criativos","Creatives"],["Vídeo de anúncio por IA.","AI-made ad videos."],"media/criativo.jpg","media/criativo.mp4"],[["Caçador de Nichos","Niche hunter"],["Pesquisa e ranqueia nichos.","Researches and ranks niches."],"media/nicho.jpg","media/nicho.mp4"],[["Produtor de ebook","Ebook maker"],["Gera o PDF completo.","Builds the full PDF."],"media/ebook.jpg","media/ebook.mp4"],[["Fábrica de sites","Site factory"],["Landing page publicada.","Publishes the landing page."],"media/site.jpg","media/site.mp4"]];
 const SK=[["IA e LLMs","AI & LLMs","LangChain · RAG · OpenAI · DeepSeek · Llama (Groq) · Fine-tuning"],["Back-end","Back end","Python · FastAPI · Django · Laravel · Node.js · REST"],["Front-end","Front end","React · Next.js · TypeScript · Tailwind · Angular"],["Dados","Data","PostgreSQL · Supabase · pgvector · Redis · MongoDB"],["Automação","Automation","n8n · WhatsApp API · Chatwoot · Telegram · Google Ads API"],["Infra","Infra","Docker · VPS Linux · Vercel · Azure · Git"]];
 let L='pt';try{const s=localStorage.getItem('gm-lang');if(s==='en'||s==='pt')L=s}catch(e){}
 if(location.hash==='#en')L='en';
 const t=k=>I[L][k];const pick=v=>Array.isArray(v)?v[L==='pt'?0:1]:v;
 const $=id=>document.getElementById(id);
+const mq=(el,h)=>{el.innerHTML=`<div class="seq">${h}</div><div class="seq" aria-hidden="true">${h}</div>`};
 
-function renderCards(){$('htrack').innerHTML=P.map((c,i)=>`<article class="card"><div><div class="ctop"><span class="idx">0${i+1} / 05</span><span class="pill">${pick(c.tag)}</span></div><h3>${pick(c.n)}</h3><p class="sub">${pick(c.sub)}</p><div class="psr"><div><b>${t('prob')}</b><p>${pick(c.p)}</p></div><div><b>${t('did')}</b><p>${pick(c.d)}</p></div><div><b>${t('res')}</b><p>${pick(c.r)}</p></div></div><div class="stack">${c.s.split(' · ').map(x=>`<span>${x}</span>`).join('')}</div>${(c.gh||c.site)?`<div class="go">${c.gh?`<a href="${c.gh}">${t('code')}</a>`:''}${c.site?`<a class="o" href="${c.site}">${t('live')}</a>`:''}</div>`:''}</div><div class="art">${c.art}</div></article>`).join('');}
+function renderCards(){$('htrack').innerHTML=P.map((c,i)=>`<article class="card"><div><div class="ctop"><span class="idx">0${i+1} / 05</span><span class="pill">${pick(c.tag)}</span></div><h3>${pick(c.n)}</h3><p class="sub">${pick(c.sub)}</p><div class="psr"><div><b>${t('prob')}</b><p>${pick(c.p)}</p></div><div><b>${t('did')}</b><p>${pick(c.d)}</p></div><div><b>${t('res')}</b><p>${pick(c.r)}</p></div></div><div class="stack">${c.s.split(' · ').map(x=>`<span>${x}</span>`).join('')}</div>${(c.gh||c.site)?`<div class="go">${c.gh?`<a href="${c.gh}">${t('code')}</a>`:''}${c.site?`<a class="o" href="${c.site}">${t('live')}</a>`:''}</div>`:''}</div><div class="art${c.car?' hascar':''}">${c.car?carHTML(c.car):c.art}</div></article>`).join('');}
 function renderRest(){
 $('steps').innerHTML=STP.map((s,i)=>`<div class="step rv"><div class="n">${i+1}</div><h3>${pick(s[0])}</h3><p>${pick(s[1])}</p></div>`).join('');
-$('fan').innerHTML=G.map(g=>`<figure class="shot"><div class="fr">${g[3]?`<video src="${g[3]}" poster="${g[2]}" controls muted playsinline preload="none"></video>`:`<img src="${g[2]}" alt="${pick(g[0])}" loading="lazy">`}</div><figcaption><b>${pick(g[0])}</b>${pick(g[1])}</figcaption></figure>`).join('');
+$('fan').innerHTML=G.map(g=>`<figure class="shot"><div class="fr">${g[3]==='clinic'?phoneHTML('msgsClinic','Clínica NoxIA','IAna · online','IA'):g[3]?`<video src="${g[3]}" poster="${g[2]}" controls muted playsinline preload="none"></video>`:`<img src="${g[2]}" alt="${pick(g[0])}" loading="lazy">`}</div><figcaption><b>${pick(g[0])}</b>${pick(g[1])}</figcaption></figure>`).join('');
 $('skills').innerHTML=SK.map(s=>`<div class="sk rv"><h3>${L==='pt'?s[0]:s[1]}</h3><ul>${s[2].split(' · ').map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
-const e=t('end');const row=[...Array(4)].map(()=>`<span>${e[0]}</span><span>${e[1]}</span>`).join('');$('endt').innerHTML=row+row;
-const B=["Python","FastAPI","LangChain","RAG","n8n","OpenAI","Supabase","pgvector","React","Next.js","TypeScript","Docker","Redis","WhatsApp API","Google Ads API"].map(x=>`<span>${x}</span><b>●</b>`).join('');$('band').innerHTML=B+B;}
+const e=t('end');mq($('endt'),`<span>${e[0]}</span><span>${e[1]}</span>`);
+const B=["Python","FastAPI","LangChain","RAG","n8n","OpenAI","Supabase","pgvector","React","Next.js","TypeScript","Docker","Redis","WhatsApp API","Google Ads API"].map(x=>`<span>${x}</span><b>●</b>`).join('');mq($('band'),B);}
 function applyLang(){document.documentElement.lang=L==='pt'?'pt-BR':'en';
 document.querySelectorAll('[data-i]').forEach(el=>{const v=t(el.dataset.i);if(v===undefined)return;if(el.dataset.html||/<[a-z]/i.test(v))el.innerHTML=v;else el.textContent=v});
 document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.l===L)));
-renderCards();renderRest();startChat();startWords();layoutH();try{localStorage.setItem('gm-lang',L)}catch(e){}}
+renderCards();renderRest();startChat();initCars();startWords();layoutH();try{localStorage.setItem('gm-lang',L)}catch(e){}}
 document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>{if(L!==b.dataset.l){L=b.dataset.l;applyLang()}}));
 
 /* rotating word */
 let wt=null;function startWords(){clearTimeout(wt);const w=$('word'),ws=t('words');if(reduce){w.textContent=ws[0];return}let i=0,j=0,del=false;const step=()=>{const cur=ws[i];if(!del){j++;w.textContent=cur.slice(0,j);if(j===cur.length){del=true;wt=setTimeout(step,1600);return}}else{j--;w.textContent=cur.slice(0,j);if(j===0){del=false;i=(i+1)%ws.length}}wt=setTimeout(step,del?35:70)};step()}
 
 /* chat */
-let ct=[];function startChat(){ct.forEach(clearTimeout);ct=[];const box=$('msgs'),chat=t('chat');box.innerHTML='';
+const timers={};function runChat(id,script){(timers[id]||[]).forEach(clearTimeout);const T=timers[id]=[];const box=$(id);if(!box)return;box.innerHTML='';
 const add=(c,txt)=>{const d=document.createElement('div');d.className='m '+c;d.textContent=txt;box.appendChild(d);while(box.children.length>7)box.firstChild.remove()};
-if(reduce){chat.forEach(m=>add(m[0],m[1]));return}
-let at=400;chat.forEach(m=>{if(m[0]==='out'){ct.push(setTimeout(()=>{const ty=document.createElement('div');ty.className='m out typing';ty.innerHTML='<i></i><i></i><i></i>';box.appendChild(ty);ct.push(setTimeout(()=>ty.remove(),900))},at));at+=950}ct.push(setTimeout(()=>add(m[0],m[1]),at));at+=m[0]==='sys'?900:1300});
-ct.push(setTimeout(startChat,at+3500))}
+if(reduce){script.forEach(m=>add(m[0],m[1]));return}
+let at=500;script.forEach(m=>{if(m[0]==='out'){T.push(setTimeout(()=>{const ty=document.createElement('div');ty.className='m out typing';ty.innerHTML='<i></i><i></i><i></i>';box.appendChild(ty);T.push(setTimeout(()=>ty.remove(),900))},at));at+=950}T.push(setTimeout(()=>add(m[0],m[1]),at));at+=m[0]==='sys'?900:1400});
+T.push(setTimeout(()=>runChat(id,script),at+3500))}
+function startChat(){runChat('msgsSales',t('chat'));runChat('msgsClinic',t('clinic'))}
+const phoneHTML=(id,name,sub,av)=>`<div class="screen"><div class="chathead"><div class="av">${av}</div><div><b>${name}</b><small>${sub}</small></div></div><div class="msgs" id="${id}"></div></div>`;
+function carHTML(sl){return `<div class="car"><div class="ctrk">${sl.map(x=>`<div class="slide">${x.chat?`<div class="mph">${phoneHTML('msgsSales',t('ph1'),t('ph2'),'AI')}</div>`:`<img src="${x.img}" alt="${pick(x.cap)}" loading="lazy">`}<p class="scap">${pick(x.cap)}</p></div>`).join('')}</div><div class="dots">${sl.map((x,i)=>`<button type="button" aria-label="${i+1}"${i?'':' class="on"'}></button>`).join('')}</div></div>`}
+function initCars(){document.querySelectorAll('.car').forEach(car=>{const trk=car.querySelector('.ctrk'),ds=[...car.querySelectorAll('.dots button')];let user=false;
+const go=i=>trk.scrollTo({left:i*trk.clientWidth,behavior:reduce?'auto':'smooth'});
+ds.forEach((d,i)=>d.addEventListener('click',()=>{user=true;go(i)}));
+trk.addEventListener('pointerdown',()=>{user=true});trk.addEventListener('touchstart',()=>{user=true},{passive:true});
+trk.addEventListener('scroll',()=>{const i=Math.round(trk.scrollLeft/trk.clientWidth);ds.forEach((d,k)=>d.classList.toggle('on',k===i))},{passive:true});
+if(!reduce){clearInterval(car._t);car._t=setInterval(()=>{if(user||!trk.clientWidth)return;const r=trk.getBoundingClientRect();if(r.right<0||r.left>innerWidth||r.bottom<0||r.top>innerHeight)return;const i=(Math.round(trk.scrollLeft/trk.clientWidth)+1)%ds.length;go(i)},5000)}})}
 
 /* horizontal pinned projects */
 const hw=$('hwrap'),tr=$('htrack');let maxX=0;
