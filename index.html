@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gustavo Malaquias</title>
+<meta name="description" content="Gustavo Malaquias, Engenheiro de Software Full-Stack e fundador da NoxIA. Agentes de IA, RAG e automação em produção.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE confident engineer's portfolio, cinematic like a night-to-dawn sequence
+   IDEA the NoxIA night sky that turns to dawn as you scroll: from the first click to the confirmed sale
+   PICTURE a live constellation of the sales system, a token travelling from "clique" to "venda"
+   COLOUR night #0f0820 → dusk #24123c → dawn #3a1e3a; one accent, NoxIA yellow #ffd54a
+   TYPE Big Shoulders Display (condensed titles) + Manrope (body) + JetBrains Mono (labels)
+   LAYOUT hero split title/sky; case studies as full-width rows problem → what I did → result */
+:root{color-scheme:dark;--bg:#0f0820;--ink:#f3eefc;--soft:#b8acd8;--mute:#9b90bf;--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.035);--y:#ffd54a;--v:#7c4dff;--l:#cdbbff}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Manrope,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+::selection{background:var(--y);color:#1a1030}
+.skip{position:absolute;left:-999px;top:8px;background:var(--y);color:#1a1030;padding:10px 14px;border-radius:10px;z-index:40}
+.skip:focus{left:12px}
+:focus-visible{outline:3px solid var(--y);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 max(5vw,18px)}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1,h2,h3{font-family:"Big Shoulders Display","Arial Narrow",sans-serif;font-weight:800;line-height:.95;letter-spacing:-.01em;margin:0}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--y);z-index:30}
+#glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(124,77,255,.16),transparent 65%);transform:translate(-50%,-50%);z-index:0;left:50%;top:30%}
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:25;display:flex;align-items:center;gap:2px;padding:6px 8px;border-radius:99px;background:rgba(20,12,40,.75);backdrop-filter:blur(12px);border:1px solid var(--line);max-width:calc(100vw - 24px)}
+nav a{text-decoration:none;padding:9px 14px;border-radius:99px;font-size:15px;color:var(--soft);white-space:nowrap}
+nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
+nav .me{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:20px;color:#fff;padding:6px 14px}
+nav .me i{color:var(--y);font-style:normal}
+main,footer{position:relative;z-index:1}
+.hero{min-height:100svh;display:grid;align-items:center;padding:110px 0 60px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,72px);align-items:center;width:100%}
+.labels p{margin:0 0 6px;color:var(--soft)}
+.labels b{color:#fff;font-weight:700}
+.hero h1{font-size:clamp(64px,10vw,148px);margin:22px 0 26px}
+.hero h1 span{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 em{display:inline-block;font-style:normal;animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 span:nth-child(2) em{animation-delay:.15s}
+.outline{color:transparent;-webkit-text-stroke:2px var(--ink);background:linear-gradient(90deg,var(--y),var(--y)) no-repeat 0 0/0% 100%;-webkit-background-clip:text;background-clip:text;transition:background-size .7s ease}
+.hero h1:hover .outline{background-size:100% 100%}
+.dot{color:var(--y);font-style:normal}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+.lead{font-size:clamp(19px,1.8vw,23px);max-width:34ch;margin:0 0 14px;color:#fff}
+.where{color:var(--mute);margin:0 0 26px;max-width:52ch}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 22px;border-radius:99px;font-weight:700;text-decoration:none;font-size:15px;transition:transform .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.y{background:var(--y);color:#1a1030}
+.btn.o{border:1.5px solid rgba(255,255,255,.25)}
+.btn.o:hover{border-color:var(--y)}
+.sky{position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:radial-gradient(120% 90% at 70% 10%,#2c1760,#120a28 70%);border:1px solid var(--line);animation:fade 1.2s .3s both}
+.sky svg{position:absolute;inset:0;width:100%;height:100%}
+.sky .cap{position:absolute;left:18px;bottom:16px;right:18px;color:var(--soft)}
+@keyframes fade{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.ticker{border-block:1px solid var(--line);overflow:hidden;padding:18px 0;white-space:nowrap}
+.track{display:inline-flex;gap:44px;animation:slide 38s linear infinite;font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:34px;color:var(--soft)}
+.track b{color:var(--y);font-weight:800}
+@keyframes slide{to{transform:translateX(-50%)}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin:72px auto 0}
+.stat{background:var(--bg);padding:26px 24px}
+.stat .n{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:64px;line-height:1;color:#fff}
+.stat .n i{color:var(--y);font-style:normal}
+.stat p{margin:8px 0 0;color:var(--soft);font-size:15px}
+section{padding:clamp(80px,10vw,140px) 0 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:38px}
+h2{font-size:clamp(54px,7vw,96px)}
+.head p{margin:0;color:var(--soft);max-width:44ch}
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);padding:clamp(24px,3vw,40px);border:1px solid var(--line);border-radius:28px;background:var(--card);margin-bottom:22px;transition:border-color .3s,transform .3s}
+.case:hover{border-color:rgba(255,213,74,.45)}
+.case .k{color:var(--y);margin:0 0 12px}
+.case h3{font-size:clamp(40px,4.6vw,62px);margin-bottom:8px}
+.case .sub{color:var(--soft);margin:0 0 16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
+.tags li{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:8px;border:1px solid var(--line);color:var(--l)}
+.steps{display:grid;gap:14px}
+.step{display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding-top:14px;border-top:1px solid var(--line)}
+.step span{color:var(--mute)}
+.step p{margin:0}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.links a{font-size:14px;font-weight:700;text-decoration:none;padding:10px 16px;border-radius:99px;border:1.5px solid rgba(255,255,255,.22)}
+.links a:hover{border-color:var(--y);color:var(--y)}
+.vis{position:relative;border-radius:22px;overflow:hidden;background:#140c2c;border:1px solid var(--line);min-height:380px;display:grid;place-items:center;padding:20px}
+.vis img{max-height:460px;width:auto;max-width:100%;display:block;transition:transform .6s}
+.case:hover .vis img{transform:scale(1.03)}
+.doc{width:100%;max-width:300px;background:#f5f1ff;color:#2a2050;border-radius:12px;padding:18px;font-size:12px;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.doc .ln{height:7px;border-radius:4px;background:#d9d0f5;margin:7px 0}
+.doc .hl{background:#ffd54a;animation:scan 3s ease-in-out infinite}
+.doc b{display:block;font-size:13px;margin-bottom:8px}
+@keyframes scan{0%,100%{opacity:.35}50%{opacity:1}}
+.arrow{font-family:"JetBrains Mono",monospace;color:var(--y);margin:14px 0;font-size:13px;text-align:center}
+.bars{display:flex;align-items:flex-end;gap:10px;height:180px;width:100%;max-width:340px}
+.bars i{flex:1;border-radius:8px 8px 0 0;background:linear-gradient(var(--l),var(--v));transform-origin:bottom;animation:grow 2.4s ease-in-out infinite alternate}
+@keyframes grow{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+.mini{width:100%;max-width:340px;display:grid;gap:8px;margin-top:16px}
+.mini div{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.05)}
+.mini b{color:var(--y)}
+.legal{width:100%;max-width:380px;display:grid;gap:12px}
+.legal div{border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.5}
+.legal .a{background:rgba(255,255,255,.06);color:var(--mute);text-decoration:line-through;text-decoration-color:rgba(255,213,74,.6)}
+.legal .b{background:#f5f1ff;color:#24183f;min-height:96px}
+.legal .b::after{content:"▍";color:var(--v);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 18px;scrollbar-width:thin}
+.shot{flex:none;width:min(270px,76vw);scroll-snap-align:start;margin:0}
+.phone{height:520px;border-radius:30px;overflow:hidden;background:#120a2a;border:6px solid #2a1f55}
+.phone img,.phone video{width:100%;height:100%;object-fit:contain;display:block}
+.shot figcaption{margin-top:12px;font-size:15px;color:var(--soft)}
+.shot figcaption b{display:block;color:var(--y);font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.rnav{display:flex;gap:8px}
+.rnav button{width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);background:transparent;color:#fff;font-size:22px;cursor:pointer}
+.rnav button:hover{border-color:var(--y);color:var(--y)}
+.about{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,72px)}
+.about .big{font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:clamp(34px,3.6vw,48px);line-height:1.02;margin:0 0 22px}
+.about p{color:var(--soft);margin:0 0 14px;max-width:62ch}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;padding:18px 0;border-top:1px solid var(--line)}
+.tl .d{color:var(--mute)}
+.tl h4{margin:0 0 4px;font-size:18px}
+.tl p{margin:0;color:var(--soft);font-size:15px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.sk{border:1px solid var(--line);border-radius:22px;padding:22px;background:var(--card)}
+.sk h3{font-size:30px;margin-bottom:14px}
+.sk ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.sk li{font-size:14px;padding:6px 11px;border-radius:99px;background:rgba(255,255,255,.06)}
+.sk li.s{background:var(--y);color:#1a1030;font-weight:700}
+.contact{padding-bottom:40px}
+.contact h2{font-size:clamp(72px,12vw,180px)}
+.clist{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:36px}
+.clist a,.clist button{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:72px;padding:0 22px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:#fff;text-decoration:none;font:600 17px Manrope,sans-serif;cursor:pointer;text-align:left;flex-wrap:wrap}
+.clist a:hover,.clist button:hover{border-color:var(--y)}
+.clist small{color:var(--mute);font-weight:500;overflow-wrap:anywhere}
+footer{padding:40px 0 60px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
+.sun{position:fixed;left:50%;bottom:-60vh;width:120vw;height:90vh;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle at 50% 30%,rgba(255,190,90,.32),transparent 60%);pointer-events:none;z-index:0;opacity:0}
+@supports (animation-timeline:view()){
+ .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+ @keyframes rv{from{opacity:.08;transform:translateY(48px)}to{opacity:1;transform:none}}
+}
+@media(max-width:860px){.hero .wrap,.case,.about{grid-template-columns:minmax(0,1fr)}.sky{aspect-ratio:1/1;max-height:440px}.vis{min-height:300px}}
+@media(max-width:600px){nav a:not(.me){padding:8px 8px;font-size:13px}.step,.tl li{grid-template-columns:minmax(0,1fr);gap:4px}#glow{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<div id="bar"></div><div id="glow"></div><div class="sun" id="sun"></div>
+<nav aria-label="Navegação principal">
+<a class="me" href="#topo">G<i>M</i></a><a href="#projetos">Projetos</a><a href="#aovivo">Ao vivo</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+</nav>
+
+<main id="conteudo">
+<header class="hero" id="topo"><div class="wrap">
+<div>
+<div class="labels mono"><p><b>Gustavo Malaquias</b> · Engenheiro de Software Full-Stack</p><p>Fundador da NoxIA · IA aplicada · Brasília</p></div>
+<h1><span><em class="outline">Do clique</em></span><span><em>à venda<i class="dot">.</i></em></span></h1>
+<p class="lead">Construo sistemas de IA que atendem, vendem e medem o resultado. Em produção, não só em demo.</p>
+<p class="where">Brasília, DF · Disponível para vagas remotas, híbridas ou presenciais</p>
+<div class="cta"><a class="btn y" href="#projetos">Ver projetos ↓</a><a class="btn o" href="https://github.com/GhMalak">GitHub</a><a class="btn o" href="https://www.linkedin.com/in/ghmalak">LinkedIn</a></div>
+</div>
+<div class="sky" id="sky" role="img" aria-label="Constelação do sistema: clique no anúncio, landing page, WhatsApp, agente de IA, pagamento e venda no Google Ads"><svg></svg><div class="cap mono">Um sistema meu, de ponta a ponta</div></div>
+</div></header>
+
+<div class="ticker" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<div class="wrap"><div class="stats rv">
+<div class="stat"><div class="n"><span data-to="20">20</span><i>+</i></div><p>fluxos n8n rodando em produção</p></div>
+<div class="stat"><div class="n"><span data-to="8">8</span></div><p>agentes de IA na plataforma da NoxIA</p></div>
+<div class="stat"><div class="n"><span data-to="24">24</span><i>h</i></div><p>de atendimento automático no WhatsApp</p></div>
+<div class="stat"><div class="n"><span data-to="5">5</span></div><p>projetos publicados no GitHub</p></div>
+</div></div>
+
+<section id="projetos"><div class="wrap">
+<div class="head rv"><h2>Projetos</h2><p>Cada caso em três partes: o problema, o que eu fiz e o resultado.</p></div>
+<div id="cases"></div>
+</div></section>
+
+<section id="aovivo"><div class="wrap">
+<div class="head rv"><div><h2>Ao vivo</h2><p>Prints e vídeos reais dos agentes de IA e das clínicas em produção.</p></div><div class="rnav"><button type="button" id="prev" aria-label="Anterior">←</button><button type="button" id="next" aria-label="Próximo">→</button></div></div>
+<div class="rail" id="rail" tabindex="0" aria-label="Galeria de prints"></div>
+</div></section>
+
+<section id="sobre"><div class="wrap about">
+<div class="rv">
+<h2 style="margin-bottom:26px">Sobre</h2>
+<p class="big">Gosto de resolver o problema certo e de medir se ele foi resolvido.</p>
+<p>Sou desenvolvedor full-stack e fundador da NoxIA. Aprendi construindo meus próprios negócios digitais: funis de venda, atendimento automático e agentes que trabalham por mim. Cada sistema precisava dar resultado de verdade, porque o dinheiro era meu.</p>
+<p>Resolvi problemas de produção como race conditions em webhooks, filas travadas, atribuição de vendas simultâneas e números de WhatsApp em escala. Agora quero levar essa experiência para um time de engenharia.</p>
+</div>
+<div class="rv">
+<ul class="tl">
+<li><span class="d mono">2026 — hoje</span><div><h4>Fundador · NoxIA</h4><p>Atendentes de IA para clínicas e plataforma de agentes de IA para infoprodutores.</p></div></li>
+<li><span class="d mono">2026 — hoje</span><div><h4>Negócio próprio de infoprodutos</h4><p>Funil de vendas no WhatsApp com IA, checkout próprio e tráfego pago.</p></div></li>
+<li><span class="d mono">2021 — 2023</span><div><h4>Desenvolvedor full-stack freelance</h4><p>Plataforma educacional de ponta a ponta.</p></div></li>
+<li><span class="d mono">2020 — 2023</span><div><h4>Tecnólogo em ADS · UniCEUB</h4><p>Análise e Desenvolvimento de Sistemas. Inglês avançado.</p></div></li>
+</ul>
+</div>
+</div></section>
+
+<section id="habilidades"><div class="wrap">
+<div class="head rv"><h2>Stack</h2><p>Em amarelo, o que uso todos os dias em produção.</p></div>
+<div class="skills" id="skills"></div>
+</div></section>
+
+<section class="contact" id="contato"><div class="wrap">
+<h2 class="rv">Vamos<br>conversar<i class="dot">?</i></h2>
+<div class="clist">
+<a href="https://www.linkedin.com/in/ghmalak"><span>LinkedIn</span><small>/in/ghmalak ↗</small></a>
+<a href="https://github.com/GhMalak"><span>GitHub</span><small>/GhMalak ↗</small></a>
+<button type="button" id="cp"><span>E-mail</span><small id="cpl">gustavo.calasan@gmail.com · copiar</small></button>
+</div>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 Gustavo Malaquias · Brasília, DF</span><span>Fundador da <a href="https://noxia.com.br">NoxIA</a></span></div></footer>
+
+<script>
+{
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const C=[
+{k:"Caso 1 / 5",n:"NoxIA",sub:"Empresa própria de automação com IA",tags:["Empresa própria","Em produção"],
+p:"Clínicas perdem pacientes que mandam mensagem fora do horário, e infoprodutores gastam horas por dia cruzando vendas e anúncios.",
+f:"Criei um atendente de IA no WhatsApp para clínicas (n8n, Chatwoot e RAG) e uma plataforma multi-cliente com 8 agentes de IA em FastAPI, Docker e Telegram.",
+r:"Atendimento 24 horas nas clínicas e relatórios, alertas e sugestões de verba chegando sozinhos no celular. Nada que mexe em dinheiro acontece sem aprovação humana.",
+gh:"https://github.com/GhMalak/noxia",site:"https://noxia.com.br",vis:'<img src="media/relatorio.webp" alt="Relatório diário do Agente Financeiro no Telegram">'},
+{k:"Caso 2 / 5",n:"Vendas no WhatsApp com IA",sub:"Funil automatizado de produtos digitais",tags:["Negócio próprio","Em produção"],
+p:"Vender pelo WhatsApp exigia responder, enviar o produto, confirmar o Pix e fazer follow-up à mão, sem saber qual anúncio gerou cada venda.",
+f:"Montei mais de 20 fluxos n8n com uma agente LangChain com memória e RAG, checkout próprio com Mercado Pago e rastreio de cada venda até o GCLID.",
+r:"O funil vende e entrega sozinho, e cada venda volta para o Google Ads como conversão offline. Resolvi race conditions e filas que travavam até 9 minutos.",
+vis:'<img src="media/comparativo.webp" alt="Checagem das conversões com GCLID">'},
+{k:"Caso 3 / 5",n:"GAPP",sub:"Análise de documentos e geração de ofícios com IA",tags:["Projeto entregue","IA + PDF"],
+p:"Analisar Planos de Trabalho em PDF e redigir ofícios de resposta era um trabalho manual, lento e sujeito a erro.",
+f:"Construí uma API FastAPI com fila Redis e worker que extrai o texto, analisa cada tópico com Llama 3.3 e gera o ofício em PDF. Front-end em Next.js.",
+r:"O ofício sai pronto a partir do PDF. Testei RAG com fine-tuning e escolhi Groq com few-shot, que ficou mais simples, rápido e barato.",
+gh:"https://github.com/GhMalak/gapp",vis:'<div style="width:100%;display:grid;justify-items:center"><div class="doc"><b>Plano de Trabalho.pdf</b><div class="ln"></div><div class="ln hl"></div><div class="ln"></div><div class="ln" style="width:70%"></div><div class="ln hl" style="width:85%"></div></div><div class="arrow">↓ Llama 3.3 analisa e gera o ofício</div><div class="doc"><b>Ofício de resposta</b><div class="ln"></div><div class="ln"></div><div class="ln" style="width:60%"></div></div></div>'},
+{k:"Caso 4 / 5",n:"MalaCars",sub:"SaaS multi-empresa de gestão de frota",tags:["SaaS","Full-stack"],
+p:"Quem aluga carros para motoristas controla contratos, cobranças semanais e manutenções em planilha e no WhatsApp.",
+f:"Desenvolvi um SaaS em React, TypeScript, FastAPI e Supabase com contratos, cobranças semanais automáticas, gastos fixos, revisão por quilometragem e documentos.",
+r:"Um painel com entradas, margem por veículo, pontualidade de cada motorista e uma lista única do que precisa de atenção.",
+gh:"https://github.com/GhMalak/malacars",vis:'<div style="display:grid;place-items:center;width:100%"><div class="bars"><i></i><i style="animation-delay:.3s"></i><i style="animation-delay:.6s"></i><i style="animation-delay:.9s"></i><i style="animation-delay:1.2s"></i><i style="animation-delay:1.5s"></i></div><div class="mini"><div>Cobranças da semana <b>em dia</b></div><div>Revisão por km <b>alerta 1.000 km antes</b></div></div></div>'},
+{k:"Caso 5 / 5",n:"TraduzSum",sub:"Tradução de textos jurídicos com IA",tags:["SaaS","IA aplicada"],
+p:"Jurisprudências, súmulas e decisões são difíceis de entender para estudantes, concurseiros e cidadãos.",
+f:"Criei um SaaS em Next.js 14, TypeScript e Prisma, com RAG e LLM ajustado por fine-tuning, e assinaturas com Stripe.",
+r:"O texto jurídico vira linguagem clara e objetiva, preservando o significado original.",
+gh:"https://github.com/GhMalak/traduzsum",vis:'<div class="legal"><div class="a">"Ante o exposto, conheço do recurso e, no mérito, nego-lhe provimento, mantendo incólume a decisão vergastada."</div><div class="b" id="typed"></div></div>'}
+];
+document.getElementById('cases').innerHTML=C.map(c=>`<article class="case rv"><div><p class="k mono">${c.k}</p><h3>${c.n}</h3><p class="sub">${c.sub}</p><ul class="tags">${c.tags.map(t=>`<li>${t}</li>`).join('')}</ul><div class="steps"><div class="step"><span class="mono">Problema</span><p>${c.p}</p></div><div class="step"><span class="mono">O que fiz</span><p>${c.f}</p></div><div class="step"><span class="mono">Resultado</span><p>${c.r}</p></div></div>${(c.gh||c.site)?`<div class="links">${c.gh?`<a href="${c.gh}">Código no GitHub ↗</a>`:''}${c.site?`<a href="${c.site}">Ver no ar ↗</a>`:''}</div>`:''}</div><div class="vis">${c.vis}</div></article>`).join('');
+
+const T=["Python","FastAPI","LangChain","RAG","n8n","OpenAI","Supabase","pgvector","React","Next.js","TypeScript","Laravel","Docker","Redis","WhatsApp API","Google Ads API"];
+const tr=T.map(t=>`<span>${t}</span><b>✦</b>`).join('');document.getElementById('track').innerHTML=tr+tr;
+
+const S=[["IA e LLMs",["LangChain","RAG","OpenAI","DeepSeek","Llama (Groq)","Fine-tuning","Tool calling"],3],["Back-end",["Python","FastAPI","Django","Laravel","Node.js","REST","Webhooks"],2],["Front-end",["React","Next.js","TypeScript","Tailwind","Angular","React Native"],3],["Dados",["PostgreSQL","Supabase","pgvector","Redis","MongoDB","ChromaDB"],3],["Automação",["n8n","WhatsApp Cloud API","Evolution API","Chatwoot","Telegram","Google Ads API","Stripe","Mercado Pago"],4],["Infra",["Docker","VPS Linux","Vercel","Azure","Heroku","Git"],3]];
+document.getElementById('skills').innerHTML=S.map(s=>`<div class="sk rv"><h3>${s[0]}</h3><ul>${s[1].map((x,i)=>`<li class="${i<s[2]?'s':''}">${x}</li>`).join('')}</ul></div>`).join('');
+
+const G=[["Agente Financeiro","Resultado do dia por campanha, com lucro e ROAS.","media/relatorio.webp",""],["Gestor de Tráfego","Sugere mudanças de verba que só valem após aprovação.","media/gestor.webp",""],["Guardião","Avisa quando uma campanha gasta sem vender.","media/guardiao.webp",""],["Conversões","Confere se toda venda com GCLID chegou ao Google Ads.","media/comparativo.webp",""],["Criativos","Roteiro, cenas e vídeo de anúncio gerados por IA.","media/criativo.jpg","media/criativo.mp4"],["Caçador de Nichos","Pesquisa web, YouTube e Trends e ranqueia nichos.","media/nicho.jpg","media/nicho.mp4"],["Produtor de ebook","Diagrama e gera o PDF completo.","media/ebook.jpg","media/ebook.mp4"],["Fábrica de sites","Cria a landing page e publica na Vercel.","media/site.jpg","media/site.mp4"],["Clínicas","Aviso com link quando o WhatsApp da clínica cai.","media/wpp-reconexao.jpg",""]];
+const rail=document.getElementById('rail');
+rail.innerHTML=G.map(g=>`<figure class="shot"><div class="phone">${g[3]?`<video src="${g[3]}" poster="${g[2]}" controls muted playsinline preload="none"></video>`:`<img src="${g[2]}" alt="${g[0]}" loading="lazy">`}</div><figcaption><b>${g[0]}</b>${g[1]}</figcaption></figure>`).join('');
+const go=d=>rail.scrollBy({left:d*(rail.querySelector('.shot').offsetWidth+18),behavior:reduce?'auto':'smooth'});
+document.getElementById('prev').addEventListener('click',()=>go(-1));document.getElementById('next').addEventListener('click',()=>go(1));
+rail.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+
+const ST=["Clique no anúncio","Landing page","WhatsApp","Agente de IA","Pagamento","Venda no Google Ads"];
+const box=document.getElementById('sky'),svg=box.querySelector('svg');let pts=[];
+const star=(x,y,r,c)=>`<path d="M${x},${y-r} Q${x+r*.18},${y-r*.18} ${x+r},${y} Q${x+r*.18},${y+r*.18} ${x},${y+r} Q${x-r*.18},${y+r*.18} ${x-r},${y} Q${x-r*.18},${y-r*.18} ${x},${y-r}Z" fill="${c}"/>`;
+const drawSky=()=>{const W=box.clientWidth,H=box.clientHeight;if(!W||!H)return;let q=5,o='';const rnd=()=>(q=q*16807%2147483647)/2147483647;
+for(let i=0;i<60;i++)o+=`<circle cx="${rnd()*W}" cy="${rnd()*H}" r="${rnd()*1.3+.3}" fill="#c9bfee" opacity="${.2+rnd()*.5}"/>`;
+const m=Math.min(W,H);o+=`<circle cx="${W*.8}" cy="${H*.13}" r="${m*.09}" fill="#ffd54a"/><circle cx="${W*.8+m*.045}" cy="${H*.13-m*.03}" r="${m*.08}" fill="#1f1144"/>`;
+pts=ST.map((_,i)=>{const t=i/(ST.length-1);return[W*(.1+(i%2?.3:0)+t*.14),H*(.22+t*.62)]});
+const d='M'+pts.map(p=>p.join(',')).join(' L');
+o+=`<path d="${d}" fill="none" stroke="#7c4dff" stroke-width="8" opacity=".35" stroke-linecap="round"/><path d="${d}" fill="none" stroke="#cdbbff" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>`;
+pts.forEach((p,i)=>{const last=i===pts.length-1,r=last?17:12;o+=`<circle cx="${p[0]}" cy="${p[1]}" r="${r*2}" fill="#ffd54a" opacity=".12"/>`+star(p[0],p[1],r,last?'#ffd54a':(i%2?'#cdbbff':'#ffe38a'))+`<text x="${p[0]+26}" y="${p[1]+5}" font-family="JetBrains Mono, monospace" font-size="12" fill="#fff" style="paint-order:stroke;stroke:#140c2c;stroke-width:4px">${ST[i]}</text>`});
+o+=`<circle id="tok" r="5" fill="#fff" cx="${pts[0][0]}" cy="${pts[0][1]}"/>`;svg.innerHTML=o};
+const ro=new ResizeObserver(drawSky);ro.observe(box);drawSky();
+if(!reduce){let t0=null;const tick=t=>{if(t0===null)t0=t;const tok=svg.querySelector('#tok');if(tok&&pts.length>1){const seg=pts.length-1,f=(Math.max(0,t-t0)%7000)/7000*seg,i=Math.min(Math.floor(f),seg-1),k=f-i;tok.setAttribute('cx',pts[i][0]+(pts[i+1][0]-pts[i][0])*k);tok.setAttribute('cy',pts[i][1]+(pts[i+1][1]-pts[i][1])*k)}requestAnimationFrame(tick)};requestAnimationFrame(tick)}
+
+const typed=document.getElementById('typed'),plain='O tribunal analisou o recurso e manteve a decisão anterior. Quem recorreu perdeu.';
+if(reduce){typed.textContent=plain}else{let j=0;setInterval(()=>{j=j>plain.length+30?0:j+1;typed.textContent=plain.slice(0,j)},45)}
+
+const stops=[[15,8,32],[36,18,60],[58,30,58]];
+const mix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
+const bar=document.getElementById('bar'),sun=document.getElementById('sun');
+const onScroll=()=>{const h=document.documentElement.scrollHeight-innerHeight,p=h>0?Math.min(1,scrollY/h):0;bar.style.width=(p*100)+'%';
+const seg=p<.5?0:1,t=p<.5?p/.5:(p-.5)/.5,col=`rgb(${mix(stops[seg],stops[seg+1],t)})`;document.documentElement.style.setProperty('--bg',col);sun.style.opacity=Math.max(0,(p-.6)/.4)};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+const glow=document.getElementById('glow');if(!reduce)addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'},{passive:true});
+
+const io=new IntersectionObserver(es=>{es.forEach(en=>{if(!en.isIntersecting||reduce)return;const el=en.target,to=+el.dataset.to,t0=performance.now();const step=t=>{const k=Math.min(1,Math.max(0,t-t0)/1200);el.textContent=Math.round(to*(1-(1-k)**3));if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step);io.unobserve(el)})},{threshold:.6});
+document.querySelectorAll('[data-to]').forEach(n=>io.observe(n));
+
+if(!reduce&&matchMedia('(hover:hover)').matches){document.querySelectorAll('.case').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(1200px) rotateX(${-y*2.5}deg) rotateY(${x*2.5}deg)`});c.addEventListener('pointerleave',()=>{c.style.transform=''})})}
+
+const cp=document.getElementById('cp'),cpl=document.getElementById('cpl');
+cp.addEventListener('click',()=>{navigator.clipboard.writeText('gustavo.calasan@gmail.com').then(()=>{cpl.textContent='Copiado ✓';setTimeout(()=>cpl.textContent='gustavo.calasan@gmail.com · copiar',1800)}).catch(()=>{cpl.textContent='gustavo.calasan@gmail.com'})});
+}
+</script>
+</body>
+</html>
