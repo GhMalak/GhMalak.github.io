@@ -27,24 +27,6 @@ a{color:inherit}
 .skip:focus{left:12px}
 h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-spacing:-.03em;line-height:1;margin:0}
 .meta{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px;color:var(--mute)}
-.intro{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,80px);align-items:center;padding-top:120px;padding-bottom:30px;min-height:100svh}
-.pics{position:relative;padding:0 8% 12% 0}
-.pics figure{margin:0;border-radius:28px;overflow:hidden;border:1px solid var(--line)}
-.pics img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}
-.p1{aspect-ratio:4/5;box-shadow:0 40px 80px -30px rgba(124,77,255,.55);animation:pin 1s .1s both}
-.p2{position:absolute;right:0;bottom:0;width:44%;aspect-ratio:4/5;transform:rotate(4deg);box-shadow:0 20px 50px -10px rgba(0,0,0,.7);border:5px solid var(--bg)!important;animation:pin2 1s .35s both}
-.pics:hover .p1 img{transform:scale(1.04)}
-.pics:hover .p2{transform:rotate(0) translateY(-6px)}
-.p2{transition:transform .5s}
-.sticker{position:absolute;left:-10px;top:24px;background:var(--y);color:#120a24;font:800 13px Unbounded,sans-serif;padding:9px 14px;border-radius:99px;transform:rotate(-6deg);box-shadow:0 10px 24px -8px rgba(255,213,74,.6)}
-@keyframes pin{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes pin2{from{opacity:0;transform:rotate(14deg) translateY(40px)}to{opacity:1;transform:rotate(4deg)}}
-.kick{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--y);margin:0 0 14px}
-.intro h1{font-size:clamp(46px,6.4vw,96px);line-height:.92;margin-bottom:16px}
-.intro h1 span{color:transparent;-webkit-text-stroke:2px var(--ink)}
-.role2{color:var(--l);font-weight:700;margin:0 0 26px}
-.itxt>p:not(.kick):not(.role2):not(.quote){color:var(--soft);margin:0 0 14px;max-width:60ch}
-.itxt .tl{margin-top:26px}
 /* top header */
 .top{position:fixed;top:14px;left:max(2vw,12px);right:max(2vw,12px);z-index:40;height:64px;display:flex;align-items:center;gap:18px;padding:0 10px 0 12px;border-radius:20px;background:transparent;border:1px solid transparent;transition:background .35s,border-color .35s,box-shadow .35s,top .35s}
 .top.solid{background:rgba(18,10,36,.55);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-color:rgba(255,255,255,.1);box-shadow:0 10px 40px -12px rgba(0,0,0,.6)}
@@ -81,14 +63,14 @@ h1,h2,h3{font-family:Unbounded,"Arial Black",sans-serif;font-weight:800;letter-s
 .pad{padding-left:max(5vw,24px);padding-right:max(5vw,24px)}
 .max{max-width:1240px;margin:0 auto}
 /* hero */
-.hero{min-height:auto;scroll-margin-top:0;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(28px,4vw,64px);align-items:center;padding-top:clamp(70px,8vw,120px);padding-bottom:48px;position:relative;overflow:hidden}
+.hero{min-height:100svh;scroll-margin-top:0;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(28px,4vw,64px);align-items:center;padding-top:110px;padding-bottom:48px;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;width:780px;height:780px;right:-200px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(124,77,255,.28),transparent 62%);pointer-events:none}
 .badge{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;border-radius:99px;background:var(--bg2);border:1px solid var(--line);font-size:14px;color:var(--soft);margin-bottom:28px}
 .badge i{width:9px;height:9px;border-radius:50%;background:#55e38a;box-shadow:0 0 0 0 rgba(85,227,138,.6);animation:ping 2s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 10px rgba(85,227,138,0)}100%{box-shadow:0 0 0 0 rgba(85,227,138,0)}}
-.hero .big{font-size:clamp(36px,4.8vw,76px);position:relative}
-.hero .big .w{display:block;color:var(--y);min-height:1.05em;white-space:nowrap}
-.hero .big .w::after{content:"";display:inline-block;width:.08em;height:.85em;background:var(--y);margin-left:.06em;vertical-align:-.08em;animation:blink 1s steps(1) infinite}
+.hero h1{font-size:clamp(36px,4.8vw,76px);position:relative}
+.hero h1 .w{display:block;color:var(--y);min-height:1.05em;white-space:nowrap}
+.hero h1 .w::after{content:"";display:inline-block;width:.08em;height:.85em;background:var(--y);margin-left:.06em;vertical-align:-.08em;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 .hero .lead{font-size:clamp(18px,1.6vw,21px);color:var(--soft);max-width:44ch;margin:26px 0 30px}
 .hero .lead b{color:#fff}
@@ -229,7 +211,7 @@ footer{background:var(--y);color:#3a2a10;font-size:14px}
 footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:18px;padding-bottom:26px;border-top:1px solid rgba(18,10,36,.15)}
 /* reveal */
 @supports (animation-timeline:view()){.rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 35%}@keyframes rv{from{opacity:.1;transform:translateY(40px)}to{opacity:1;transform:none}}}
-@media(max-width:980px){.intro{grid-template-columns:minmax(0,1fr);min-height:0;padding-top:110px}.pics{max-width:460px}.hero{grid-template-columns:minmax(0,1fr);min-height:0;align-items:start;padding-top:70px}.phone{max-height:none;width:min(100%,330px)}.card{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.about,.end .in{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:980px){.hero{grid-template-columns:minmax(0,1fr);min-height:0;align-items:start;padding-top:112px}.phone{max-height:none;width:min(100%,330px)}.card{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.about,.end .in{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:860px){.hwrap{height:auto!important}.hstick{position:static;height:auto;overflow:visible}.htrack{flex-direction:column;transform:none!important}.card{width:100%;min-height:0}.hint{display:none}}
 @media(max-width:1060px){.top nav{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;padding:10px 12px 14px;background:#140b2c;border:1px solid var(--line);border-radius:20px;box-shadow:0 20px 50px -10px rgba(0,0,0,.7)}.top nav.open{display:flex}.top nav a{padding:13px 10px;font-size:17px}.menu{display:grid;place-items:center}}
 @media(max-width:700px){.brand .nm{display:none}.hire{display:none}.steps,.skills{grid-template-columns:minmax(0,1fr)}.sh{grid-template-columns:minmax(0,1fr)}.sh p{grid-column:1}.who{gap:18px}}
@@ -239,12 +221,12 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
 <body>
 <a class="skip" href="#conteudo" data-i="skip">Pular para o conteúdo</a>
 <header class="top">
-<a class="brand" href="#quem" aria-label="Gustavo Malaquias, início"><span class="moon"><img src="media/lua.png" alt=""><span class="mk">G<i>M</i></span><svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="og" x1="0" x2="1"><stop offset="0" stop-color="#cdbbff" stop-opacity="0"/><stop offset=".6" stop-color="#e9ddff"/><stop offset="1" stop-color="#fff"/></linearGradient><clipPath id="front"><rect x="-10" y="53" width="120" height="50"/></clipPath></defs><g transform="rotate(-21 52 53)"><g clip-path="url(#front)"><ellipse class="orb" cx="52" cy="53" rx="43" ry="12"/></g></g><path class="tw" d="M69.5,18 Q70.6,24 76.5,25 Q70.6,26 69.5,32 Q68.4,26 62.5,25 Q68.4,24 69.5,18Z" fill="#fff" opacity=".8"/><path class="tw b" d="M78,37.5 Q78.6,40.5 81.5,41 Q78.6,41.5 78,44.5 Q77.4,41.5 74.5,41 Q77.4,40.5 78,37.5Z" fill="#fff"/></svg></span><span class="nm"><b>Gustavo Malaquias</b><small data-i="role">Engenheiro de Software · IA</small></span></a>
+<a class="brand" href="#topo" aria-label="Gustavo Malaquias, início"><span class="moon"><img src="media/lua.png" alt=""><span class="mk">G<i>M</i></span><svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="og" x1="0" x2="1"><stop offset="0" stop-color="#cdbbff" stop-opacity="0"/><stop offset=".6" stop-color="#e9ddff"/><stop offset="1" stop-color="#fff"/></linearGradient><clipPath id="front"><rect x="-10" y="53" width="120" height="50"/></clipPath></defs><g transform="rotate(-21 52 53)"><g clip-path="url(#front)"><ellipse class="orb" cx="52" cy="53" rx="43" ry="12"/></g></g><path class="tw" d="M69.5,18 Q70.6,24 76.5,25 Q70.6,26 69.5,32 Q68.4,26 62.5,25 Q68.4,24 69.5,18Z" fill="#fff" opacity=".8"/><path class="tw b" d="M78,37.5 Q78.6,40.5 81.5,41 Q78.6,41.5 78,44.5 Q77.4,41.5 74.5,41 Q77.4,40.5 78,37.5Z" fill="#fff"/></svg></span><span class="nm"><b>Gustavo Malaquias</b><small data-i="role">Engenheiro de Software · IA</small></span></a>
 <nav id="nav" aria-label="Navegação principal">
-<a href="#quem"><span>01</span><em data-i="n4">Quem sou eu</em></a>
-<a href="#projetos"><span>02</span><em data-i="n1">Projetos</em></a>
-<a href="#processo"><span>03</span><em data-i="n2">Processo</em></a>
-<a href="#aovivo"><span>04</span><em data-i="n3">Ao vivo</em></a>
+<a href="#projetos"><span>01</span><em data-i="n1">Projetos</em></a>
+<a href="#processo"><span>02</span><em data-i="n2">Processo</em></a>
+<a href="#aovivo"><span>03</span><em data-i="n3">Ao vivo</em></a>
+<a href="#sobre"><span>04</span><em data-i="n4">Sobre</em></a>
 </nav>
 <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-l="pt" aria-pressed="true">PT</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
 <a class="hire" href="#contato" data-i="hire">Vamos conversar</a>
@@ -253,31 +235,10 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
 </header>
 
 <main id="conteudo">
-<section class="intro pad max" id="quem">
-<div class="pics">
-<figure class="p1"><img src="media/gustavo-retrato.jpg" alt="Gustavo Malaquias sorrindo, em frente a um muro grafitado" width="900" height="1125"></figure>
-<figure class="p2"><img src="media/gustavo-casual.jpg" alt="Gustavo ajustando a camisa, em foto descontraída" loading="lazy" width="800" height="1000"></figure>
-<span class="sticker" data-i="stk">Brasília · DF</span>
-</div>
-<div class="itxt">
-<p class="kick" data-i="kq">Quem sou eu</p>
-<h1>Gustavo<br><span>Malaquias</span></h1>
-<p class="role2" data-i="role2">Engenheiro de software full-stack · Fundador da NoxIA</p>
-<p class="quote" data-i="q" data-html="1">Escolher o <em>problema certo</em> vale mais do que a ferramenta mais nova.</p>
-<p data-i="a1">Aprendi construindo meus próprios negócios digitais: funis de venda, atendimento automático e agentes que trabalham por mim. Cada sistema precisava dar resultado de verdade, porque o dinheiro era meu.</p>
-<p data-i="a2">Resolvi problemas de produção como race conditions em webhooks, filas travadas, atribuição de vendas simultâneas e WhatsApp em escala. Agora quero levar essa experiência para um time de engenharia.</p>
-<ul class="tl">
-<li><span class="meta" data-i="t1d">2026 — hoje</span><h4 data-i="t1h">Fundador · NoxIA</h4><p data-i="t1p">Atendentes de IA para clínicas e plataforma de agentes para infoprodutores.</p></li>
-<li><span class="meta" data-i="t2d">2026 — hoje</span><h4 data-i="t2h">Negócio próprio de produtos digitais</h4><p data-i="t2p">Funil de vendas no WhatsApp com IA, checkout próprio e tráfego pago.</p></li>
-<li><span class="meta">2021 — 2023</span><h4 data-i="t3h">Desenvolvedor full-stack freelance</h4><p data-i="t3p">Plataforma educacional de ponta a ponta.</p></li>
-<li><span class="meta">2020 — 2023</span><h4 data-i="t4h">Tecnólogo em ADS · UniCEUB</h4><p data-i="t4p">Análise e Desenvolvimento de Sistemas. Inglês avançado.</p></li>
-</ul>
-</div>
-</section>
 <section class="hero pad" id="topo">
 <div class="rv0">
-<h2 class="big"><span data-i="h1">Eu construo agentes de IA que</span> <span class="w" id="word" aria-live="polite"></span></h2>
-<p class="lead" data-i="lead" data-html="1">Sistemas que <b>atendem, vendem e medem</b> cada resultado, rodando em produção todos os dias, do clique no anúncio à venda confirmada.</p>
+<h1><span data-i="h1">Eu construo agentes de IA que</span> <span class="w" id="word" aria-live="polite"></span></h1>
+<p class="lead" data-i="lead" data-html="1">Sou <b>Gustavo Malaquias</b>, engenheiro de software full-stack e fundador da NoxIA. Faço sistemas que atendem, vendem e medem cada resultado, rodando em produção todos os dias.</p>
 <div class="cta"><a class="btn y" href="#projetos" data-i="cta1">Ver projetos →</a><a class="btn g" href="https://github.com/GhMalak">GitHub</a><a class="btn g" href="https://www.linkedin.com/in/ghmalak">LinkedIn</a></div>
 <div class="who">
 <div><b>20+</b><span data-i="w1">fluxos n8n em produção</span></div>
@@ -300,24 +261,35 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
 <div class="band" aria-hidden="true"><div class="t" id="band"></div></div>
 
 <section class="sec" id="projetos">
-<div class="pad max"><div class="sh rv"><span class="num">02</span><h2 data-i="p_t">Projetos</h2><p data-i="p_s">Role para ver os cinco casos. Cada um em três partes: o problema, o que eu fiz e o resultado.</p></div></div>
+<div class="pad max"><div class="sh rv"><span class="num">01</span><h2 data-i="p_t">Projetos</h2><p data-i="p_s">Role para ver os cinco casos. Cada um em três partes: o problema, o que eu fiz e o resultado.</p></div></div>
 <div class="hwrap" id="hwrap"><div class="hstick"><div class="htrack" id="htrack"></div><div class="hint meta"><span id="hc">1 / 5</span><i><b id="hb"></b></i></div></div></div>
 </section>
 
 <section class="sec pad max" id="processo">
-<div class="sh rv"><span class="num">03</span><h2 data-i="pr_t">Como eu trabalho</h2><p data-i="pr_s">Antes da ferramenta, o problema. Antes de escalar, a medição.</p></div>
+<div class="sh rv"><span class="num">02</span><h2 data-i="pr_t">Como eu trabalho</h2><p data-i="pr_s">Antes da ferramenta, o problema. Antes de escalar, a medição.</p></div>
 <div class="steps" id="steps"></div>
 </section>
 
 <section class="sec pad max" id="aovivo">
-<div class="sh rv"><span class="num">04</span><h2 data-i="l_t">Ao vivo</h2><p data-i="l_s">Prints e vídeos reais dos agentes e das clínicas em produção.</p></div>
+<div class="sh rv"><span class="num">03</span><h2 data-i="l_t">Ao vivo</h2><p data-i="l_s">Prints e vídeos reais dos agentes e das clínicas em produção.</p></div>
 <div class="fan" id="fan" tabindex="0"></div>
 <div class="fnav"><button type="button" id="fp" aria-label="Anterior">←</button><button type="button" id="fn" aria-label="Próximo">→</button></div>
 </section>
 
-<section class="sec pad max" id="stack">
-<div class="sh rv"><span class="num">05</span><h2>Stack</h2></div>
-<div class="skills" id="skills" style="margin-top:0"></div>
+<section class="sec pad max" id="sobre">
+<div class="sh rv"><span class="num">04</span><h2 data-i="a_t">Sobre</h2></div>
+<div class="about">
+<div class="rv"><p class="quote" data-i="q" data-html="1">Escolher o <em>problema certo</em> vale mais do que a ferramenta mais nova.</p>
+<p data-i="a1">Aprendi construindo meus próprios negócios digitais: funis de venda, atendimento automático e agentes que trabalham por mim. Cada sistema precisava dar resultado de verdade, porque o dinheiro era meu.</p>
+<p data-i="a2">Resolvi problemas de produção como race conditions em webhooks, filas travadas, atribuição de vendas simultâneas e WhatsApp em escala. Agora quero levar essa experiência para um time de engenharia.</p></div>
+<ul class="tl rv">
+<li><span class="meta" data-i="t1d">2026 — hoje</span><h4 data-i="t1h">Fundador · NoxIA</h4><p data-i="t1p">Atendentes de IA para clínicas e plataforma de agentes para infoprodutores.</p></li>
+<li><span class="meta" data-i="t2d">2026 — hoje</span><h4 data-i="t2h">Negócio próprio de produtos digitais</h4><p data-i="t2p">Funil de vendas no WhatsApp com IA, checkout próprio e tráfego pago.</p></li>
+<li><span class="meta">2021 — 2023</span><h4 data-i="t3h">Desenvolvedor full-stack freelance</h4><p data-i="t3p">Plataforma educacional de ponta a ponta.</p></li>
+<li><span class="meta">2020 — 2023</span><h4 data-i="t4h">Tecnólogo em ADS · UniCEUB</h4><p data-i="t4p">Análise e Desenvolvimento de Sistemas. Inglês avançado.</p></li>
+</ul>
+</div>
+<div class="skills" id="skills"></div>
 </section>
 </main>
 
@@ -338,10 +310,10 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
 {
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const I={
-pt:{kq:"Quem sou eu",role2:"Engenheiro de software full-stack · Fundador da NoxIA",stk:"Brasília · DF",role:"Engenheiro de Software · IA",hire:"Vamos conversar",skip:"Pular para o conteúdo",n1:"Projetos",n2:"Processo",n3:"Ao vivo",n4:"Quem sou eu",n5:"Contato",h1:"Eu construo agentes de IA que",lead:'Sistemas que <b>atendem, vendem e medem</b> cada resultado, rodando em produção todos os dias, do clique no anúncio à venda confirmada.',cta1:"Ver projetos →",w1:"fluxos n8n em produção",w2:"agentes de IA na NoxIA",w3:"atendimento automático",ph1:"Agente de vendas",ph2:"online · responde na hora",c1:"Ver projetos",c2:"Prints reais",c3:"Falar comigo",phcap:"Simulação de uma conversa do meu sistema",p_t:"Projetos",p_s:"Role para ver os cinco casos. Cada um em três partes: o problema, o que eu fiz e o resultado.",pr_t:"Como eu trabalho",pr_s:"Antes da ferramenta, o problema. Antes de escalar, a medição.",l_t:"Ao vivo",l_s:"Prints e vídeos reais dos agentes e das clínicas em produção.",a_t:"Sobre",q:'Escolher o <em>problema certo</em> vale mais do que a ferramenta mais nova.',a1:"Aprendi construindo meus próprios negócios digitais: funis de venda, atendimento automático e agentes que trabalham por mim. Cada sistema precisava dar resultado de verdade, porque o dinheiro era meu.",a2:"Resolvi problemas de produção como race conditions em webhooks, filas travadas, atribuição de vendas simultâneas e WhatsApp em escala. Agora quero levar essa experiência para um time de engenharia.",t1d:"2026 — hoje",t1h:"Fundador · NoxIA",t1p:"Atendentes de IA para clínicas e plataforma de agentes para infoprodutores.",t2d:"2026 — hoje",t2h:"Negócio próprio de produtos digitais",t2p:"Funil de vendas no WhatsApp com IA, checkout próprio e tráfego pago.",t3h:"Desenvolvedor full-stack freelance",t3p:"Plataforma educacional de ponta a ponta.",t4h:"Tecnólogo em ADS · UniCEUB",t4p:"Análise e Desenvolvimento de Sistemas. Inglês avançado.",e_p:"Procurando alguém que construa IA que funciona em produção? Vamos conversar.",f:'Fundador da <a href="https://noxia.com.br">NoxIA</a>',
+pt:{role:"Engenheiro de Software · IA",hire:"Vamos conversar",skip:"Pular para o conteúdo",n1:"Projetos",n2:"Processo",n3:"Ao vivo",n4:"Sobre",n5:"Contato",h1:"Eu construo agentes de IA que",lead:'Sou <b>Gustavo Malaquias</b>, engenheiro de software full-stack e fundador da NoxIA. Faço sistemas que atendem, vendem e medem cada resultado, rodando em produção todos os dias.',cta1:"Ver projetos →",w1:"fluxos n8n em produção",w2:"agentes de IA na NoxIA",w3:"atendimento automático",ph1:"Agente de vendas",ph2:"online · responde na hora",c1:"Ver projetos",c2:"Prints reais",c3:"Falar comigo",phcap:"Simulação de uma conversa do meu sistema",p_t:"Projetos",p_s:"Role para ver os cinco casos. Cada um em três partes: o problema, o que eu fiz e o resultado.",pr_t:"Como eu trabalho",pr_s:"Antes da ferramenta, o problema. Antes de escalar, a medição.",l_t:"Ao vivo",l_s:"Prints e vídeos reais dos agentes e das clínicas em produção.",a_t:"Sobre",q:'Escolher o <em>problema certo</em> vale mais do que a ferramenta mais nova.',a1:"Aprendi construindo meus próprios negócios digitais: funis de venda, atendimento automático e agentes que trabalham por mim. Cada sistema precisava dar resultado de verdade, porque o dinheiro era meu.",a2:"Resolvi problemas de produção como race conditions em webhooks, filas travadas, atribuição de vendas simultâneas e WhatsApp em escala. Agora quero levar essa experiência para um time de engenharia.",t1d:"2026 — hoje",t1h:"Fundador · NoxIA",t1p:"Atendentes de IA para clínicas e plataforma de agentes para infoprodutores.",t2d:"2026 — hoje",t2h:"Negócio próprio de produtos digitais",t2p:"Funil de vendas no WhatsApp com IA, checkout próprio e tráfego pago.",t3h:"Desenvolvedor full-stack freelance",t3p:"Plataforma educacional de ponta a ponta.",t4h:"Tecnólogo em ADS · UniCEUB",t4p:"Análise e Desenvolvimento de Sistemas. Inglês avançado.",e_p:"Procurando alguém que construa IA que funciona em produção? Vamos conversar.",f:'Fundador da <a href="https://noxia.com.br">NoxIA</a>',
 words:["atendem.","vendem.","medem tudo.","não dormem."],end:["Vamos conversar","Let's talk"],copy:"Copiado ✓",prob:"Problema",did:"O que fiz",res:"Resultado",code:"Código ↗",live:"Ver no ar ↗",
 chat:[["in","Oi! Vi o anúncio do ebook, ainda tem?"],["out","Oi, Ana! Tem sim 😊 São 45 receitas, com acesso na hora. Quer que eu te mande o Pix?"],["in","Quero!"],["out","Aqui está: chave Pix enviada. Assim que cair, eu te mando o PDF."],["sys","✓ Pix confirmado · PDF enviado"],["sys","✓ Venda registrada no Google Ads"]]},
-en:{kq:"Who I am",role2:"Full-stack software engineer · Founder of NoxIA",stk:"Brasília · Brazil",role:"Software Engineer · AI",hire:"Let's talk",skip:"Skip to content",n1:"Projects",n2:"Process",n3:"Live",n4:"Who I am",n5:"Contact",h1:"I build AI agents that",lead:'Systems that <b>answer, sell and measure</b> every result, running in production every day, from the ad click to the confirmed sale.',cta1:"See projects →",w1:"n8n workflows in production",w2:"AI agents at NoxIA",w3:"automated support",ph1:"Sales agent",ph2:"online · replies instantly",c1:"See projects",c2:"Real screenshots",c3:"Talk to me",phcap:"Simulated conversation from my system",p_t:"Projects",p_s:"Scroll to see five case studies. Each in three parts: the problem, what I did and the outcome.",pr_t:"How I work",pr_s:"Problem before tools. Measurement before scale.",l_t:"Live",l_s:"Real screenshots and videos of the agents and clinics in production.",a_t:"About",q:'Picking the <em>right problem</em> beats picking the newest tool.',a1:"I learned by building my own digital businesses: sales funnels, automated support and agents that work for me. Every system had to deliver real results, because it was my own money.",a2:"I've solved production problems like webhook race conditions, stuck queues, simultaneous sales attribution and WhatsApp at scale. Now I want to bring that experience to an engineering team.",t1d:"2026 — now",t1h:"Founder · NoxIA",t1p:"AI receptionists for clinics and an AI agent platform for digital product sellers.",t2d:"2026 — now",t2h:"Own digital products business",t2p:"AI-driven WhatsApp sales funnel, custom checkout and paid traffic.",t3h:"Freelance full-stack developer",t3p:"End-to-end education platform.",t4h:"Associate degree in Systems Development · UniCEUB",t4p:"Systems Analysis and Development. Advanced English.",e_p:"Looking for someone who builds AI that works in production? Let's talk.",f:'Founder of <a href="https://noxia.com.br">NoxIA</a>',
+en:{role:"Software Engineer · AI",hire:"Let's talk",skip:"Skip to content",n1:"Projects",n2:"Process",n3:"Live",n4:"About",n5:"Contact",h1:"I build AI agents that",lead:'I\'m <b>Gustavo Malaquias</b>, a full-stack software engineer and founder of NoxIA. I build systems that answer, sell and measure every result, running in production every day.',cta1:"See projects →",w1:"n8n workflows in production",w2:"AI agents at NoxIA",w3:"automated support",ph1:"Sales agent",ph2:"online · replies instantly",c1:"See projects",c2:"Real screenshots",c3:"Talk to me",phcap:"Simulated conversation from my system",p_t:"Projects",p_s:"Scroll to see five case studies. Each in three parts: the problem, what I did and the outcome.",pr_t:"How I work",pr_s:"Problem before tools. Measurement before scale.",l_t:"Live",l_s:"Real screenshots and videos of the agents and clinics in production.",a_t:"About",q:'Picking the <em>right problem</em> beats picking the newest tool.',a1:"I learned by building my own digital businesses: sales funnels, automated support and agents that work for me. Every system had to deliver real results, because it was my own money.",a2:"I've solved production problems like webhook race conditions, stuck queues, simultaneous sales attribution and WhatsApp at scale. Now I want to bring that experience to an engineering team.",t1d:"2026 — now",t1h:"Founder · NoxIA",t1p:"AI receptionists for clinics and an AI agent platform for digital product sellers.",t2d:"2026 — now",t2h:"Own digital products business",t2p:"AI-driven WhatsApp sales funnel, custom checkout and paid traffic.",t3h:"Freelance full-stack developer",t3p:"End-to-end education platform.",t4h:"Associate degree in Systems Development · UniCEUB",t4p:"Systems Analysis and Development. Advanced English.",e_p:"Looking for someone who builds AI that works in production? Let's talk.",f:'Founder of <a href="https://noxia.com.br">NoxIA</a>',
 words:["answer.","sell.","measure it all.","never sleep."],end:["Let's talk","Vamos conversar"],copy:"Copied ✓",prob:"Problem",did:"What I did",res:"Outcome",code:"Code ↗",live:"Live site ↗",
 chat:[["in","Hi! Saw the ebook ad, is it still available?"],["out","Hi Ana! Yes 😊 45 recipes with instant access. Want me to send the payment link?"],["in","Yes please!"],["out","Done: payment key sent. As soon as it clears, I'll send the PDF."],["sys","✓ Payment confirmed · PDF sent"],["sys","✓ Sale recorded in Google Ads"]]}
 };
